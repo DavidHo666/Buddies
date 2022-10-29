@@ -16,7 +16,7 @@ class EventsController < ApplicationController
                               :tags => Hash[@tags_to_show.map {|x| [x, 1]}])
     end
 
-    if params[:ratings]
+    if params[:tags]
       @tags_to_show = params[:tags].keys
     else
       @tags_to_show = Event.all_tags
@@ -93,7 +93,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:event_name, :start_time, :end_time,
+      params.require(:event).permit(:event_name,:address, :start_time, :end_time,
                                     :price, :available_spots, :occupied_spots)
     end
 end
