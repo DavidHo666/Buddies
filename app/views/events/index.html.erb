@@ -1,0 +1,57 @@
+<table class="table table-striped col-md-12" id="events">
+  <thead>
+  <tr>
+    <th class="<%= is_hilite("title") %>" >
+      <%= link_to 'Event Title',
+                  events_path(:sort => "event_name", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+                  id:'event_name_header' %></th>
+
+    <th>Location</th>
+    <th class="<%= is_hilite("price") %>" >
+      <%= link_to 'Price',
+                  events_path(:sort => "price", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'tags_header' %></th>
+    <th class="<%= is_hilite("available_spots") %>" >
+      <%= link_to 'Available Spots',
+                  events_path(:sort => "available_spots", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'available_spots_header' %></th>
+    <th class="<%= is_hilite("start_time") %>" >
+      <%= link_to 'Start Time',
+                  events_path(:sort => "start_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'start_time_header' %></th>
+    <th class="<%= is_hilite("end_time") %>" >
+      <%= link_to 'End Time',
+                  events_path(:sort => "start_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'start_time_header' %></th>
+    <th>More Info</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @events.each do |event| %>
+    <tr>
+      <td>
+        <%= event.event_name %>
+      </td>
+      <td>
+        <%= event.address %>
+      </td>
+      <td>
+        <%= event.price %>
+      </td>
+      <td>
+        <%= event.available_spots %>
+      </td>
+      <td>
+        <%= event.start_time %>
+      </td>
+      <td>
+        <%= event.end_time %>
+      </td>
+      <td>
+        <%= link_to "More", event_path(event) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add new movie', new_event_path, :class => 'btn btn-primary' %>

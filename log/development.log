@@ -144,3 +144,403 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 10ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 4184)
 
 
+Started GET "/" for 127.0.0.1 at 2022-10-28 00:51:05 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (19.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/davidho/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/davidho/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.0ms | Allocations: 633)
+Completed 200 OK in 17ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 5106)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-28 00:55:22 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1629)
+  Rendered layout layouts/application.html.erb (Duration: 1132.8ms | Allocations: 93994)
+Completed 200 OK in 1145ms (Views: 1139.1ms | ActiveRecord: 0.1ms | Allocations: 98194)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2022-10-28 00:55:26 -0400
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 13.6ms | Allocations: 3233)
+  Rendered events/new.html.erb within layouts/application (Duration: 14.5ms | Allocations: 3575)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 5869)
+Completed 200 OK in 69ms (Views: 21.1ms | ActiveRecord: 1.0ms | Allocations: 15758)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-29 12:50:59 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 4149)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4259)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.3ms | Allocations: 9681)
+
+
+  
+ActionView::Template::Error (undefined method `include?' for nil:NilClass
+
+      '.freeze;@output_buffer.append=( check_box_tag "ratings[#{tag}]", "1",  @ratings_to_show.include?(tag), class: 'form-check-input' );@output_buffer.safe_append='
+                                                                                              ^^^^^^^^^):
+    24:   <% @all_tags.each do |tag| %>
+    25:     <div class="form-check  form-check-inline">
+    26:       <%= label_tag "ratings[#{tag}]", tag, class: 'form-check-label' %>
+    27:       <%= check_box_tag "ratings[#{tag}]", "1",  @ratings_to_show.include?(tag), class: 'form-check-input' %>
+    28:     </div>
+    29:   <% end %>
+    30:   <%= submit_tag 'Refresh', id: 'ratings_submit', class: 'btn btn-primary' %>
+  
+app/views/events/index.html.erb:27
+app/views/events/index.html.erb:24:in `each'
+app/views/events/index.html.erb:24
+app/views/events/index.html.erb:22
+Started GET "/" for 127.0.0.1 at 2022-10-29 12:53:41 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 4540)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4650)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.6ms | Allocations: 10024)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass
+
+                  movies_path(:sort => "title", :ratings => Hash[@ratings_to_show.map { |x| [x, 1]}]),
+                                                                                 ^^^^):
+    34:   <tr>
+    35:     <th class="<%#= is_hilite("title") %>" >
+    36:       <%= link_to 'Movie Title',
+    37:                   movies_path(:sort => "title", :ratings => Hash[@ratings_to_show.map { |x| [x, 1]}]),
+    38:                   id:'title_header' %></th>
+    39: 
+    40:     <th>Rating</th>
+  
+app/views/events/index.html.erb:37
+Started GET "/" for 127.0.0.1 at 2022-10-29 12:54:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1658)
+  Rendered layout layouts/application.html.erb (Duration: 59.3ms | Allocations: 36587)
+Completed 200 OK in 73ms (Views: 61.8ms | ActiveRecord: 0.5ms | Allocations: 42013)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-29 13:01:25 -0400
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 3ms (Allocations: 884)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-10-29 13:01:25 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/_event.html.erb (Duration: 0.6ms | Allocations: 192)
+  Rendered events/index.html.erb within layouts/application (Duration: 37.8ms | Allocations: 16668)
+  Rendered layout layouts/application.html.erb (Duration: 41.1ms | Allocations: 18961)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.8ms | Allocations: 19588)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2022-10-29 13:01:30 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:91:in `set_event'
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered events/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 984)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3262)
+Completed 200 OK in 26ms (Views: 9.3ms | ActiveRecord: 0.5ms | Allocations: 6718)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-29 13:06:11 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ (eval):1:in `index'
+Completed 302 Found in 171704ms (ActiveRecord: 1.7ms | Allocations: 41159)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-10-29 13:09:03 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/_event.html.erb (Duration: 0.8ms | Allocations: 201)
+  Rendered events/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2199)
+  Rendered layout layouts/application.html.erb (Duration: 59.4ms | Allocations: 37144)
+Completed 200 OK in 7090ms (Views: 64.4ms | ActiveRecord: 0.3ms | Allocations: 45774)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-29 13:22:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 10ms (ActiveRecord: 0.3ms | Allocations: 3955)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-10-29 13:22:04 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/_event.html.erb (Duration: 0.5ms | Allocations: 199)
+  Rendered events/index.html.erb within layouts/application (Duration: 21.3ms | Allocations: 10861)
+  Rendered layout layouts/application.html.erb (Duration: 64.1ms | Allocations: 45716)
+Completed 200 OK in 70ms (Views: 66.3ms | ActiveRecord: 0.5ms | Allocations: 48259)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-29 13:23:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms | Allocations: 3961)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-10-29 13:23:51 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/index.html.erb within layouts/application (Duration: 23.2ms | Allocations: 12339)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 12448)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.4ms | Allocations: 14956)
+
+
+  
+ActionView::Template::Error (Missing partial events/_jogging, application/_jogging with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/davidho/buddies/app/views"
+  * "/Users/davidho/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actiontext-7.0.4/app/views"
+  * "/Users/davidho/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.4/app/views"
+
+Did you mean?  events/form
+               events/event
+               action_text/contents/content
+               layouts/action_text/contents/content
+               action_text/attachables/remote_image
+               active_storage/blobs/blob):
+    4: 
+    5: <div id="events">
+    6:   <% @events.each do |event| %>
+    7:     <%= render event.event_name %>
+    8:     <p>
+    9:       <%= link_to "Show this event", event %>
+   10:     </p>
+  
+app/views/events/index.html.erb:7
+app/views/events/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2022-10-29 13:25:12 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms | Allocations: 3958)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-10-29 13:25:12 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/_event.html.erb (Duration: 0.7ms | Allocations: 199)
+  Rendered events/index.html.erb within layouts/application (Duration: 34.8ms | Allocations: 10887)
+  Rendered layout layouts/application.html.erb (Duration: 110.7ms | Allocations: 45101)
+Completed 200 OK in 124ms (Views: 116.2ms | ActiveRecord: 0.9ms | Allocations: 47614)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-29 13:29:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms | Allocations: 3958)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-10-29 13:29:17 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/_event.html.erb (Duration: 0.4ms | Allocations: 199)
+  Rendered events/index.html.erb within layouts/application (Duration: 19.4ms | Allocations: 10913)
+  Rendered layout layouts/application.html.erb (Duration: 60.8ms | Allocations: 45741)
+Completed 200 OK in 66ms (Views: 62.8ms | ActiveRecord: 0.4ms | Allocations: 48260)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-29 14:00:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms | Allocations: 3965)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-10-29 14:00:55 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 4468)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 4577)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 7064)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass
+
+'.freeze;   @movies.each do |movie| 
+                   ^^^^^):
+    27:   </tr>
+    28:   </thead>
+    29:   <tbody>
+    30:   <% @movies.each do |movie| %>
+    31:     <tr>
+    32:       <td>
+    33:         <%= event.event_name %>
+  
+app/views/events/index.html.erb:30
+Started GET "/" for 127.0.0.1 at 2022-10-29 14:01:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms | Allocations: 3941)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-10-29 14:01:18 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:30
+  Rendered events/index.html.erb within layouts/application (Duration: 38.8ms | Allocations: 17058)
+  Rendered layout layouts/application.html.erb (Duration: 39.1ms | Allocations: 17167)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.5ms | Allocations: 19672)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `movie' for #<ActionView::Base:0x0000000000ac30>
+
+        '.freeze;@output_buffer.append=( link_to "More", event_path(movie) );@output_buffer.safe_append='
+                                                                    ^^^^^):
+    48:         <%= event.end_time %>
+    49:       </td>
+    50:       <td>
+    51:         <%= link_to "More", event_path(movie) %>
+    52:       </td>
+    53:     </tr>
+    54:   <% end %>
+  
+app/views/events/index.html.erb:51
+app/views/events/index.html.erb:30
+Started GET "/" for 127.0.0.1 at 2022-10-29 14:01:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms | Allocations: 3955)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-10-29 14:01:33 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:30
+  Rendered events/index.html.erb within layouts/application (Duration: 23.6ms | Allocations: 11587)
+  Rendered layout layouts/application.html.erb (Duration: 82.5ms | Allocations: 51863)
+Completed 200 OK in 92ms (Views: 86.7ms | ActiveRecord: 0.5ms | Allocations: 54432)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-29 14:02:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms | Allocations: 3934)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-10-29 14:02:37 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:30
+  Rendered events/index.html.erb within layouts/application (Duration: 20.8ms | Allocations: 11587)
+  Rendered layout layouts/application.html.erb (Duration: 56.6ms | Allocations: 37643)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 0.4ms | Allocations: 40143)
+
+
+  
+ActionView::Template::Error (Missing partial layouts/_flash with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/Users/davidho/buddies/app/views"
+  * "/Users/davidho/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actiontext-7.0.4/app/views"
+  * "/Users/davidho/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.4/app/views"
+
+Did you mean?  layouts/action_text/contents/content
+               events/form
+               active_storage/blobs/blob
+               events/event
+               action_text/attachment_galleries/attachment_gallery
+               action_text/attachables/missing_attachable):
+    15: </nav>
+    16: <div class="container">
+    17:   <%# Render "flash" messages in our application. This loads _flash.erb %>
+    18:   <%= render 'layouts/flash' %>
+    19:   <main id="main">
+    20:     <%= yield %>
+    21:   </main>
+  
+app/views/layouts/application.html.erb:18
+Started GET "/" for 127.0.0.1 at 2022-10-29 14:03:05 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms | Allocations: 3937)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-10-29 14:03:06 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:30
+  Rendered events/index.html.erb within layouts/application (Duration: 27.7ms | Allocations: 11587)
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 210)
+  Rendered layout layouts/application.html.erb (Duration: 63.0ms | Allocations: 35845)
+Completed 200 OK in 68ms (Views: 61.7ms | ActiveRecord: 3.5ms | Allocations: 38397)
+
+
