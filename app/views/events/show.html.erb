@@ -2,16 +2,31 @@
 
 <ul id="details">
   <li>
-    tags:
+    Tags:
     <%= @event.tag %>
   </li>
   <li>
+    Address:
+    <%= @event.address %>
+  </li>
+  <li>
+    Price:
+    <%= @event.price %>
+  </li>
+  <li>
+    Available Spots:
+    <%= @event.available_spots %>
+  </li>
+  <li>
+    Occupied Spots:
+    <%= @event.occupied_spots %>
+  <li>
     Start on:
-    <%= @event.start_time.strftime("%B %d, %Y") %>
+    <%= @event.start_time%>
   </li>
   <li>
     End on:
-    <%= @event.end_time.strftime("%B %d, %Y") %>
+    <%= @event.end_time %>
   </li>
 </ul>
 
@@ -22,6 +37,6 @@
 
 <div class="row">
   <%= link_to 'Edit', edit_event_path(@event), :class => 'btn btn-primary col-2' %>
-  <%= link_to 'Delete', event_path(@event), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
-  <%= link_to 'Back to movie list', events_path, :class => 'btn btn-primary col-2' %>
+  <%= link_to 'Delete', event_path(@event), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2'%>
+  <%= link_to 'Back to event list', events_path, :class => 'btn btn-primary col-2' %>
 </div>

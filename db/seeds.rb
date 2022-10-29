@@ -7,10 +7,12 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-events = [{:event_name => 'swimming', :tag => 'Athletics', :start_time => '25-Nov-2022',
-           :end_time => '25-Nov-2022', :available_spots => 10, :occupied_spots => 5},
-          {:event_name => 'biking', :tag => 'Athletics', :start_time => '25-Nov-2022',
-           :end_time => '25-Nov-2022', :available_spots => 10, :occupied_spots => 5}
+events = [{:event_name => 'swimming', :tag => 'Athletics', :address => 'Central Park',
+           :price => 20, :start_time => '25-Nov-2022', :end_time => '25-Nov-2022',
+           :available_spots => 10, :occupied_spots => 5},
+          {:event_name => 'Concert', :tag => 'Music', :address => 'Central Park',
+           :price => 20, :start_time => '25-Nov-2022', :end_time => '25-Nov-2022',
+           :available_spots => 10, :occupied_spots => 5}
 ]
 
 events.each do |event|

@@ -1,10 +1,24 @@
-<h1>Editing event</h1>
-
-<%= render "form", event: @event %>
-
-<br>
-
-<div>
-  <%= link_to "Show this event", @event %> |
-  <%= link_to "Back to events", events_path %>
-</div>
+<h2>Edit Existing Event</h2>
+<%= form_tag event_path(@event), :method => :put do %>
+  <%= label :event, :event_name, 'Even Name', :class => 'col-form-label' %>
+  <%= text_field :event, :event_name, :class => 'form-control' %>
+  <%= label :event, :description, 'Description', :class => 'col-form-label' %>
+  <%= text_field :event, :description, :class => 'form-control' %>
+  <%= label :event, :address, 'Address', :class => 'col-form-label' %>
+  <%= text_field :event, :address, :class => 'form-control' %>
+  <%= label :event, :available_spots, 'Available Spots', :class => 'col-form-label' %>
+  <%= text_field :event, :available_spots, :class => 'form-control', data:{numeric: true} %>
+  <%= label :event, :occupied_spots, 'Occupied Spots', :class => 'col-form-label' %>
+  <%= text_field :event, :occupied_spots, :class => 'form-control', data:{numeric: true} %>
+  <%= label :event, :price, 'Price', :class => 'col-form-label' %>
+  <%= text_field :event, :price, :class => 'form-control', data:{numeric: true} %>
+  <%= label :event, :tag, 'tag', :class => 'col-form-label'  %>
+  <%= select :event, :tag, %w[Food&Drink Arts&Culture Travel Movies Music Metraverse Academia Athletics Others], { :class => 'form-control col-1'} %>
+  <%= label :event, :start_time, 'Start On', :class => 'col-form-label'  %>
+  <%= datetime_select :event, :start_time, :class => 'form-control col-2 d-inline' %>
+  <%= label :event, :end_time, 'End On', :class => 'col-form-label'  %>
+  <%= datetime_select :event, :end_time, :class => 'form-control col-2 d-inline' %>
+  <br/>
+  <%= submit_tag 'Update Event Info', :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', events_path, :class => 'btn btn-secondary' %>
+<% end %>

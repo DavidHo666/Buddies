@@ -44,7 +44,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Movie.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   # POST /events or /events.json
@@ -56,25 +56,19 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to event_url(@event), notice: "Event was successfully updated." }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    flash[:notice] = "Event #{@event.event_name} was successfully updated."
+    redirect_to event_path()
+
   end
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
-
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    flash[:notice] = 'Event #{@event.event_name} successfully deleted!'
+    redirect_to events_path
   end
 
   private
@@ -85,7 +79,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:event_name,:tag,:address, :start_time, :end_time,
-                                    :price, :available_spots, :occupied_spots)
+      params.require(:event).permit(:event_name,:tag,:address,:description, :start_time, :end_time,
+                                    :price, :available_spots, :occupied_spots, :price)
     end
 end

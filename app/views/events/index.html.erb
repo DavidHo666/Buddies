@@ -1,15 +1,15 @@
 
 <%= link_to 'Add new event', new_event_path, :class => 'btn btn-primary' %>
 
-<%= form_tag events_path, method: :get, id: 'ratings_form' do %>
+<%= form_tag events_path, method: :get, id: 'tags_form' do %>
   Include:
   <% @all_tags.each do |tags| %>
     <div class="form-check  form-check-inline">
-      <%= label_tag "ratings[#{tags}]", tags, class: 'form-check-label' %>
-      <%= check_box_tag "ratings[#{tags}]", "1",  @tags_to_show.include?(tags), class: 'form-check-input' %>
+      <%= label_tag "tags[#{tags}]", tags, class: 'form-check-label' %>
+      <%= check_box_tag "tags[#{tags}]", "1",  @tags_to_show.include?(tags), class: 'form-check-input' %>
     </div>
   <% end %>
-  <%= submit_tag 'Refresh', id: 'ratings_submit', class: 'btn btn-primary' %>
+  <%= submit_tag 'Refresh', id: 'tags_submit', class: 'btn btn-primary' %>
 <% end %>
 <table class="table table-striped col-md-12" id="events">
   <thead>
@@ -22,7 +22,7 @@
       <%= link_to 'tags',
                   events_path(:sort => "tags", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
                   id:'event_name_header' %></th>
-    <th>Location</th>
+    <th>Address</th>
     <th class="<%= is_hilite("price") %>" >
       <%= link_to 'Price',
                   events_path(:sort => "price", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
@@ -68,10 +68,10 @@
         <%= event.occupied_spots %>
       </td>
       <td>
-        <%= event.start_time %>
+        <%= event.start_time%>
       </td>
       <td>
-        <%= event.end_time %>
+        <%= event.end_time%>
       </td>
       <td>
         <%= link_to "More", event_path(event) %>
