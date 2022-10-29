@@ -1,3 +1,4 @@
+<%= link_to 'Add new event', new_event_path, :class => 'btn btn-primary' %>
 <table class="table table-striped col-md-12" id="events">
   <thead>
   <tr>
@@ -15,13 +16,17 @@
       <%= link_to 'Available Spots',
                   events_path(:sort => "available_spots", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
                   id:'available_spots_header' %></th>
+    <th class="<%= is_hilite("occupied_spots") %>" >
+      <%= link_to 'occupied Spots',
+                  events_path(:sort => "occupied_spots", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'occupied_spots_header' %></th>
     <th class="<%= is_hilite("start_time") %>" >
       <%= link_to 'Start Time',
                   events_path(:sort => "start_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
                   id:'start_time_header' %></th>
     <th class="<%= is_hilite("end_time") %>" >
       <%= link_to 'End Time',
-                  events_path(:sort => "start_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  events_path(:sort => "end_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
                   id:'start_time_header' %></th>
     <th>More Info</th>
   </tr>
@@ -42,6 +47,9 @@
         <%= event.available_spots %>
       </td>
       <td>
+        <%= event.occupied_spots %>
+      </td>
+      <td>
         <%= event.start_time %>
       </td>
       <td>
@@ -54,4 +62,4 @@
   <% end %>
   </tbody>
 </table>
-<%= link_to 'Add new movie', new_event_path, :class => 'btn btn-primary' %>
+
