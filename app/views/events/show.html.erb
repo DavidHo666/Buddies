@@ -1,11 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<h2>Details about <em><%= @event.event_name %></em></h2>
 
-<%= render @event %>
+<ul id="details">
+  <li>
+    tags:
+    <%= @event.tag %>
+  </li>
+  <li>
+    Start on:
+    <%= @event.start_time.strftime("%B %d, %Y") %>
+  </li>
+  <li>
+    End on:
+    <%= @event.end_time.strftime("%B %d, %Y") %>
+  </li>
+</ul>
 
+<h3>Description:</h3>
+<p id="description">
+  <%= @event.description %>
+</p>
 
-<div>
-  <%= link_to "Edit this event", edit_event_path(@event) %> |
-  <%= link_to "Back to events", events_path %>
-
-  <%= button_to "Destroy this event", @event, method: :delete %>
+<div class="row">
+  <%= link_to 'Edit', edit_event_path(@event), :class => 'btn btn-primary col-2' %>
+  <%= link_to 'Delete', event_path(@event), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
+  <%= link_to 'Back to movie list', events_path, :class => 'btn btn-primary col-2' %>
 </div>

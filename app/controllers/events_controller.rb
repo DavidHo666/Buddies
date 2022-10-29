@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  # before_action :set_event, only: %i[ show edit update destroy ]
 
   # GET /events or /events.json
   def index
@@ -34,7 +34,7 @@ class EventsController < ApplicationController
   # GET /events/1 or /events/1.json
   def show
     id = params[:id]
-    @movie = Event.find(id)
+    @event = Event.find(id)
   end
 
   # GET /events/new
@@ -49,17 +49,9 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
-
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
+    @event = Event.create!(event_params)
+    flash[:notice] = "#{@event.event_name} was successfully created."
+    redirect_to events_path
   end
 
   # PATCH/PUT /events/1 or /events/1.json
@@ -93,7 +85,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:event_name,:address, :start_time, :end_time,
+      params.require(:event).permit(:event_name,:tag,:address, :start_time, :end_time,
                                     :price, :available_spots, :occupied_spots)
     end
 end
