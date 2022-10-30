@@ -1,11 +1,5 @@
 
 <%= link_to 'Add new event', new_event_path, :class => 'btn btn-primary' %>
-<%= link_to 'Users', users_path, :class => 'btn btn-primary'%>
-<%= link_to "Sign In", new_user_session_path, :class => 'btn btn-primary'%>
-<% if user_signed_in? %>
-  <%= button_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-primary'%>
-    <% flash[:notice] = current_user.email + " is signed in" %>
-<% end %>
 <%# <%= link_to 'Sign In' :class => 'btn btn-primary' %>
 <%= form_tag events_path, method: :get, id: 'tags_form' do %>
   Include:
