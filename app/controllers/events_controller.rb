@@ -50,6 +50,7 @@ class EventsController < ApplicationController
   # POST /events or /events.json
   def create
     @event = Event.create!(event_params)
+
     flash[:notice] = "#{@event.event_name} was successfully created."
     redirect_to events_path
   end

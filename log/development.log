@@ -5028,3 +5028,16 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.4ms | Allocations: 7212)
 
 
+Started GET "/events/24" for 127.0.0.1 at 2022-10-29 20:47:22 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 592)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 3216)
+Completed 200 OK in 19ms (Views: 14.0ms | ActiveRecord: 0.3ms | Allocations: 3944)
+
+
