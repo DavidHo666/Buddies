@@ -49,26 +49,38 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.create!(event_params)
-
-    flash[:notice] = "#{@event.event_name} was successfully created."
-    redirect_to events_path
+    @event = Event.new(event_params)
+    if !user_signed_in?
+      redirect_to new_user_session_path
+    else
+      @event.user = current_user
+      @event.save!
+      flash[:notice] = "#{@event.event_name} was successfully created."
+      redirect_to events_path
+      end
   end
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
     @event = Event.find(params[:id])
-    @event.update(event_params)
-    flash[:notice] = "Event #{@event.event_name} was successfully updated."
+    if @event.user == current_user
+      @event.update(event_params)
+      flash[:notice] = "Event #{@event.event_name} was successfully updated."
+    else
+      flash[:warning] = "Event #{@event.event_name} couldn't be edited by you."
+    end
     redirect_to event_path()
-
   end
 
   # DELETE /events/1 or /events/1.json
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
-    flash[:notice] = "Event #{@event.event_name} was successfully deleted."
+    if @event.user == current_user
+      @event.destroy
+      flash[:notice] = "Event #{@event.event_name} was successfully deleted."
+    else
+      flash[:warning] = "Event #{@event.event_name} couldn't be deleted by you."
+    end
     redirect_to events_path
   end
 

@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  belongs_to :user
   def self.all_tags
     %w[Food&Drink Arts&Culture Travel Movies Music Metraverse Academia Athletics Others]
   end
