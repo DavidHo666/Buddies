@@ -18,9 +18,9 @@
       <%= link_to 'Events',
                   events_path(:sort => "event_name", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
                   id:'event_name_header' %></th>
-    <th class="<%= is_hilite("tags") %>" >
+    <th class="<%= is_hilite("tag") %>" >
       <%= link_to 'tags',
-                  events_path(:sort => "tags", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+                  events_path(:sort => "tag", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
                   id:'event_name_header' %></th>
     <th>Address</th>
     <th class="<%= is_hilite("price") %>" >
