@@ -73,3 +73,10 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+source "https://rubygems.org"
+gem "rspec"
+
+group :development, :test do
+  gem 'rspec-rails'
+end
