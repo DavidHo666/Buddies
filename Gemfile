@@ -72,10 +72,12 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'simplecov', :require => false
 end
 
 source "https://rubygems.org"
 gem "rspec"
+gem 'rails-controller-testing'
 
 group :development, :test do
   gem 'rspec-rails'
