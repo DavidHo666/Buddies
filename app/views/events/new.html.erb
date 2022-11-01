@@ -1,7 +1,7 @@
 <h2>Create New Event</h2>
 
 <%= form_tag events_path, :class => 'form' do %>
-  <%= label :event, :event_name, 'Even Name', :class => 'col-form-label' %>
+  <%= label :event, :event_name, 'Event Name', :class => 'col-form-label' %>
   <%= text_field :event, :event_name, :class => 'form-control' %>
   <%= label :event, :description, 'Description', :class => 'col-form-label' %>
   <%= text_field :event, :description, :class => 'form-control' %>

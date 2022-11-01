@@ -74,7 +74,7 @@
         <%= event.end_time%>
       </td>
       <td>
-        <%= link_to "More", event_path(event) %>
+        <%= link_to "More about #{event.event_name}", event_path(event) %>
       </td>
     </tr>
   <% end %>
