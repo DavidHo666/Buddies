@@ -28887,3 +28887,320 @@ Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 897)
   [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
 >>>>>>> master1
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/events" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  Rendered events/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 4214)
+  Rendered layouts/_flash.erb (Duration: 0.4ms | Allocations: 210)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 29517)
+Completed 200 OK in 25ms (Views: 20.8ms | ActiveRecord: 0.1ms | Allocations: 33381)
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+Started GET "/events?tags[Food%26Drink]=1&tags[Travel]=1&tags[Movies]=1&tags[Music]=1&tags[Metraverse]=1&tags[Academia]=1&tags[Athletics]=1&tags[Others]=1&commit=Refresh" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"tags"=>{"Food&Drink"=>"1", "Travel"=>"1", "Movies"=>"1", "Music"=>"1", "Metraverse"=>"1", "Academia"=>"1", "Athletics"=>"1", "Others"=>"1"}, "commit"=>"Refresh"}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  Rendered events/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 2490)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 4402)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms | Allocations: 5041)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bot1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "hhsdds"], ["email", "bot1@gmail.com"], ["password", nil], ["bio", "I am a student at CU CS major"], ["joined_date", nil], ["created_at", "2022-11-01 21:31:07.620100"], ["updated_at", "2022-11-01 21:31:07.620100"], ["encrypted_password", "$2a$04$c6rA2vNn1gzG.cEIGrlzgeRtSgI0V7xOTOIqMODwX4kW8Uisnf8Ta"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bot2@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "bot2"], ["email", "bot2@gmail.com"], ["password", nil], ["bio", "looking for new friends"], ["joined_date", nil], ["created_at", "2022-11-01 21:31:07.622685"], ["updated_at", "2022-11-01 21:31:07.622685"], ["encrypted_password", "$2a$04$ggzr8DZ5T7WkrHOFaUe2A.ypJaKVi9vqfETjRvIkPqnmOm7.iY1CG"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/events" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  Rendered events/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 2655)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 4644)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 5150)
+Started GET "/events/new" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 10860)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 13109)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 13436)
+Started POST "/events" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#create as HTML
+  Parameters: {"event"=>{"event_name"=>"", "description"=>"", "address"=>"", "available_spots"=>"", "occupied_spots"=>"", "price"=>"", "tag"=>"Food&Drink", "start_time(1i)"=>"2022", "start_time(2i)"=>"11", "start_time(3i)"=>"1", "start_time(4i)"=>"21", "start_time(5i)"=>"31", "end_time(1i)"=>"2022", "end_time(2i)"=>"11", "end_time(3i)"=>"1", "end_time(4i)"=>"21", "end_time(5i)"=>"31"}, "commit"=>"Save Changes"}
+Redirected to http://www.example.com/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 509)
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 6.6ms | Allocations: 718)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.8ms | Allocations: 3514)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 5549)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 7171)
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 214)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 149)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 2022)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 4068)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 5312)
+Started POST "/users" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test_user1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test_user1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test_user1@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-01 21:31:07.680323"], ["updated_at", "2022-11-01 21:31:07.680323"], ["encrypted_password", "$2a$04$Q5TJSHLMSBX1fEKd3M18IeNI.n7KrD14B1rxRby8je2dqxWvVpyfu"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 2378)
+Started GET "/" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+Redirected to http://www.example.com/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 691)
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  Rendered events/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 2707)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 32)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 5249)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 5834)
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 1610)
+Started GET "/" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  Rendered events/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 2711)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 26)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 4692)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.1ms | Allocations: 5292)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bot1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "hhsdds"], ["email", "bot1@gmail.com"], ["password", nil], ["bio", "I am a student at CU CS major"], ["joined_date", nil], ["created_at", "2022-11-01 21:31:07.703616"], ["updated_at", "2022-11-01 21:31:07.703616"], ["encrypted_password", "$2a$04$RTVxiYWqjopRm1l7QkKzSe2eUB9FneUjdh0WdnnJF7M9pxi.35Ghe"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bot2@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "bot2"], ["email", "bot2@gmail.com"], ["password", nil], ["bio", "looking for new friends"], ["joined_date", nil], ["created_at", "2022-11-01 21:31:07.705538"], ["updated_at", "2022-11-01 21:31:07.705538"], ["encrypted_password", "$2a$04$Qw.ukraA4Q4EBzSuRlYgh.xsGOutFLNCEONfoN0SwBICnVEAEbRoe"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/events" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  Rendered events/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 2655)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4667)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.1ms | Allocations: 5173)
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 128)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1155)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 3041)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 3662)
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"bot1@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "bot1@gmail.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 1552)
+Started GET "/" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+Redirected to http://www.example.com/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 628)
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  Rendered events/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 2629)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 4858)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 5390)
+Started GET "/users/1" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 297)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1416)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 3843)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.1ms | Allocations: 5115)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bot1@gmail.com"], ["LIMIT", 1]]
+Started GET "/users/1/edit" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.6ms | Allocations: 2601)
+  Rendered users/edit.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2937)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 5569)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.1ms | Allocations: 6010)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bot1@gmail.com"], ["LIMIT", 1]]
+Started PATCH "/users/1" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"username"=>"bot1", "email"=>"bot1@gmail.com", "password"=>"[FILTERED]", "bio"=>"I am a student at CU CS major", "joined_date"=>""}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "users"."id" = ?[0m  [["username", "bot1"], ["updated_at", "2022-11-01 21:31:07.758419"], ["encrypted_password", "$2a$04$hVYMc.278qJy7CRc796YOuuyJcgBxy.MytnEZ5fKCILbY8CgFWLuS"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1364)
+Started GET "/users/1" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 482)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2611)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.1ms | Allocations: 2966)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bot1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bot1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "hhsdds"], ["email", "bot1@gmail.com"], ["password", nil], ["bio", "I am a student at CU CS major"], ["joined_date", nil], ["created_at", "2022-11-01 21:31:07.766956"], ["updated_at", "2022-11-01 21:31:07.766956"], ["encrypted_password", "$2a$04$Yc/UlqOR6vHUjn109jDHf.nYEFeTwbN0sGL9wOyWXxB3Ndupnf9Jy"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bot2@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "bot2"], ["email", "bot2@gmail.com"], ["password", nil], ["bio", "looking for new friends"], ["joined_date", nil], ["created_at", "2022-11-01 21:31:07.768873"], ["updated_at", "2022-11-01 21:31:07.768873"], ["encrypted_password", "$2a$04$lKKMIvYQKUTFlcAw6c87sebeUaCzNNsPNOeRanmR0Z/L5j.Vm1.h2"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/events" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  Rendered events/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 2655)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 4644)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 5151)
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 128)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1156)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 3042)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 3689)
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"bot2@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "bot2@gmail.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 939)
+Started GET "/" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+Redirected to http://www.example.com/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms | Allocations: 558)
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  Rendered events/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 2590)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 4765)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 5292)
+Started GET "/events/new" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 8506)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 10890)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 11113)
+Started POST "/events" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#create as HTML
+  Parameters: {"event"=>{"event_name"=>"Debate session", "description"=>"", "address"=>"MUDD 627", "available_spots"=>"10", "occupied_spots"=>"2", "price"=>"0", "tag"=>"Academia", "start_time(1i)"=>"2022", "start_time(2i)"=>"11", "start_time(3i)"=>"1", "start_time(4i)"=>"21", "start_time(5i)"=>"31", "end_time(1i)"=>"2022", "end_time(2i)"=>"11", "end_time(3i)"=>"1", "end_time(4i)"=>"21", "end_time(5i)"=>"31"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "Debate session"], ["address", "MUDD 627"], ["start_time", "2022-11-01 21:31:00"], ["end_time", "2022-11-01 21:31:00"], ["price", 0.0], ["description", ""], ["tag", "Academia"], ["pictures", nil], ["available_spots", 10], ["occupied_spots", 2], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-01 21:31:07.804399"], ["updated_at", "2022-11-01 21:31:07.804399"], ["user_id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/events
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1843)
+Started GET "/events" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+Redirected to http://www.example.com/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 599)
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  Rendered events/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 2731)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 4899)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 5474)
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 879)
+Started GET "/" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  Rendered events/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 2692)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 4605)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.1ms | Allocations: 5083)
+Started GET "/events/1" for 127.0.0.1 at 2022-11-01 17:31:07 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 637)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2713)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms | Allocations: 3341)
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Debate session"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m

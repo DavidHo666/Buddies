@@ -84,4 +84,6 @@ gem 'rails-controller-testing'
 
 group :development, :test do
   gem 'rspec-rails'
+end
+
 
