@@ -49,10 +49,10 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
     if !user_signed_in?
       redirect_to new_user_session_path
     else
+      @event = Event.new(event_params)
       @event.user = current_user
       @event.save!
       flash[:notice] = "#{@event.event_name} was successfully created."
