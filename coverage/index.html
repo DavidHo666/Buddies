@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-11-02T00:08:23-04:00">2022-11-02T00:08:23-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-11-02T16:54:44-04:00">2022-11-02T16:54:44-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  93.88%
+  93.0%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.41
+         1.39
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>98</b> relevant lines,
-    <span class="green"><b>92</b> lines covered</span> and
-    <span class="red"><b>6</b> lines missed. </span>
+    <b>100</b> relevant lines,
+    <span class="green"><b>93</b> lines covered</span> and
+    <span class="red"><b>7</b> lines missed. </span>
     (<span class="green">
-  93.88%
+  93.0%
 </span>
 )
   </div>
@@ -83,12 +83,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#33a9dace1f21fa72c5b050cf07a64930202202a7" class="src_link" title="app/controllers/events_controller.rb">app/controllers/events_controller.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">91.49 %</td>
-            <td class="cell--number">93</td>
-            <td class="cell--number">47</td>
-            <td class="cell--number">43</td>
-            <td class="cell--number">4</td>
-            <td class="cell--number">1.53</td>
+            <td class="yellow strong cell--number t-file__coverage">89.80 %</td>
+            <td class="cell--number">97</td>
+            <td class="cell--number">49</td>
+            <td class="cell--number">44</td>
+            <td class="cell--number">5</td>
+            <td class="cell--number">1.49</td>
             
           </tr>
         
@@ -181,14 +181,14 @@
     <span class="group_name">Controllers</span>
     (<span class="covered_percent">
       <span class="green">
-  92.59%
+  91.57%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.41
+         1.39
        </span>
     </span> hits/line
     )
@@ -201,11 +201,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>81</b> relevant lines,
-    <span class="green"><b>75</b> lines covered</span> and
-    <span class="red"><b>6</b> lines missed. </span>
+    <b>83</b> relevant lines,
+    <span class="green"><b>76</b> lines covered</span> and
+    <span class="red"><b>7</b> lines missed. </span>
     (<span class="green">
-  92.59%
+  91.57%
 </span>
 )
   </div>
@@ -241,12 +241,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#33a9dace1f21fa72c5b050cf07a64930202202a7" class="src_link" title="app/controllers/events_controller.rb">app/controllers/events_controller.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">91.49 %</td>
-            <td class="cell--number">93</td>
-            <td class="cell--number">47</td>
-            <td class="cell--number">43</td>
-            <td class="cell--number">4</td>
-            <td class="cell--number">1.53</td>
+            <td class="yellow strong cell--number t-file__coverage">89.80 %</td>
+            <td class="cell--number">97</td>
+            <td class="cell--number">49</td>
+            <td class="cell--number">44</td>
+            <td class="cell--number">5</td>
+            <td class="cell--number">1.49</td>
             
           </tr>
         
@@ -748,8 +748,8 @@
   <div class="header">
     <h3>app/controllers/events_controller.rb</h3>
     <h4>
-      <span class="green">
-  91.49%
+      <span class="yellow">
+  89.8%
 </span>
 
       lines covered
@@ -758,9 +758,9 @@
     
 
     <div class="t-line-summary">
-      <b>47</b> relevant lines.
-      <span class="green"><b>43</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <b>49</b> relevant lines.
+      <span class="green"><b>44</b> lines covered</span> and
+      <span class="red"><b>5</b> lines missed.</span>
     </div>
 
     
@@ -1255,46 +1255,46 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="45">
-            
-            
-
-            
-
-            <code class="ruby">  # POST /events or /events.json</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="46">
+          <li class="covered" data-hits="1" data-linenumber="45">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def create</code>
+            <code class="ruby">  def edit</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="47">
-            <span class="hits">2</span>
+          <li class="missed" data-hits="0" data-linenumber="46">
+            
             
 
             
 
-            <code class="ruby">    if !user_signed_in?</code>
+            <code class="ruby">    @event = Event.find(params[:id])</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="48">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="47">
+            
             
 
             
 
-            <code class="ruby">      redirect_to new_user_session_path</code>
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="48">
+            
+            
+
+            
+
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1305,7 +1305,7 @@
 
             
 
-            <code class="ruby">    else</code>
+            <code class="ruby">  # POST /events or /events.json</code>
           </li>
         </div>
       
@@ -1316,18 +1316,18 @@
 
             
 
-            <code class="ruby">      @event = Event.new(event_params)</code>
+            <code class="ruby">  def create</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="51">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="51">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      @event.user = current_user</code>
+            <code class="ruby">    if !user_signed_in?</code>
           </li>
         </div>
       
@@ -1338,18 +1338,18 @@
 
             
 
-            <code class="ruby">      @event.save!</code>
+            <code class="ruby">      redirect_to new_user_session_path</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="53">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="53">
+            
             
 
             
 
-            <code class="ruby">      flash[:notice] = &quot;#{@event.event_name} was successfully created.&quot;</code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
@@ -1360,12 +1360,56 @@
 
             
 
+            <code class="ruby">      @event = Event.new(event_params)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="55">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      @event.user = current_user</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="56">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      @event.save!</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="57">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      flash[:notice] = &quot;#{@event.event_name} was successfully created.&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="58">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">      redirect_to events_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="55">
+          <li class="never" data-hits="" data-linenumber="59">
             
             
 
@@ -1376,7 +1420,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="56">
+          <li class="never" data-hits="" data-linenumber="60">
             
             
 
@@ -1387,7 +1431,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="57">
+          <li class="never" data-hits="" data-linenumber="61">
             
             
 
@@ -1398,7 +1442,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="58">
+          <li class="never" data-hits="" data-linenumber="62">
             
             
 
@@ -1409,7 +1453,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="59">
+          <li class="covered" data-hits="1" data-linenumber="63">
             <span class="hits">1</span>
             
 
@@ -1420,7 +1464,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="60">
+          <li class="covered" data-hits="2" data-linenumber="64">
             <span class="hits">2</span>
             
 
@@ -1431,7 +1475,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="61">
+          <li class="covered" data-hits="2" data-linenumber="65">
             <span class="hits">2</span>
             
 
@@ -1442,7 +1486,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="62">
+          <li class="covered" data-hits="1" data-linenumber="66">
             <span class="hits">1</span>
             
 
@@ -1453,7 +1497,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="63">
+          <li class="covered" data-hits="1" data-linenumber="67">
             <span class="hits">1</span>
             
 
@@ -1464,7 +1508,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="64">
+          <li class="never" data-hits="" data-linenumber="68">
             
             
 
@@ -1475,7 +1519,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="65">
+          <li class="covered" data-hits="1" data-linenumber="69">
             <span class="hits">1</span>
             
 
@@ -1486,7 +1530,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="66">
+          <li class="never" data-hits="" data-linenumber="70">
             
             
 
@@ -1497,7 +1541,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="67">
+          <li class="covered" data-hits="2" data-linenumber="71">
             <span class="hits">2</span>
             
 
@@ -1508,7 +1552,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="68">
+          <li class="never" data-hits="" data-linenumber="72">
             
             
 
@@ -1519,7 +1563,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="69">
+          <li class="never" data-hits="" data-linenumber="73">
             
             
 
@@ -1530,7 +1574,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="70">
+          <li class="never" data-hits="" data-linenumber="74">
             
             
 
@@ -1541,7 +1585,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="71">
+          <li class="covered" data-hits="1" data-linenumber="75">
             <span class="hits">1</span>
             
 
@@ -1552,7 +1596,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="72">
+          <li class="covered" data-hits="2" data-linenumber="76">
             <span class="hits">2</span>
             
 
@@ -1563,7 +1607,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="73">
+          <li class="covered" data-hits="2" data-linenumber="77">
             <span class="hits">2</span>
             
 
@@ -1574,7 +1618,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="74">
+          <li class="covered" data-hits="1" data-linenumber="78">
             <span class="hits">1</span>
             
 
@@ -1585,7 +1629,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="75">
+          <li class="covered" data-hits="1" data-linenumber="79">
             <span class="hits">1</span>
             
 
@@ -1596,7 +1640,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="76">
+          <li class="never" data-hits="" data-linenumber="80">
             
             
 
@@ -1607,7 +1651,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="77">
+          <li class="covered" data-hits="1" data-linenumber="81">
             <span class="hits">1</span>
             
 
@@ -1618,7 +1662,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="78">
+          <li class="never" data-hits="" data-linenumber="82">
             
             
 
@@ -1629,7 +1673,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="79">
+          <li class="covered" data-hits="2" data-linenumber="83">
             <span class="hits">2</span>
             
 
@@ -1640,7 +1684,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="80">
+          <li class="never" data-hits="" data-linenumber="84">
             
             
 
@@ -1651,7 +1695,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="81">
+          <li class="never" data-hits="" data-linenumber="85">
             
             
 
@@ -1662,7 +1706,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="82">
+          <li class="covered" data-hits="1" data-linenumber="86">
             <span class="hits">1</span>
             
 
@@ -1673,7 +1717,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="83">
+          <li class="never" data-hits="" data-linenumber="87">
             
             
 
@@ -1684,7 +1728,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="84">
+          <li class="covered" data-hits="1" data-linenumber="88">
             <span class="hits">1</span>
             
 
@@ -1695,7 +1739,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="85">
+          <li class="missed" data-hits="0" data-linenumber="89">
             
             
 
@@ -1706,57 +1750,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="86">
+          <li class="never" data-hits="" data-linenumber="90">
             
             
 
             
 
             <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="87">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="88">
-            
-            
-
-            
-
-            <code class="ruby">    # Only allow a list of trusted parameters through.</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="89">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    def event_params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="90">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      params.require(:event).permit(:event_name,:tag,:address,:description, :start_time, :end_time,</code>
           </li>
         </div>
       
@@ -1767,7 +1767,7 @@
 
             
 
-            <code class="ruby">                                    :price, :available_spots, :occupied_spots, :price)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1778,12 +1778,56 @@
 
             
 
+            <code class="ruby">    # Only allow a list of trusted parameters through.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="93">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def event_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="94">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      params.require(:event).permit(:event_name,:tag,:address,:description, :start_time, :end_time,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="95">
+            
+            
+
+            
+
+            <code class="ruby">                                    :price, :available_spots, :occupied_spots, :price)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="96">
+            
+            
+
+            
+
             <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="93">
+          <li class="never" data-hits="" data-linenumber="97">
             
             
 
