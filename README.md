@@ -2,7 +2,10 @@
 
 ### Title: Buddies: Join Now!
 #### Team Members: 
-Yi Zhong(yz4330) Yuxin Yang(yy3277) Dawei He(dh3027) Yuhan Xia(yx2729)
+- Yi Zhong(yz4330) 
+- Yuxin Yang(yy3277) 
+- Dawei He(dh3027) 
+- Yuhan Xia(yx2729)
 
 #### Instructions:
 - GitHub Link: https://github.com/dorissssy/buddies
