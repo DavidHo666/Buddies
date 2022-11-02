@@ -73,44 +73,36 @@ RSpec.describe EventsController do
   end
 
   describe "update Event" do
-    it "should not be able to edit event if not the organizer" do
-      post_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
-      event_test1 = Event.create!(event_name: "TEST CREATE", user: post_user)
-
-      curr_user = User.create!(email: "test2@gmail.com", password: "testtesttest")
-      get :update, params:{ :id => 1 }
-      event = assigns(:event)
-      expect(flash[:warning]).to match("Event #{event.event_name} couldn't be edited by you.")
+    it "should update the event" do
+      curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
+      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
+      sign_in curr_user
+      put :update, params: { :id => 1, :event => { :event_name => "TEST CREATE 1", :tag => "Food&Drink" } }
+      expect(flash[:notice]).to eq("Event TEST CREATE 1 was successfully updated.")
     end
 
-    it "should edit event if current user is the event organizer" do
-      post_user = User.create!(email: "test@gmail.com", password: "testtesttest")
-      event_test1 = Event.create!(event_name: "TEST CREATE", user: post_user)
-      updated_params = { id: 1, event_name: "TEST CREATE NEW", user: post_user }
-
-      updated_event = Event.update!(updated_params)[0]
-      expect(updated_event.event_name).to eq("TEST CREATE NEW")
+    it "should not update the event if not logged in" do
+      curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
+      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
+      put :update, params: { :id => 1, :event => { :event_name => "TEST CREATE 1", :tag => "Food&Drink" } }
+      expect(flash[:warning]).to eq("Event TEST CREATE 1 couldn't be edited by you.")
     end
   end
 
   describe "destroy Event" do
-    it "should not be able to destroy event if not the organizer" do
-      post_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
-      event_test1 = Event.create!(event_name: "TEST CREATE", user: post_user)
-
-      curr_user = User.create!(email: "test2@gmail.com", password: "testtesttest")
-      get :destroy, params:{ :id => 1 }
-      event = assigns(:event)
-      expect(flash[:warning]).to match("Event #{event.event_name} couldn't be deleted by you.")
+    it "should destroy the event" do
+      curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
+      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
+      sign_in curr_user
+      delete :destroy, params:{ :id => 1 }
+      expect(Event.find_by(event_name: event_test1.event_name)).to be nil
     end
 
-    it "should destroy event if current user is the event organizer" do
-      post_user = User.create!(email: "test@gmail.com", password: "testtesttest")
-      event_test = Event.create!(event_name: "TEST CREATE", user: post_user)
-
-      Event.destroy(event_test.id)
-      expect(Event.find_by(id: event_test.id)).to be nil
+    it "should not destroy the event if not logged in" do
+      curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
+      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
+      delete :destroy, params:{ :id => 1 }
+      expect(flash[:warning]).to eq("Event TEST CREATE 1 couldn't be deleted by you.")
     end
   end
-
 end
