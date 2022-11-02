@@ -42,6 +42,10 @@ class EventsController < ApplicationController
     # @event = Event.new
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
   # POST /events or /events.json
   def create
     if !user_signed_in?
