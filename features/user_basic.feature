@@ -10,10 +10,10 @@ Background: users in database
     | bot2     | bot2@gmail.com | bot2bot2 | looking for new friends       |
 
     Given the following events exist:
-    | event_name       | address      | start_time              | end_time            | price | description | tag          | available_spots | occupied_spots | user_id                |
-    | Study Session    | NWC          | 2022-11-29 16:00:00 UTC | 2022-11-29 18:00:00 |  0    |   welcome   | Academia     |   10            |   5            |     bot1@gmail.com     |
-    | CS Lecture       | MUDD 527     | 2022-12-31 13:00:00 UTC | 2022-12-31 14:50:00 |  30   | well known  | Academia     |   60            |  45            |     bot1@gmail.com     |
-    | Halloween Parade | Time's square| 2022-11-01 12:00:00 UTC | 2022-11-01 20:00:00 | 200   |  happy      | Arts&Culture |   50            |   6            |     bot2@gmail.com     |
+    | event_name       | address      | start_time              | end_time            | price | description | tag          | available_spots | occupied_spots | user_id   |
+    | Study Session    | NWC          | 2022-11-29 16:00:00 UTC | 2022-11-29 18:00:00 |  0    |   welcome   | Academia     |   10            |   5            |     1     |
+    | CS Lecture       | MUDD 527     | 2022-12-31 13:00:00 UTC | 2022-12-31 14:50:00 |  30   | well known  | Academia     |   60            |  45            |     1     |
+    | Halloween Parade | Time's square| 2022-11-01 12:00:00 UTC | 2022-11-01 20:00:00 | 200   |  happy      | Arts&Culture |   50            |   6            |     2     |
 
 Scenario: [sad] As a guest, create event would redirect to signin/signup
     Given I am on the home page
@@ -51,7 +51,7 @@ Scenario: As a user, signout
     When I follow "Sign In"
     And I signin with email "bot1@gmail.com" and password "bot1bot1"
     Then I press "Sign Out"
-    And I should be on the home page
+    And I should be on the logged out home page
     But I should not see "My Profile"
 
 Scenario: As a user, edit personal information
@@ -115,8 +115,8 @@ Scenario: [sad] As a user/guest, can not edit event not posted by you
     And I signin with email "bot2@gmail.com" and password "bot2bot2"
     When I follow "More about Study Session"
     And I follow "Edit"
-    And I press "Update Event info"
-    Then I should be on the edit page for event "Study Session"
+    And I press "Update Event Info"
+    Then I should be on the details page for event "Study Session"
     And I should see "Event Study Session couldn't be edited by you."
 
 Scenario: [sad] As a user/guest, can not delete event not posted by you

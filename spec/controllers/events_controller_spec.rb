@@ -68,6 +68,17 @@ RSpec.describe EventsController do
     end
   end
 
+  describe "edit event" do
+    it "should edit the event" do
+      curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
+      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
+
+      get :edit, params: { :id => event_test1.id }
+      after_created = Event.find_by_id(event_test1[:id])
+      expect(assigns(:event)).to eq after_created
+    end
+  end
+
   describe "update Event" do
     it "should update the event" do
       curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")

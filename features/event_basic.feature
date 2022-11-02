@@ -10,9 +10,9 @@ Feature: event basic functions
 
     Given the following events exist:
       | event_name       | address      | start_time              | end_time            | price | description | tag          | available_spots | occupied_spots | user_id   |
-      | Study Session    | NWC          | 2022-11-29 16:00:00 UTC | 2022-11-29 18:00:00 |  0    |   welcome   | Academia     |   10            |   5            |     3     |
-      | CS Lecture       | MUDD 527     | 2022-12-31 13:00:00 UTC | 2022-12-31 14:50:00 |  30   | well known  | Academia     |   60            |  45            |     4     |
-      | Halloween Parade | Time's square| 2022-11-01 12:00:00 UTC | 2022-11-01 20:00:00 | 200   |  happy      | Arts&Culture |   50            |   6            |     4     |
+      | Study Session    | NWC          | 2022-11-29 16:00:00 UTC | 2022-11-29 18:00:00 |  0    |   welcome   | Academia     |   10            |   5            |     1     |
+      | CS Lecture       | MUDD 527     | 2022-12-31 13:00:00 UTC | 2022-12-31 14:50:00 |  30   | well known  | Academia     |   60            |  45            |     2     |
+      | Halloween Parade | Time's square| 2022-11-01 12:00:00 UTC | 2022-11-01 20:00:00 | 200   |  happy      | Arts&Culture |   50            |   6            |     2     |
 
   Scenario: Show events with specific tags
     Given I am on the home page

@@ -15,6 +15,8 @@ module NavigationHelpers
 
     when /^the (RottenPotatoes )?home\s?page$/ then "/events"
 
+    when /^the logged out home page$/ then "/"
+
     when /^the create event page$/ then '/events/new'
 
     when /^the signin page$/ then '/users/sign_in'

@@ -1,7 +1,7 @@
 
 Given /the following events exist/ do |events_table|
     events_table.hashes.each do |event|
-      event['user_id'] = User.find_by_email(event['user_id']).id
+      # event['user_id'] = User.find_by_email(event['user_id']).id
       Event.create event
     end
   end
