@@ -9,6 +9,9 @@
 
 #### Instructions:
 - GitHub Link: https://github.com/dorissssy/buddies
+- Ruby version: 3.1.0
+- Machine's OS: Mac
+- Branch: Master Branch, commit: buddies-itr-1-final
 - Follow these instructions to get a local copy of our project:
   ```cmd
   git clone  https://github.com/dorissssy/buddies.git
