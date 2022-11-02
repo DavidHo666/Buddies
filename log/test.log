@@ -30660,3 +30660,235 @@ Processing by EventsController#show as HTML
 Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.1ms | Allocations: 3367)
   [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "Debate session"], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered events/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 353)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 490)
+Completed 200 OK in 12ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 4894)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered events/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 102)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 225)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 983)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.264678"], ["updated_at", "2022-11-02 01:41:45.264678"], ["encrypted_password", "$2a$04$QyfDQS.l7ryvzxKsIyitsefq5qBqlQ2FsYsZc.2P8DwQKuoP8ZT5S"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.2ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "TEST CREATE 1"], ["address", nil], ["start_time", nil], ["end_time", nil], ["price", nil], ["description", nil], ["tag", "Food&Drink"], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-02 01:41:45.269534"], ["updated_at", "2022-11-02 01:41:45.269534"], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "TEST CREATE 2"], ["address", nil], ["start_time", nil], ["end_time", nil], ["price", nil], ["description", nil], ["tag", "Music"], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-02 01:41:45.270927"], ["updated_at", "2022-11-02 01:41:45.270927"], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by EventsController#index as HTML
+  Parameters: {"tags"=>{"Music"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered events/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 104)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 227)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 777)
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" = ?[0m  [["tag", "Music"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.278700"], ["updated_at", "2022-11-02 01:41:45.278700"], ["encrypted_password", "$2a$04$RgS07/.pp0ByVqMPwjfMoudCVq1GOsTad2UZ6xrcbcb7VIa6FeKE."], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "B TEST CREATE 1"], ["address", nil], ["start_time", nil], ["end_time", nil], ["price", nil], ["description", nil], ["tag", "Food&Drink"], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-02 01:41:45.279854"], ["updated_at", "2022-11-02 01:41:45.279854"], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "A TEST CREATE 2"], ["address", nil], ["start_time", nil], ["end_time", nil], ["price", nil], ["description", nil], ["tag", "Music"], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-02 01:41:45.280859"], ["updated_at", "2022-11-02 01:41:45.280859"], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"event_name"}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered events/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 104)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | Allocations: 227)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 776)
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) ORDER BY event_name[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.287885"], ["updated_at", "2022-11-02 01:41:45.287885"], ["encrypted_password", "$2a$04$i1H.4FaNPJ4A5IFfrA966uikVXEUTQ8IrmaDmbZYgP4aoBqkZ2Ob."], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "TEST CREATE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "TEST CREATE"], ["address", nil], ["start_time", nil], ["end_time", nil], ["price", nil], ["description", nil], ["tag", nil], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-02 01:41:45.290414"], ["updated_at", "2022-11-02 01:41:45.290414"], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_name" = ? LIMIT ?[0m  [["event_name", "TEST CREATE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by EventsController#create as HTML
+Redirected to http://test.host/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 784)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.307484"], ["updated_at", "2022-11-02 01:41:45.307484"], ["encrypted_password", "$2a$04$mH4b6EU/xqdWUghUI7EAh.W9.9aEVrf.H2NwUEvxxvt1GdVo1X3YC"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "TEST CREATE 1"], ["address", nil], ["start_time", nil], ["end_time", nil], ["price", nil], ["description", nil], ["tag", "Food&Drink"], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-02 01:41:45.308689"], ["updated_at", "2022-11-02 01:41:45.308689"], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "TEST CREATE 2"], ["address", nil], ["start_time", nil], ["end_time", nil], ["price", nil], ["description", nil], ["tag", "Music"], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-02 01:41:45.309766"], ["updated_at", "2022-11-02 01:41:45.309766"], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered events/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 102)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 225)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 1083)
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered events/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 77)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 196)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 578)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test1@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.321013"], ["updated_at", "2022-11-02 01:41:45.321013"], ["encrypted_password", "$2a$04$DA23WvHRlyJNPHznKvtmkepcsntGpOhz0nIOjvZUrkxjHz7aS5p7S"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.2ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "TEST CREATE"], ["address", nil], ["start_time", nil], ["end_time", nil], ["price", nil], ["description", nil], ["tag", nil], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-02 01:41:45.322810"], ["updated_at", "2022-11-02 01:41:45.322810"], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test2@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.326001"], ["updated_at", "2022-11-02 01:41:45.326001"], ["encrypted_password", "$2a$04$BdyKfeRN9yN6xW0bvAx3guQnvoWh0hM/hM7nSTc/gZNevoqy.mguy"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by EventsController#update as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://test.host/events/1
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 2080)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.338507"], ["updated_at", "2022-11-02 01:41:45.338507"], ["encrypted_password", "$2a$04$4.bRulBGq7oGEMwpUuz/leU7mZ67jdy8w7NYwrkJVnAmcaidqN/cC"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "TEST CREATE"], ["address", nil], ["start_time", nil], ["end_time", nil], ["price", nil], ["description", nil], ["tag", nil], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-02 01:41:45.339679"], ["updated_at", "2022-11-02 01:41:45.339679"], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Update (0.1ms)[0m  [1m[33mUPDATE "events" SET "event_name" = ?, "updated_at" = ? WHERE "events"."id" = ?[0m  [["event_name", "TEST CREATE NEW"], ["updated_at", "2022-11-02 01:41:45.341192"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test1@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.345009"], ["updated_at", "2022-11-02 01:41:45.345009"], ["encrypted_password", "$2a$04$I61R7ZA87zGtERiQW27T3OgLlBtnq1JaWrfO5Hinxb7Kkb82Tf7CW"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.2ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "TEST CREATE"], ["address", nil], ["start_time", nil], ["end_time", nil], ["price", nil], ["description", nil], ["tag", nil], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-02 01:41:45.346186"], ["updated_at", "2022-11-02 01:41:45.346186"], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test2@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.348589"], ["updated_at", "2022-11-02 01:41:45.348589"], ["encrypted_password", "$2a$04$gQXEjinN4S9S0G/1K/17Qu/1Wqujv6i/kYixM9tKlJwFHSI/JDBfy"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by EventsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://test.host/events
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 639)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.355300"], ["updated_at", "2022-11-02 01:41:45.355300"], ["encrypted_password", "$2a$04$q.3sfD9h2chOsDKnaG8Og.y0XMKgZM4lAYiFG1SSoCSaUo51/OWSi"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.1ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "TEST CREATE"], ["address", nil], ["start_time", nil], ["end_time", nil], ["price", nil], ["description", nil], ["tag", nil], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-02 01:41:45.356713"], ["updated_at", "2022-11-02 01:41:45.356713"], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Destroy (0.1ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered users/new.html.erb within layouts/application (Duration: 0.2ms | Allocations: 95)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 220)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 1120)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered users/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 102)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | Allocations: 225)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 753)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.370817"], ["updated_at", "2022-11-02 01:41:45.370817"], ["encrypted_password", "$2a$04$Uo2BY005q5OJZRo86zoLye1zD.xjrlEPw5OAH3fOsHju5/AmNNhkS"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.375736"], ["updated_at", "2022-11-02 01:41:45.375736"], ["encrypted_password", "$2a$04$Kfam.9S4zyO.9YLLOxla3uvlT.sYFZwOEm9LH1szZRsFJekh2oAgK"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "bio" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "users"."id" = ?[0m  [["bio", "NEW BIO"], ["updated_at", "2022-11-02 01:41:45.378217"], ["encrypted_password", "$2a$04$XB8BXRSOKn1ZcmdNtVz4pul5w8JJYADj2bfEC/Pmpb7IDUsQH20Yq"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "test@gmail.com"], ["password", nil], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-02 01:41:45.382597"], ["updated_at", "2022-11-02 01:41:45.382597"], ["encrypted_password", "$2a$04$zoCvkLrrLzJGiJiT5ERDy.kDaFTASzV3zL.rD2yLJk0WzSvEXZqJe"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 895)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
