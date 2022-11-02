@@ -17,24 +17,31 @@ describe UsersController do
   end
 
   describe "POST create" do
-    it "can create a user" do
-      before_create = User.find_by(email: "test@gmail.com")
-      expect(before_create).to be nil
+    it "should create a new user" do
+      post :create, params: { :user => { :email => "test@gmail.com", password: "testtesttest"} }
+      expect(response).to redirect_to(user_path(User.last))
+    end
 
-      user_test = User.create!(email: "test@gmail.com", password: "testtesttest")
-      after_create = User.find_by(email: "test@gmail.com")
-      expect(after_create).should_not be nil
+    it "should not create a new user if email is not unique" do
+      User.create!(email: "test@gmail.com", password: "testtesttest")
+      post :create, params: { :user => { :email => "test@gmail.com", password: "testtesttest"} }
+      expect(response).to render_template("new")
     end
   end
 
   describe "POST update" do
-    it 'should update user' do
-      test_user = User.create!(email: "test@gmail.com", password: "testtesttest")
-      updated_params = { id: 1, email: "test@gmail.com", password: "testtesttest", bio: "NEW BIO"}
-
-      updated_user = User.update!(updated_params)[0]
-      expect(updated_user.bio).to eq("NEW BIO")
+    it "should update a user" do
+      curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
+      sign_in curr_user
+      post :update, params: { :id => curr_user.id, :user => { :email => "test@gmail.com", password: "testtesttest"} }
+      expect(response).to redirect_to(user_path(curr_user))
     end
+
+    # it "should not update a user if not logged in" do
+    #   curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
+    #   post :update, params: { :id => curr_user.id, :user => { :email => "test@gmail.com", password: "testtesttest"} }
+    #   expect(response).to redirect_to(new_user_session_path)
+    # end
   end
 
   describe "POST destroy" do

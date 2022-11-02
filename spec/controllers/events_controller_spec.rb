@@ -39,19 +39,15 @@ RSpec.describe EventsController do
   end
 
   describe "POST create" do
-    it "can create an event if created user" do
+    it "should create a new event" do
       curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
-      before_create = Event.find_by(event_name: "TEST CREATE")
-      expect(before_create).to be nil
-
-      event_test = Event.create!(event_name: "TEST CREATE", user: curr_user)
-      after_create = Event.find_by(event_name: "TEST CREATE")
-      expect(after_create).should_not be nil
+      sign_in curr_user
+      post :create, params: { :event => { :event_name => "TEST CREATE", :tag => "Food&Drink" } }
+      expect(response).to redirect_to(events_path)
     end
 
-    it "should not create event when not log in" do
-      allow_any_instance_of(Devise::Controllers::Helpers).to receive(:user_signed_in?).and_return(false)
-      get :create
+    it "should not create a new event if not logged in" do
+      post :create, params: { :event => { :event_name => "TEST CREATE", :tag => "Food&Drink" } }
       expect(response).to redirect_to(new_user_session_path)
     end
   end

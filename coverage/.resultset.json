@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/arika/Desktop/saas_project/buddies/app/models/user.rb": {
+      "/Users/yangyuxin/Documents/COMS4152/buddies/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -12,38 +12,38 @@
           null
         ]
       },
-      "/Users/arika/Desktop/saas_project/buddies/app/models/application_record.rb": {
+      "/Users/yangyuxin/Documents/COMS4152/buddies/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/arika/Desktop/saas_project/buddies/app/helpers/application_helper.rb": {
+      "/Users/yangyuxin/Documents/COMS4152/buddies/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/arika/Desktop/saas_project/buddies/app/helpers/events_helper.rb": {
+      "/Users/yangyuxin/Documents/COMS4152/buddies/app/helpers/events_helper.rb": {
         "lines": [
           1,
           1,
-          0,
-          0,
+          2,
+          1,
           null,
           null,
           null,
           null
         ]
       },
-      "/Users/arika/Desktop/saas_project/buddies/app/helpers/users_helper.rb": {
+      "/Users/yangyuxin/Documents/COMS4152/buddies/app/helpers/users_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/arika/Desktop/saas_project/buddies/app/controllers/events_controller.rb": {
+      "/Users/yangyuxin/Documents/COMS4152/buddies/app/controllers/events_controller.rb": {
         "lines": [
           1,
           null,
@@ -96,14 +96,14 @@
           null,
           null,
           1,
-          1,
+          2,
           1,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -139,19 +139,19 @@
           null,
           null,
           1,
-          1,
+          2,
           null,
           null,
           null
         ]
       },
-      "/Users/arika/Desktop/saas_project/buddies/app/controllers/application_controller.rb": {
+      "/Users/yangyuxin/Documents/COMS4152/buddies/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/arika/Desktop/saas_project/buddies/app/controllers/users_controller.rb": {
+      "/Users/yangyuxin/Documents/COMS4152/buddies/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -176,25 +176,25 @@
           null,
           null,
           1,
-          0,
+          2,
           null,
-          0,
-          0,
-          0,
-          0,
+          2,
+          2,
+          2,
+          1,
           null,
-          0,
-          0,
+          2,
+          1,
           null,
           null,
           null,
           null,
           null,
           1,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          2,
+          1,
           null,
           0,
           0,
@@ -215,17 +215,17 @@
           1,
           null,
           1,
-          1,
+          2,
           null,
           null,
           null,
           1,
-          0,
+          3,
           null,
           null
         ]
       },
-      "/Users/arika/Desktop/saas_project/buddies/app/models/event.rb": {
+      "/Users/yangyuxin/Documents/COMS4152/buddies/app/models/event.rb": {
         "lines": [
           1,
           1,
@@ -245,6 +245,6 @@
         ]
       }
     },
-    "timestamp": 1667356297
+    "timestamp": 1667361367
   }
 }
