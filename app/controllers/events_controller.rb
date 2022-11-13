@@ -56,7 +56,7 @@ class EventsController < ApplicationController
       @event.save!
       flash[:notice] = "#{@event.event_name} was successfully created."
       redirect_to events_path
-      end
+    end
   end
 
   # PATCH/PUT /events/1 or /events/1.json
@@ -81,6 +81,18 @@ class EventsController < ApplicationController
       flash[:warning] = "Event #{@event.event_name} couldn't be deleted by you."
     end
     redirect_to events_path
+  end
+
+  def add_participation
+    if !user_signed_in?
+      redirect_to new_user_session_path
+    else
+      current_event = Event.find(params[:id])
+      Participation.create(user: current_user, event: current_event)
+      @event.save!
+      flash[:notice] = "#{@event.event_name} was successfully created."
+      redirect_to events_path
+    end
   end
 
   private
