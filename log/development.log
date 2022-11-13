@@ -14979,3 +14979,518 @@ Did you mean?  participate_event_url
     43: </div>
   
 app/views/events/show.html.erb:42
+Started GET "/events/2" for 127.0.0.1 at 2022-11-13 17:00:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1942)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 216)
+  Rendered layout layouts/application.html.erb (Duration: 55.8ms | Allocations: 35734)
+Completed 200 OK in 89ms (Views: 58.2ms | ActiveRecord: 1.0ms | Allocations: 54156)
+
+
+Started POST "/events/2/participate" for 127.0.0.1 at 2022-11-13 17:00:38 -0500
+Processing by EventsController#add_participation as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:87:in `add_participation'
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:90:in `add_participation'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ? /* loading for inspect */ LIMIT ?[0m  [["event_id", 2], ["LIMIT", 11]]
+  ↳ (eval):1:in `add_participation'
+Completed 500 Internal Server Error in 59656ms (ActiveRecord: 2.1ms | Allocations: 21803)
+
+
+  
+NoMethodError (undefined method `each' for #<User id: 3, username: nil, email: "hdw623@hotmail.com", password: nil, bio: nil, joined_date: nil, created_at: "2022-11-13 18:19:19.069067000 +0000", updated_at: "2022-11-13 18:19:19.069067000 +0000">):
+  
+app/controllers/events_controller.rb:91:in `add_participation'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/events/2/participate" for 127.0.0.1 at 2022-11-13 17:02:48 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#add_participation as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:87:in `add_participation'
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:90:in `add_participation'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ? /* loading for inspect */ LIMIT ?[0m  [["event_id", 2], ["LIMIT", 11]]
+  ↳ (eval):1:in `add_participation'
+Completed 500 Internal Server Error in 132965ms (ActiveRecord: 1.7ms | Allocations: 44432)
+
+
+  
+NoMethodError (undefined method `each' for #<User id: 3, username: nil, email: "hdw623@hotmail.com", password: nil, bio: nil, joined_date: nil, created_at: "2022-11-13 18:19:19.069067000 +0000", updated_at: "2022-11-13 18:19:19.069067000 +0000">):
+  
+app/controllers/events_controller.rb:91:in `add_participation'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEvents (20221027211446)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "event_name" varchar, "address" varchar, "start_time" datetime(6), "end_time" datetime(6), "price" float, "description" text, "tag" varchar, "pictures" varchar, "available_spots" integer, "occupied_spots" integer, "organizer_id" integer, "applicants_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221027211446"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUser (20221028030939)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password" varchar, "bio" text, "joined_date" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221028030939"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20221030144856)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "password" varchar DEFAULT NULL, "bio" text DEFAULT NULL, "joined_date" datetime(6) DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","username","email","password","bio","joined_date","created_at","updated_at")
+                     SELECT "id","username","email","password","bio","joined_date","created_at","updated_at" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "email" varchar DEFAULT '' NOT NULL, "password" varchar DEFAULT NULL, "bio" text DEFAULT NULL, "joined_date" datetime(6) DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "users" ("id","username","email","password","bio","joined_date","created_at","updated_at")
+                     SELECT "id","username","email","password","bio","joined_date","created_at","updated_at" FROM "ausers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime(6)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime(6)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221030144856"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUserIdToEvents (20221030191928)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "events" ADD "users_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_events_on_users_id" ON "events" ("users_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aevents" ("id" integer NOT NULL PRIMARY KEY, "event_name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "start_time" datetime(6) DEFAULT NULL, "end_time" datetime(6) DEFAULT NULL, "price" float DEFAULT NULL, "description" text DEFAULT NULL, "tag" varchar DEFAULT NULL, "pictures" varchar DEFAULT NULL, "available_spots" integer DEFAULT NULL, "occupied_spots" integer DEFAULT NULL, "organizer_id" integer DEFAULT NULL, "applicants_id" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "users_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_users_id" ON "aevents" ("users_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aevents" ("id","event_name","address","start_time","end_time","price","description","tag","pictures","available_spots","occupied_spots","organizer_id","applicants_id","created_at","updated_at","users_id")
+                     SELECT "id","event_name","address","start_time","end_time","price","description","tag","pictures","available_spots","occupied_spots","organizer_id","applicants_id","created_at","updated_at","users_id" FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer NOT NULL PRIMARY KEY, "event_name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "start_time" datetime(6) DEFAULT NULL, "end_time" datetime(6) DEFAULT NULL, "price" float DEFAULT NULL, "description" text DEFAULT NULL, "tag" varchar DEFAULT NULL, "pictures" varchar DEFAULT NULL, "available_spots" integer DEFAULT NULL, "occupied_spots" integer DEFAULT NULL, "organizer_id" integer DEFAULT NULL, "applicants_id" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "users_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_fcc433e2af"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_users_id" ON "events" ("users_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "events" ("id","event_name","address","start_time","end_time","price","description","tag","pictures","available_spots","occupied_spots","organizer_id","applicants_id","created_at","updated_at","users_id")
+                     SELECT "id","event_name","address","start_time","end_time","price","description","tag","pictures","available_spots","occupied_spots","organizer_id","applicants_id","created_at","updated_at","users_id" FROM "aevents"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aevents"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_events_on_user_id" ON "events" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221030191928"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateParticipations (20221113175004)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "participations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "event_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_participations_on_event_id" ON "participations" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_participations_on_user_id" ON "participations" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221113175004"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-13 22:08:18.859667"], ["updated_at", "2022-11-13 22:08:18.859667"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-11-13 17:09:18 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 11ms (ActiveRecord: 0.2ms | Allocations: 5121)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-13 17:09:18 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:50
+  Rendered events/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 4643)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 248)
+  Rendered layout layouts/application.html.erb (Duration: 48.2ms | Allocations: 34104)
+Completed 200 OK in 54ms (Views: 49.9ms | ActiveRecord: 0.7ms | Allocations: 36657)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-13 17:09:20 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 252)
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 617)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 14.6ms | Allocations: 5010)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 8007)
+Completed 200 OK in 47ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 15872)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-13 17:09:28 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"hdw623@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hdw623@hotmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "hdw623@hotmail.com"], ["password", "[FILTERED]"], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-13 22:09:29.109828"], ["updated_at", "2022-11-13 22:09:29.109828"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 1027ms (ActiveRecord: 0.9ms | Allocations: 9336)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-13 17:09:29 -0500
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 702)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-13 17:09:29 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:50
+  Rendered events/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 3168)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 7077)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.2ms | Allocations: 7718)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2022-11-13 17:09:30 -0500
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 27.0ms | Allocations: 10005)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 32)
+  Rendered layout layouts/application.html.erb (Duration: 37.3ms | Allocations: 13997)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.2ms | Allocations: 14358)
+
+
+Started POST "/events" for 127.0.0.1 at 2022-11-13 17:09:47 -0500
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"event_name"=>"running", "description"=>"fun", "address"=>"", "available_spots"=>"10", "occupied_spots"=>"", "price"=>"10", "tag"=>"Food&Drink", "start_time(1i)"=>"2022", "start_time(2i)"=>"11", "start_time(3i)"=>"13", "start_time(4i)"=>"22", "start_time(5i)"=>"09", "end_time(1i)"=>"2022", "end_time(2i)"=>"11", "end_time(3i)"=>"13", "end_time(4i)"=>"22", "end_time(5i)"=>"09"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:51:in `create'
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.8ms | Allocations: 16728)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `user_id`
+
+          raise ActiveModel::MissingAttributeError, "can't write unknown attribute `#{name}`"
+          ^^^^^):
+  
+app/controllers/events_controller.rb:55:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEvents (20221027211446)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "event_name" varchar, "address" varchar, "start_time" datetime(6), "end_time" datetime(6), "price" float, "description" text, "tag" varchar, "pictures" varchar, "available_spots" integer, "occupied_spots" integer, "organizer_id" integer, "applicants_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221027211446"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUser (20221028030939)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password" varchar, "bio" text, "joined_date" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221028030939"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20221030144856)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "password" varchar DEFAULT NULL, "bio" text DEFAULT NULL, "joined_date" datetime(6) DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","username","email","password","bio","joined_date","created_at","updated_at")
+                     SELECT "id","username","email","password","bio","joined_date","created_at","updated_at" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "email" varchar DEFAULT '' NOT NULL, "password" varchar DEFAULT NULL, "bio" text DEFAULT NULL, "joined_date" datetime(6) DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "users" ("id","username","email","password","bio","joined_date","created_at","updated_at")
+                     SELECT "id","username","email","password","bio","joined_date","created_at","updated_at" FROM "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime(6)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime(6)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221030144856"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUserIdToEvents (20221030191928)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "events" ADD "user_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_events_on_user_id" ON "events" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221030191928"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateParticipations (20221113175004)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "participations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "event_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_participations_on_event_id" ON "participations" ("event_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_participations_on_user_id" ON "participations" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221113175004"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-13 22:11:58.286063"], ["updated_at", "2022-11-13 22:11:58.286063"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-11-13 17:12:06 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 13ms (ActiveRecord: 0.3ms | Allocations: 5075)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-13 17:12:06 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:50
+  Rendered events/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 4643)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.7ms | Allocations: 248)
+  Rendered layout layouts/application.html.erb (Duration: 51.2ms | Allocations: 34086)
+Completed 200 OK in 58ms (Views: 53.8ms | ActiveRecord: 0.7ms | Allocations: 36630)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-13 17:12:09 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 252)
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 617)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 13.2ms | Allocations: 5010)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 8007)
+Completed 200 OK in 45ms (Views: 20.6ms | ActiveRecord: 0.0ms | Allocations: 15851)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-13 17:12:15 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"hdw623@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hdw623@hotmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "bio", "joined_date", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["email", "hdw623@hotmail.com"], ["password", "[FILTERED]"], ["bio", nil], ["joined_date", nil], ["created_at", "2022-11-13 22:12:16.460500"], ["updated_at", "2022-11-13 22:12:16.460500"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 1025ms (ActiveRecord: 0.8ms | Allocations: 9324)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-13 17:12:16 -0500
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 693)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-13 17:12:16 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:50
+  Rendered events/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 3168)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 7077)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 7673)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2022-11-13 17:12:18 -0500
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 28.7ms | Allocations: 10011)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 32)
+  Rendered layout layouts/application.html.erb (Duration: 39.1ms | Allocations: 14003)
+Completed 200 OK in 43ms (Views: 40.1ms | ActiveRecord: 0.2ms | Allocations: 14364)
+
+
+Started POST "/events" for 127.0.0.1 at 2022-11-13 17:12:24 -0500
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"event_name"=>"afdfe", "description"=>"", "address"=>"", "available_spots"=>"", "occupied_spots"=>"", "price"=>"1", "tag"=>"Food&Drink", "start_time(1i)"=>"2022", "start_time(2i)"=>"11", "start_time(3i)"=>"13", "start_time(4i)"=>"22", "start_time(5i)"=>"12", "end_time(1i)"=>"2022", "end_time(2i)"=>"11", "end_time(3i)"=>"13", "end_time(4i)"=>"22", "end_time(5i)"=>"12"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:51:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:56:in `create'
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "afdfe"], ["address", ""], ["start_time", "2022-11-13 22:12:00"], ["end_time", "2022-11-13 22:12:00"], ["price", 1.0], ["description", ""], ["tag", "Food&Drink"], ["pictures", nil], ["available_spots", nil], ["occupied_spots", nil], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-13 22:12:24.357650"], ["updated_at", "2022-11-13 22:12:24.357650"], ["user_id", 1]]
+  ↳ app/controllers/events_controller.rb:56:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:56:in `create'
+Redirected to http://0.0.0.0:3000/events
+Completed 302 Found in 70ms (ActiveRecord: 1.3ms | Allocations: 12710)
+
+
+Started GET "/events" for 127.0.0.1 at 2022-11-13 17:12:24 -0500
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 688)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-13 17:12:24 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:50
+  Rendered events/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 3272)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 7118)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.4ms | Allocations: 7732)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2022-11-13 17:12:25 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1136)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 4810)
+Completed 200 OK in 28ms (Views: 20.9ms | ActiveRecord: 0.5ms | Allocations: 6344)
+
+
+Started POST "/events/1/participate" for 127.0.0.1 at 2022-11-13 17:12:27 -0500
+Processing by EventsController#add_participation as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:87:in `add_participation'
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:90:in `add_participation'
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 0.4ms | Allocations: 9406)
+
+
+  
+NoMethodError (undefined method `each' for #<User id: 1, username: nil, email: "hdw623@hotmail.com", password: nil, bio: nil, joined_date: nil, created_at: "2022-11-13 22:12:16.460500000 +0000", updated_at: "2022-11-13 22:12:16.460500000 +0000">):
+  
+app/controllers/events_controller.rb:91:in `add_participation'
+Started POST "/events/1/participate" for 127.0.0.1 at 2022-11-13 17:14:47 -0500
+Processing by EventsController#add_participation as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:87:in `add_participation'
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:90:in `add_participation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:91:in `add_participation'
+  [1m[36mParticipation Create (0.2ms)[0m  [1m[32mINSERT INTO "participations" ("event_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["event_id", 1], ["user_id", 1], ["created_at", "2022-11-13 22:14:47.646114"], ["updated_at", "2022-11-13 22:14:47.646114"]]
+  ↳ app/controllers/events_controller.rb:91:in `add_participation'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:91:in `add_participation'
+Redirected to http://0.0.0.0:3000/events
+Completed 302 Found in 40ms (ActiveRecord: 2.2ms | Allocations: 21141)
+
+
+Started GET "/events" for 127.0.0.1 at 2022-11-13 17:14:47 -0500
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 703)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-13 17:14:47 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:50
+  Rendered events/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 3459)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 39)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 7437)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.2ms | Allocations: 8336)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2022-11-13 17:17:16 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:37:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 967)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 8434)
+Completed 200 OK in 30ms (Views: 15.3ms | ActiveRecord: 1.1ms | Allocations: 15919)
+
+
+Started POST "/events/1/participate" for 127.0.0.1 at 2022-11-13 17:17:17 -0500
+Processing by EventsController#add_participation as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:87:in `add_participation'
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:90:in `add_participation'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:91:in `add_participation'
+  [1m[36mParticipation Create (0.4ms)[0m  [1m[32mINSERT INTO "participations" ("event_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["event_id", 1], ["user_id", 1], ["created_at", "2022-11-13 22:17:17.640111"], ["updated_at", "2022-11-13 22:17:17.640111"]]
+  ↳ app/controllers/events_controller.rb:91:in `add_participation'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:91:in `add_participation'
+Redirected to http://0.0.0.0:3000/events
+Completed 302 Found in 37ms (ActiveRecord: 2.0ms | Allocations: 9541)
+
+
+Started GET "/events" for 127.0.0.1 at 2022-11-13 17:17:17 -0500
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 740)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-13 17:17:17 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:50
+  Rendered events/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3285)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 7093)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.3ms | Allocations: 7722)
+
+

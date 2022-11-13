@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :user
+  has_many :participations
   has_many :users, through: :participations
   def self.all_tags
     %w[Food&Drink Arts&Culture Travel Movies Music Metraverse Academia Athletics Others]

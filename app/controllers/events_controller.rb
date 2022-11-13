@@ -87,10 +87,9 @@ class EventsController < ApplicationController
     if !user_signed_in?
       redirect_to new_user_session_path
     else
-      current_event = Event.find(params[:id])
-      Participation.create(user: current_user, event: current_event)
-      @event.save!
-      flash[:notice] = "#{@event.event_name} was successfully created."
+      @event = Event.find(params[:id])
+      @event.users << current_user
+      flash[:notice] = "You have successfully joined event #{@event.event_name}."
       redirect_to events_path
     end
   end
