@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :events
+  resources :participations
   get 'events/index'
   root 'events#index'
   get 'users/index'
