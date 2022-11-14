@@ -88,8 +88,21 @@ class EventsController < ApplicationController
       redirect_to new_user_session_path
     else
       @event = Event.find(params[:id])
-      @event.users << current_user
-      flash[:notice] = "You have successfully joined event #{@event.event_name}."
+      if @event.user == current_user
+        flash[:warning] = "You can't participate in your own event."
+      elsif !@event.users.include?(current_user)
+        # if @event.occupied_spots.nil?
+        #   @event.occupied_spots = 1
+        # end
+        if @event.users.length >= @event.available_spots
+          flash[:warning] = "Event #{@event.event_name} is full."
+        else
+          @event.users << current_user
+          flash[:notice] = "You have successfully joined event #{@event.event_name}."
+        end
+      else
+        flash[:warning] = "You have already joined event #{@event.event_name}."
+      end
       redirect_to events_path
     end
   end
