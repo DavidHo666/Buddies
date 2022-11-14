@@ -98,6 +98,9 @@ class EventsController < ApplicationController
           flash[:warning] = "Event #{@event.event_name} is full."
         else
           @event.users << current_user
+          @event.available_spots = @event.available_spots - 1
+          @event.occupied_spots = @event.occupied_spots + 1
+          @event.save!
           flash[:notice] = "You have successfully joined event #{@event.event_name}."
         end
       else
