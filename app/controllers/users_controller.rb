@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @events_created = Event.where(user_id: params[:id])
+    @events_joined = Participation.joins(:event).where(user_id: params[:id]).select("events.*")
   end
 
   # GET /users/new
@@ -56,6 +58,10 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # def profile
+  #   @user = User.find(params[:id])
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

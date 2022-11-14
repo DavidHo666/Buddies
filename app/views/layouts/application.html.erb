@@ -15,6 +15,7 @@
   <%= link_to "Home", events_path, :class => 'btn btn-primary' %>
 <% if user_signed_in? %>
   <%= link_to "My Profile", user_path(current_user), :class => 'btn btn-primary' %>
+  <%# <%= link_to "My Profile", profile_path(current_user), :class => 'btn btn-primary' %>
   <%= button_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-primary'%>
 <% else %>
   <%= link_to "Sign In", new_user_session_path, :class => 'btn btn-primary' %>
