@@ -1,8 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
 <div style="display:flex;">
-<div style="flex-grow: 50;"><%= render @user%></div>
-<div id="event_block" style="flex-grow: 50;">
+<div style="flex-grow: 3;"><%= render @user%></div>
+<div id="event_block" style="flex-grow: 3;">
   <p style="font-weight:bold;">Event(s) I created:</p>
   <table>
     <tbody>
@@ -19,7 +19,7 @@
       </tbody>
     </table>
 </div>
-<div id="event_joined_block" style="flex-grow: 50;">
+<div id="event_joined_block" style="flex-grow: 3;">
   <p style="font-weight:bold;">Event(s) I joined:</p>
   <table>
     <tbody>
@@ -30,6 +30,10 @@
           </td>
           <td>
             <%= link_to "More about #{event.event_name}", event_path(event) %>
+          </td>
+            
+          <td>
+          <%= button_to 'Leave', unparticipate_event_path(event), method: :delete%>
           </td>
         </tr>
       <% end %>

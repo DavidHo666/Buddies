@@ -110,6 +110,25 @@ class EventsController < ApplicationController
     end
   end
 
+  def remove_participation
+    if !user_signed_in?
+      redirect_to new_user_session_path
+    else
+      @event = Event.find(params[:id])
+      if @event.users.include?(current_user)
+        @event.users.delete(current_user)
+        @event.available_spots = @event.available_spots + 1
+        @event.occupied_spots = @event.occupied_spots - 1
+        @event.save!
+        flash[:notice] = "You have successfully left event #{@event.event_name}."
+      else
+        flash[:warning] = "You haven't joined event #{@event.event_name}."
+      end
+      redirect_to events_path
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

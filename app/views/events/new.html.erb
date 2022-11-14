@@ -2,15 +2,17 @@
 
 <%= form_tag events_path, :class => 'form' do %>
   <%= label :event, :event_name, 'Event Name', :class => 'col-form-label' %>
-  <%= text_field :event, :event_name, :class => 'form-control' %>
+  <%= text_field :event, :event_name, :class => 'form-control', required: true%>
   <%= label :event, :description, 'Description', :class => 'col-form-label' %>
   <%= text_field :event, :description, :class => 'form-control' %>
   <%= label :event, :address, 'Address', :class => 'col-form-label' %>
   <%= text_field :event, :address, :class => 'form-control' %>
+
   <%= label :event, :available_spots, 'Available Spots', :class => 'col-form-label' %>
-  <%= text_field :event, :available_spots, :class => 'form-control', data:{numeric: true} %>
+  <%= text_field :event, :available_spots, :class => 'form-control', data:{numeric: true}, required: true %>
   <%= label :event, :occupied_spots, 'Occupied Spots', :class => 'col-form-label' %>
-  <%= text_field :event, :occupied_spots, :class => 'form-control', data:{numeric: true} %>
+  <%= text_field :event, :occupied_spots, :class => 'form-control', data:{numeric: true}, required: true %>
+
   <%= label :event, :price, 'Price', :class => 'col-form-label' %>
   <%= text_field :event, :price, :class => 'form-control', data:{numeric: true} %>
   <%= label :event, :tag, 'tag', :class => 'col-form-label'  %>
