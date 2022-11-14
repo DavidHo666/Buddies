@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  include EventsHelper
   # before_action :set_event, only: %i[ show edit update destroy ]
 
   # GET /events or /events.json
@@ -51,11 +52,18 @@ class EventsController < ApplicationController
     if !user_signed_in?
       redirect_to new_user_session_path
     else
-      @event = Event.new(event_params)
-      @event.user = current_user
-      @event.save!
-      flash[:notice] = "#{@event.event_name} was successfully created."
-      redirect_to events_path
+      start_time = Time.new *flatten_date_array(params[:event],"start")
+      end_time = Time.new *flatten_date_array(params[:event], "end")
+      if (end_time < start_time or end_time < Time.now)
+        flash[:warning] = "Time invalid!"
+        redirect_to events_path
+      else
+        @event = Event.new(event_params)
+        @event.user = current_user
+        @event.save!
+        flash[:notice] = "#{@event.event_name} was successfully created."
+        redirect_to events_path
+      end
     end
   end
 
