@@ -7,7 +7,7 @@ class Event < ApplicationRecord
   end
 
   def self.with_tags_sort(tags_list = [], sort_key)
-    return Event.where(tag: tags_list).order(sort_key)
+    return Event.where(tag: tags_list).where("available_spots != 0").where("end_time > ?", Time.now).order(sort_key)
   end
 
 end

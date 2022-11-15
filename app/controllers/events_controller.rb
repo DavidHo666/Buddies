@@ -59,6 +59,12 @@ class EventsController < ApplicationController
       if (end_time < start_time or end_time < Time.now)
         flash[:warning] = "Time invalid!"
         redirect_to events_path
+      elsif Integer(params[:event][:available_spots]) < 1
+        flash[:warning] = 'At least one available spot.'
+        redirect_to events_path
+      elsif Integer(params[:event][:occupied_spots]) < 1
+        flash[:warning] = 'At least one spot is occupied(by you).'
+        redirect_to events_path
       else
         @event = Event.new(event_params)
         @event.user = current_user
@@ -104,7 +110,7 @@ class EventsController < ApplicationController
         # if @event.occupied_spots.nil?
         #   @event.occupied_spots = 1
         # end
-        if @event.users.length >= @event.available_spots
+        if @event.available_spots == 0 # @event.users.length >= @event.available_spots
           flash[:warning] = "Event #{@event.event_name} is full."
         else
           @event.users << current_user
