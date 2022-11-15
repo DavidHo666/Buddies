@@ -28,7 +28,22 @@
     End on:
     <%= @event.end_time %>
   </li>
+  <li>
+    Organizer:
+    <%= @organizer.email%>
+  </li>
 </ul>
+
+<% if user_signed_in? and (@organizer==current_user or @participants.include? current_user)%>
+  <h3>All participants:</h3>
+  <p id="All participants">
+    <% @participants.each do |user| %>
+      <li>
+      <%= user.email %>
+      </li>
+    <%end%>
+  </p>
+<%end%>
 
 <h3>Description:</h3>
 <p id="description">

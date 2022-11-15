@@ -1,0 +1,49 @@
+<table class="table table-striped col-md-12" id="events">
+  <thead>
+  <tr>
+    <th>Events</th>
+    <th>tags</th>
+    <th>Address</th>
+    <th>Price</th>
+    <th>Available Spots</th>
+    <th>Occupied Spots</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>More info</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @events_posted.each do |event| %>
+    <tr>
+      <td>
+        <%= event.event_name %>
+      </td>
+      <td>
+        <%= event.tag %>
+      </td>
+      <td>
+        <%= event.address %>
+      </td>
+      <td>
+        <%= event.price %>
+      </td>
+      <td>
+        <%= event.available_spots %>
+      </td>
+      <td>
+        <%= event.occupied_spots %>
+      </td>
+      <td>
+        <%= event.start_time%>
+      </td>
+      <td>
+        <%= event.end_time%>
+      </td>
+      <td>
+        <%= link_to "More about #{event.event_name}", event_path(event) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

@@ -44,6 +44,7 @@
                   events_path(:sort => "end_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
                   id:'start_time_header' %></th>
     <th>More Info</th>
+    <th> Join </th>
   </tr>
   </thead>
   <tbody>
@@ -75,6 +76,9 @@
       </td>
       <td>
         <%= link_to "More about #{event.event_name}", event_path(event) %>
+      </td>
+      <td>
+        <%= button_to 'Participate', participate_event_path(event), method: :post%>
       </td>
     </tr>
   <% end %>

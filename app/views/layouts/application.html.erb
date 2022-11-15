@@ -17,6 +17,8 @@
   <%= link_to "My Profile", user_path(current_user), :class => 'btn btn-primary' %>
   <%# <%= link_to "My Profile", profile_path(current_user), :class => 'btn btn-primary' %>
   <%= button_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-primary'%>
+  <%= link_to "Events Joined", show_events_joined_path(current_user), :class => 'btn btn-primary' %>
+  <%= link_to "Events Posted", show_events_posted_path(current_user), :class => 'btn btn-primary' %>
 <% else %>
   <%= link_to "Sign In", new_user_session_path, :class => 'btn btn-primary' %>
   <%= link_to "Sign Up", new_user_registration_path, :class => 'btn btn-primary' %>

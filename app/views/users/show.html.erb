@@ -2,44 +2,6 @@
 
 <div style="display:flex;">
 <div style="flex-grow: 3;"><%= render @user%></div>
-<div id="event_block" style="flex-grow: 3;">
-  <p style="font-weight:bold;">Event(s) I created:</p>
-  <table>
-    <tbody>
-    <% @events_created.each do |event| %>
-        <tr>
-          <td>
-            <%= event.event_name %>
-          </td>
-          <td>
-            <%= link_to "More about #{event.event_name}", event_path(event) %>
-          </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-</div>
-<div id="event_joined_block" style="flex-grow: 3;">
-  <p style="font-weight:bold;">Event(s) I joined:</p>
-  <table>
-    <tbody>
-    <% @events_joined.each do |event| %>
-        <tr>
-          <td>
-            <%= event.event_name %>
-          </td>
-          <td>
-            <%= link_to "More about #{event.event_name}", event_path(event) %>
-          </td>
-            
-          <td>
-          <%= button_to 'Leave', unparticipate_event_path(event), method: :delete%>
-          </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-</div>
 </div>
 
 
