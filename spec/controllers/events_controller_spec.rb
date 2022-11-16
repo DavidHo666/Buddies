@@ -17,24 +17,90 @@ RSpec.describe EventsController do
 
     it "should only show events from selected tags" do
       curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
-      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
-      event_test2 = Event.create!(event_name: "TEST CREATE 2", user: curr_user, tag: "Music")
+      sign_in curr_user
+
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE 1",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 2
+      } }
+
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE 2",
+        :tag => "Music",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 2
+      } }
 
       get :index, params:{ :tags => {"Music" => 1} }
       selected_events = assigns(:events)[0]
-      # res = selected_events.find_by(event_name: "TEST CREATE 2").event_name
-      expect(selected_events.event_name).to eq(event_test2.event_name)
+      expect(selected_events.event_name).to eq("TEST CREATE 2")
     end
 
     it "should show events in selected sort key" do
       curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
-      event_test1 = Event.create!(event_name: "B TEST CREATE 1", user: curr_user, tag: "Food&Drink")
-      event_test2 = Event.create!(event_name: "A TEST CREATE 2", user: curr_user, tag: "Music")
+      sign_in curr_user
+
+      post :create, params: { :event => {
+        :event_name => "B TEST CREATE 1",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 2
+      } }
+
+      post :create, params: { :event => {
+        :event_name => "B TEST CREATE 1",
+        :tag => "Music",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 2
+      } }
+
 
       get :index, params:{ :sort => "event_name" }
       selected_events = assigns(:events)[0]
       # res = selected_events.find_by(event_name: "TEST CREATE 2").event_name
-      expect(selected_events.event_name).to eq(event_test2.event_name)
+      expect(selected_events.event_name).to eq("B TEST CREATE 1")
     end
   end
 
@@ -42,13 +108,121 @@ RSpec.describe EventsController do
     it "should create a new event" do
       curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
       sign_in curr_user
-      post :create, params: { :event => { :event_name => "TEST CREATE", :tag => "Food&Drink" } }
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 2
+      } }
+      expect(flash[:notice]).to eq("TEST CREATE was successfully created.")
       expect(response).to redirect_to(events_path)
     end
 
     it "should not create a new event if not logged in" do
       post :create, params: { :event => { :event_name => "TEST CREATE", :tag => "Food&Drink" } }
       expect(response).to redirect_to(new_user_session_path)
+    end
+
+    it "should not create a new event if End Time already passed" do
+      curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
+      sign_in curr_user
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2021",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 2
+      } }
+      expect(flash[:warning]).to eq("Time invalid!")
+      expect(response).to redirect_to(events_path)
+    end
+
+    it "should not create a new event if Start Time is after End Time" do
+      curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
+      sign_in curr_user
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "2",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "1",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 2
+      } }
+      expect(flash[:warning]).to eq("Time invalid!")
+      expect(response).to redirect_to(events_path)
+    end
+
+    it "should not create a new event if Available Spot is less than 1" do
+      curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
+      sign_in curr_user
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 0,
+        :occupied_spots => 2
+      } }
+      expect(flash[:warning]).to eq("At least one available spot.")
+      expect(response).to redirect_to(events_path)
+    end
+
+    it "should not create a new event if Occupied Spot is less than 1" do
+      curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
+      sign_in curr_user
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 0
+      } }
+      expect(flash[:warning]).to eq("At least one spot is occupied(by you).")
+      expect(response).to redirect_to(events_path)
     end
   end
 
@@ -110,6 +284,199 @@ RSpec.describe EventsController do
       event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
       delete :destroy, params:{ :id => 1 }
       expect(flash[:warning]).to eq("Event TEST CREATE 1 couldn't be deleted by you.")
+    end
+  end
+
+  describe "add_participation" do
+    it "should let user to participate in an event" do
+      organizer_user = User.create!(email: "organizer@gmail.com", password: "testtesttest")
+      sign_in organizer_user
+
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 1
+      } }
+      sign_out organizer_user
+
+      curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
+      sign_in curr_user
+
+      put :add_participation, params: { :id => 1 }
+      expect(flash[:notice]).to eq("You have successfully joined event TEST CREATE.")
+      expect(response).to redirect_to(events_path)
+    end
+
+    it "should not let user to participate if not log in" do
+      put :add_participation, params: { :id => 1 }
+      expect(response).to redirect_to(new_user_session_path)
+    end
+
+    it "should not let user join their own event" do
+      organizer_user = User.create!(email: "organizer@gmail.com", password: "testtesttest")
+      sign_in organizer_user
+
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 1
+      } }
+
+      put :add_participation, params: { :id => 1 }
+      expect(flash[:warning]).to eq("You can't participate in your own event.")
+    end
+
+    it "should not participant if event is full" do
+      organizer_user = User.create!(email: "organizer@gmail.com", password: "testtesttest")
+      sign_in organizer_user
+
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 1,
+        :occupied_spots => 1
+      } }
+      sign_out organizer_user
+
+      curr_user_1 = User.create!(email: "test1@gmail.com", password: "testtesttest")
+      sign_in curr_user_1
+      put :add_participation, params: { :id => 1 }
+      sign_out curr_user_1
+
+      curr_user_2 = User.create!(email: "test2@gmail.com", password: "testtesttest")
+      sign_in curr_user_2
+      put :add_participation, params: { :id => 1 }
+
+      expect(flash[:warning]).to eq("Event TEST CREATE is full.")
+      expect(response).to redirect_to(events_path)
+    end
+
+    it "should not join event if already joined" do
+      organizer_user = User.create!(email: "organizer@gmail.com", password: "testtesttest")
+      sign_in organizer_user
+
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 1,
+        :occupied_spots => 1
+      } }
+      sign_out organizer_user
+
+      curr_user_1 = User.create!(email: "test1@gmail.com", password: "testtesttest")
+      sign_in curr_user_1
+      put :add_participation, params: { :id => 1 }
+      put :add_participation, params: { :id => 1 }
+      expect(flash[:warning]).to eq("You have already joined event TEST CREATE.")
+    end
+
+    describe "remove_participation" do
+      it "should remove user from participants of an event" do
+        organizer_user = User.create!(email: "organizer@gmail.com", password: "testtesttest")
+        sign_in organizer_user
+
+        post :create, params: { :event => {
+          :event_name => "TEST CREATE",
+          :tag => "Food&Drink",
+          "start_time(1i)" => "2023",
+          "start_time(2i)" => "1",
+          "start_time(3i)" => "1",
+          "start_time(4i)" => "12",
+          "start_time(5i)" => "30",
+          "end_time(1i)" => "2023",
+          "end_time(2i)" => "2",
+          "end_time(3i)" => "1",
+          "end_time(4i)" => "12",
+          "end_time(5i)" => "30",
+          :available_spots => 1,
+          :occupied_spots => 1
+        } }
+        sign_out organizer_user
+
+        curr_user_1 = User.create!(email: "test1@gmail.com", password: "testtesttest")
+        sign_in curr_user_1
+        put :add_participation, params: { :id => 1 }
+        put :remove_participation, params: { :id => 1 }
+        expect(flash[:notice]).to eq("You have successfully left event TEST CREATE.")
+        expect(response).to redirect_to(events_path)
+      end
+
+      it "should not remove user from participants if user not logged in" do
+        put :remove_participation, params: { :id => 1 }
+        expect(response).to redirect_to(new_user_session_path)
+      end
+
+      it "should not remove user from participants if user did not join this event" do
+        organizer_user = User.create!(email: "organizer@gmail.com", password: "testtesttest")
+        sign_in organizer_user
+
+        post :create, params: { :event => {
+          :event_name => "TEST CREATE",
+          :tag => "Food&Drink",
+          "start_time(1i)" => "2023",
+          "start_time(2i)" => "1",
+          "start_time(3i)" => "1",
+          "start_time(4i)" => "12",
+          "start_time(5i)" => "30",
+          "end_time(1i)" => "2023",
+          "end_time(2i)" => "2",
+          "end_time(3i)" => "1",
+          "end_time(4i)" => "12",
+          "end_time(5i)" => "30",
+          :available_spots => 1,
+          :occupied_spots => 1
+        } }
+        sign_out organizer_user
+
+        curr_user_1 = User.create!(email: "test1@gmail.com", password: "testtesttest")
+        sign_in curr_user_1
+        put :remove_participation, params: { :id => 1 }
+        expect(flash[:warning]).to eq("You haven't joined event TEST CREATE.")
+        expect(response).to redirect_to(events_path)
+      end
+
     end
   end
 end

@@ -78,7 +78,7 @@
         <%= link_to "More about #{event.event_name}", event_path(event) %>
       </td>
       <td>
-        <%= button_to 'Participate', participate_event_path(event), method: :post%>
+        <%= button_to 'Participate', participate_event_path(event), method: :post, :class => "button" %>
       </td>
     </tr>
   <% end %>
