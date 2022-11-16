@@ -339,15 +339,49 @@ RSpec.describe EventsController do
   describe "destroy Event" do
     it "should destroy the event" do
       curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
-      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
       sign_in curr_user
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE 1",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 1
+      } }
+
       delete :destroy, params:{ :id => 1 }
-      expect(Event.find_by(event_name: event_test1.event_name)).to be nil
+      expect(Event.find_by(event_name: "TEST CREATE 1")).to be nil
     end
 
     it "should not destroy the event if not logged in" do
       curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
-      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
+      sign_in curr_user
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE 1",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 1
+      } }
+      sign_out curr_user
+
       delete :destroy, params:{ :id => 1 }
       expect(flash[:warning]).to eq("Event TEST CREATE 1 couldn't be deleted by you.")
     end
