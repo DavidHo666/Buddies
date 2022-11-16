@@ -256,16 +256,82 @@ RSpec.describe EventsController do
   describe "update Event" do
     it "should update the event" do
       curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
-      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
       sign_in curr_user
-      put :update, params: { :id => 1, :event => { :event_name => "TEST CREATE 1", :tag => "Food&Drink" } }
-      expect(flash[:notice]).to eq("Event TEST CREATE 1 was successfully updated.")
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE 1",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 1
+      } }
+
+      put :update, params: { :id => 1,
+                             :event => {
+                               :event_name => "TEST CREATE 2",
+                               :tag => "Food&Drink",
+                               "start_time(1i)" => "2023",
+                               "start_time(2i)" => "1",
+                               "start_time(3i)" => "1",
+                               "start_time(4i)" => "12",
+                               "start_time(5i)" => "30",
+                               "end_time(1i)" => "2023",
+                               "end_time(2i)" => "2",
+                               "end_time(3i)" => "1",
+                               "end_time(4i)" => "12",
+                               "end_time(5i)" => "30",
+                               :available_spots => 5,
+                               :occupied_spots => 1
+                             } }
+      expect(flash[:notice]).to eq("Event TEST CREATE 2 was successfully updated.")
     end
 
     it "should not update the event if not logged in" do
       curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
-      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
-      put :update, params: { :id => 1, :event => { :event_name => "TEST CREATE 1", :tag => "Food&Drink" } }
+      sign_in curr_user
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE 1",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 1
+      } }
+      sign_out curr_user
+
+      put :update, params: { :id => 1,
+                             :event => {
+                               :event_name => "TEST CREATE 2",
+                               :tag => "Food&Drink",
+                               "start_time(1i)" => "2023",
+                               "start_time(2i)" => "1",
+                               "start_time(3i)" => "1",
+                               "start_time(4i)" => "12",
+                               "start_time(5i)" => "30",
+                               "end_time(1i)" => "2023",
+                               "end_time(2i)" => "2",
+                               "end_time(3i)" => "1",
+                               "end_time(4i)" => "12",
+                               "end_time(5i)" => "30",
+                               :available_spots => 5,
+                               :occupied_spots => 1
+                             } }
       expect(flash[:warning]).to eq("Event TEST CREATE 1 couldn't be edited by you.")
     end
   end
