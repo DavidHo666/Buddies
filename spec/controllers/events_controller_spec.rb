@@ -397,6 +397,48 @@ RSpec.describe EventsController do
                              } }
       expect(flash[:warning]).to eq("Event TEST CREATE 1 couldn't be edited by you.")
     end
+
+    it "should not update event if End Time before Start Time" do
+      curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
+      sign_in curr_user
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE 1",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 1
+      } }
+
+      put :update, params: { :id => 1,
+                             :event => {
+                               :event_name => "TEST CREATE 2",
+                               :tag => "Food&Drink",
+                               "start_time(1i)" => "2023",
+                               "start_time(2i)" => "2",
+                               "start_time(3i)" => "1",
+                               "start_time(4i)" => "12",
+                               "start_time(5i)" => "30",
+                               "end_time(1i)" => "2023",
+                               "end_time(2i)" => "1",
+                               "end_time(3i)" => "1",
+                               "end_time(4i)" => "12",
+                               "end_time(5i)" => "30",
+                               :available_spots => 5,
+                               :occupied_spots => 1
+                             } }
+      expect(flash[:warning]).to eq("Time invalid!")
+      expect(response).to redirect_to(event_path)
+    end
+
   end
 
   describe "destroy Event" do
@@ -640,6 +682,31 @@ RSpec.describe EventsController do
         expect(response).to redirect_to(events_path)
       end
 
+      it "should not let organizer leave their own events" do
+        organizer_user = User.create!(email: "organizer@gmail.com", password: "testtesttest")
+        sign_in organizer_user
+
+        post :create, params: { :event => {
+          :event_name => "TEST CREATE",
+          :tag => "Food&Drink",
+          "start_time(1i)" => "2023",
+          "start_time(2i)" => "1",
+          "start_time(3i)" => "1",
+          "start_time(4i)" => "12",
+          "start_time(5i)" => "30",
+          "end_time(1i)" => "2023",
+          "end_time(2i)" => "2",
+          "end_time(3i)" => "1",
+          "end_time(4i)" => "12",
+          "end_time(5i)" => "30",
+          :available_spots => 1,
+          :occupied_spots => 1
+        } }
+
+        put :remove_participation, params: { :id => 1 }
+        expect(flash[:warning]).to eq("Can not leave the event created by you.")
+        expect(response).to redirect_to(events_path)
+      end
     end
   end
 end

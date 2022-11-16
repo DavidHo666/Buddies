@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/yangyuxin/Documents/COMS4152/buddies/app/models/user.rb": {
+      "/Users/yizhong/Desktop/buddies/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -14,31 +14,31 @@
           null
         ]
       },
-      "/Users/yangyuxin/Documents/COMS4152/buddies/app/models/application_record.rb": {
+      "/Users/yizhong/Desktop/buddies/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/yangyuxin/Documents/COMS4152/buddies/app/models/event.rb": {
+      "/Users/yizhong/Desktop/buddies/app/models/event.rb": {
         "lines": [
           1,
           1,
           1,
           1,
           1,
-          260,
+          257,
           null,
           null,
           1,
-          160,
+          158,
           null,
           null,
           null
         ]
       },
-      "/Users/yangyuxin/Documents/COMS4152/buddies/app/controllers/events_controller.rb": {
+      "/Users/yizhong/Desktop/buddies/app/controllers/events_controller.rb": {
         "lines": [
           1,
           1,
@@ -46,40 +46,40 @@
           null,
           null,
           1,
-          160,
+          158,
           null,
-          160,
+          158,
           1,
           null,
           null,
-          160,
+          158,
           null,
-          160,
-          58,
-          522,
+          158,
+          57,
+          513,
           null,
           null,
-          160,
-          60,
+          158,
+          59,
           null,
-          100,
+          99,
           null,
-          160,
+          158,
           null,
-          160,
+          158,
           null,
-          160,
+          158,
           null,
-          160,
+          158,
           null,
           null,
           null,
           null,
           1,
-          38,
-          38,
-          38,
-          38,
+          34,
+          34,
+          34,
+          34,
           null,
           null,
           null,
@@ -175,22 +175,22 @@
           null,
           null,
           1,
-          4,
+          3,
           1,
           null,
-          3,
-          3,
-          1,
-          1,
-          1,
-          1,
-          1,
+          2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
           2,
           1,
           null,
           1,
           null,
-          3,
+          2,
           null,
           null,
           null,
@@ -209,23 +209,23 @@
           null
         ]
       },
-      "/Users/yangyuxin/Documents/COMS4152/buddies/app/controllers/application_controller.rb": {
+      "/Users/yizhong/Desktop/buddies/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/yangyuxin/Documents/COMS4152/buddies/app/helpers/application_helper.rb": {
+      "/Users/yizhong/Desktop/buddies/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/yangyuxin/Documents/COMS4152/buddies/app/helpers/events_helper.rb": {
+      "/Users/yizhong/Desktop/buddies/app/helpers/events_helper.rb": {
         "lines": [
           1,
           1,
-          714,
+          707,
           1,
           null,
           null,
@@ -237,13 +237,13 @@
           null
         ]
       },
-      "/Users/yangyuxin/Documents/COMS4152/buddies/app/helpers/users_helper.rb": {
+      "/Users/yizhong/Desktop/buddies/app/helpers/users_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/yangyuxin/Documents/COMS4152/buddies/app/models/participation.rb": {
+      "/Users/yizhong/Desktop/buddies/app/models/participation.rb": {
         "lines": [
           1,
           1,
@@ -251,7 +251,7 @@
           null
         ]
       },
-      "/Users/yangyuxin/Documents/COMS4152/buddies/app/controllers/users_controller.rb": {
+      "/Users/yizhong/Desktop/buddies/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -339,6 +339,6 @@
         ]
       }
     },
-    "timestamp": 1668640392
+    "timestamp": 1668642767
   }
 }
