@@ -69,6 +69,31 @@ Scenario: When join the event to make it a full party, event would not display o
     And I follow "More about Halloween Parade"
     Then I should see "Available Spots: 0"
 
+Scenario: [sad] as a user, can not join an event previously joined
+    Given I am on the home page
+    When I follow "Sign In"
+    And I signin with email "bot2@gmail.com" and password "bot2bot2"
+    When I join event "CS Lecture"
+    When I join event "CS Lecture"
+    Then I should be on the home page
+    And I should see "You have already joined event CS Lecture"
+
+Scenario: [sad] as a user, can not join an event that is full (though when full, will not display)
+    Given I am on the home page
+    When I follow "Sign In"
+    And I signin with email "bot1@gmail.com" and password "bot1bot1"
+    When I join event "Halloween Parade"
+    Then I press "Sign Out"
+
+    When I follow "Sign In"
+    And I signin with email "bot3@gmail.com" and password "bot3bot3"
+    Given I am on the details page for event "Halloween Parade"
+    And I press "Participate"
+    Then I should be on the home page
+    And I should see "Event Halloween Parade is full."
+
+    
+
 Scenario: [sad] as a guest, leave event would redirect to signin/signup
     Given I am on the details page for event "Halloween Parade"
     And I press "Leave"
