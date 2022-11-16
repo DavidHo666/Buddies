@@ -45,11 +45,30 @@ describe UsersController do
   end
 
   describe "POST destroy" do
-  it "should destroy user" do
-    user_test = User.create!(email: "test@gmail.com", password: "testtesttest")
-    delete :destroy, params:{ :id => 1 }
-    expect(User.find_by(email: user_test.email)).to be nil
+    it "should destroy user" do
+      user_test = User.create!(email: "test@gmail.com", password: "testtesttest")
+      delete :destroy, params:{ :id => 1 }
+      expect(User.find_by(email: user_test.email)).to be nil
+    end
   end
-end
 
+  describe "show_events_joined" do
+    it "should get all joined events" do
+      organizer_user = User.create!(email: "organizer@gmail.com", password: "testtesttest")
+      sign_in organizer_user
+
+      get :show_events_joined, params: { :id => 1 }
+      expect(response).to render_template("show_events_joined")
+    end
+  end
+
+  describe "show_events_posted" do
+    it "should get all posted events" do
+      organizer_user = User.create!(email: "organizer@gmail.com", password: "testtesttest")
+      sign_in organizer_user
+
+      get :show_events_posted, params: { :id => 1 }
+      expect(response).to render_template("show_events_posted")
+    end
+  end
 end

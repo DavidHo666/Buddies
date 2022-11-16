@@ -55,8 +55,8 @@
   <%= link_to 'Back to event list', events_path, :class => 'btn btn-primary col-2' %>
   
   <div style="display:flex;">
-    <%= button_to 'Delete', event_path(@event), method: :delete %>
-    <%= button_to 'Participate', participate_event_path(@event), method: :post%>
-    <%= button_to 'Leave', unparticipate_event_path(@event), method: :delete%>
+    <div><%= button_to 'Delete', event_path(@event), method: :delete , :class => "button" %></div>
+    <div><%= button_to 'Participate', participate_event_path(@event), method: :post, :class => "button" %></div>
+    <div><%= button_to 'Leave', unparticipate_event_path(@event), method: :delete, :class => "button" %></div>
   </div>
 </div>
