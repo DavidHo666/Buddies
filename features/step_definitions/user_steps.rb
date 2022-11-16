@@ -16,3 +16,13 @@ When /^I signin with email "([^"]*)" and password "([^"]*)"$/ do |e, p|
     fill_in("Password", :with => p)
     click_button("Log in")
 end
+
+When /^I join event "([^"]*)"$/ do |e|
+    click_link("More about #{e}")
+    click_button("Participate")
+end
+
+When /^I leave event "([^"]*)"$/ do |e|
+    click_link("More about #{e}")
+    click_button("Leave")
+end

@@ -38,6 +38,12 @@ module NavigationHelpers
 
     when /^the details page for event "([^"]*)"$/i
       event_path(Event.find_by_event_name($1))
+    
+    when /^the events posted page for "([^"]*)"$/i
+      show_events_posted_path(User.find_by_email($1))
+
+    when /^the events joined page for "([^"]*)"$/i
+      show_events_joined_path(User.find_by_email($1))
 
 
       # Add more mappings here.

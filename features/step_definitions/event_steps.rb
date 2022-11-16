@@ -24,3 +24,21 @@ Given /the following events exist/ do |events_table|
       step %{I should see "#{event.event_name}"}
     end
   end
+
+  When /^(?:|I )select the time "([^"]*)-([^"]*)-([^"]*) ([^"]*):([^"]*)" from "([^"]*)"$/ do |year, month, day, hour, minute, item|
+    label = page.find('label', text: item)
+    field = label['for']
+    select(year,   :from => "#{field}_1i")
+    select(month,  :from => "#{field}_2i")
+    select(day,    :from => "#{field}_3i")
+    select(hour,   :from => "#{field}_4i")
+    select(minute, :from => "#{field}_5i")
+  end
+
+  # When /^(?:|I )select the time "([^ ]*) ([^ ]*) ([^ ]*) - ([^:]*):([^"]*)" as the "([^"]*)"$/ do |year, month, day, hour, minute, field|
+  #   select(year,   :from => "#{field}_1i")
+  #   select(month,  :from => "#{field}_2i")
+  #   select(day,    :from => "#{field}_3i")
+  #   select(hour,   :from => "#{field}_4i")
+  #   select(minute, :from => "#{field}_5i")
+  # end

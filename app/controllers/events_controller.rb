@@ -79,6 +79,12 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.user == current_user
+      start_time = Time.new *flatten_date_array(params[:event],"start")
+      end_time = Time.new *flatten_date_array(params[:event], "end")
+      if end_time < start_time
+        flash[:warning] = "Time invalid!"
+        redirect_to event_path() and return
+      end
       @event.update(event_params)
       flash[:notice] = "Event #{@event.event_name} was successfully updated."
     else
@@ -137,6 +143,8 @@ class EventsController < ApplicationController
         @event.occupied_spots = @event.occupied_spots - 1
         @event.save!
         flash[:notice] = "You have successfully left event #{@event.event_name}."
+      elsif @event.user == current_user
+        flash[:warning] = "Can not leave the event created by you."
       else
         flash[:warning] = "You haven't joined event #{@event.event_name}."
       end

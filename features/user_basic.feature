@@ -10,10 +10,10 @@ Background: users in database
     | bot2     | bot2@gmail.com | bot2bot2 | looking for new friends       |
 
     Given the following events exist:
-    | event_name       | address      | start_time              | end_time            | price | description | tag          | available_spots | occupied_spots | user_id   |
-    | Study Session    | NWC          | 2022-11-29 16:00:00 UTC | 2022-11-29 18:00:00 |  0    |   welcome   | Academia     |   10            |   5            |     1     |
-    | CS Lecture       | MUDD 527     | 2022-12-31 13:00:00 UTC | 2022-12-31 14:50:00 |  30   | well known  | Academia     |   60            |  45            |     1     |
-    | Halloween Parade | Time's square| 2022-11-01 12:00:00 UTC | 2022-11-01 20:00:00 | 200   |  happy      | Arts&Culture |   50            |   6            |     2     |
+    | event_name       | address      | start_time              | end_time                | price | description | tag          | available_spots| occupied_spots | user_id   |
+    | Study Session    | NWC          | 2022-12-29 16:00:00 UTC | 2022-12-29 18:00:00 UTC |  0    |   welcome   | Academia     |   5            |   1            |     1     |
+    | CS Lecture       | MUDD 527     | 2022-12-31 13:00:00 UTC | 2022-12-31 14:50:00 UTC |  30   | well known  | Academia     |   1            |   1            |     1     |
+    | Halloween Parade | Time's square| 2022-12-01 12:00:00 UTC | 2022-12-01 20:00:00 UTC | 200   |  happy      | Arts&Culture |   9            |   1            |     2     |
 
 Scenario: [sad] As a guest, create event would redirect to signin/signup
     Given I am on the home page
@@ -78,6 +78,8 @@ Scenario: As a user, create new event, and the event can be viewed by a guest
     And I fill in "Available Spots" with "10"
     And I fill in "Occupied Spots" with "2"
     And I fill in "Price" with "0"
+    And I select the time "2022-December-29 16:00" from "Start On"
+    And I select the time "2022-December-29 20:00" from "End On"
     And I select "Academia" from "tag"
     When I press "Save Changes"
     Then I should be on the home page
@@ -86,6 +88,78 @@ Scenario: As a user, create new event, and the event can be viewed by a guest
     And I follow "More about Debate session"
     And I should be on the details page for event "Debate session"
     And I should see "Debate session"
+
+Scenario: [sad] As a user, can not create event that ends before current time
+    Given I am on the home page
+    When I follow "Sign In"
+    And I signin with email "bot2@gmail.com" and password "bot2bot2"
+    When I follow "Add new event"
+    And I fill in "Event Name" with "Debate session"
+    And I fill in "Address" with "MUDD 627"
+    And I fill in "Available Spots" with "10"
+    And I fill in "Occupied Spots" with "2"
+    And I fill in "Price" with "0"
+    And I select the time "2022-October-29 16:00" from "Start On"
+    And I select the time "2022-October-29 20:00" from "End On"
+    And I select "Academia" from "tag"
+    When I press "Save Changes"
+    Then I should be on the home page
+    And I should see "Time invalid!"
+    And I should not see "Debate session"
+
+Scenario: [sad] As a user, can not create event that has an end time earlier than start time
+    Given I am on the home page
+    When I follow "Sign In"
+    And I signin with email "bot2@gmail.com" and password "bot2bot2"
+    When I follow "Add new event"
+    And I fill in "Event Name" with "Debate session"
+    And I fill in "Address" with "MUDD 627"
+    And I fill in "Available Spots" with "10"
+    And I fill in "Occupied Spots" with "2"
+    And I fill in "Price" with "0"
+    And I select the time "2022-October-29 23:00" from "Start On"
+    And I select the time "2022-October-29 17:00" from "End On"
+    And I select "Academia" from "tag"
+    When I press "Save Changes"
+    Then I should be on the home page
+    And I should see "Time invalid!"
+    And I should not see "Debate session"
+
+Scenario: [sad] As a user, can not create event that available spots is under 1
+    Given I am on the home page
+    When I follow "Sign In"
+    And I signin with email "bot2@gmail.com" and password "bot2bot2"
+    When I follow "Add new event"
+    And I fill in "Event Name" with "Debate session"
+    And I fill in "Address" with "MUDD 627"
+    And I fill in "Available Spots" with "0"
+    And I fill in "Occupied Spots" with "2"
+    And I fill in "Price" with "0"
+    And I select the time "2022-December-29 13:00" from "Start On"
+    And I select the time "2022-December-29 17:00" from "End On"
+    And I select "Academia" from "tag"
+    When I press "Save Changes"
+    Then I should be on the home page
+    And I should see "At least one available spot."
+    And I should not see "Debate session"
+
+Scenario: [sad] As a user, can not create event that occupied spots is under 1
+    Given I am on the home page
+    When I follow "Sign In"
+    And I signin with email "bot2@gmail.com" and password "bot2bot2"
+    When I follow "Add new event"
+    And I fill in "Event Name" with "Debate session"
+    And I fill in "Address" with "MUDD 627"
+    And I fill in "Available Spots" with "20"
+    And I fill in "Occupied Spots" with "0"
+    And I fill in "Price" with "0"
+    And I select the time "2022-December-29 13:00" from "Start On"
+    And I select the time "2022-December-29 17:00" from "End On"
+    And I select "Academia" from "tag"
+    When I press "Save Changes"
+    Then I should be on the home page
+    And I should see "At least one spot is occupied(by you)."
+    And I should not see "Debate session"
 
 Scenario: As a user, edit event posted by myself
     Given I am on the home page
@@ -99,6 +173,17 @@ Scenario: As a user, edit event posted by myself
     Then I should be on the details page for event "Halloween Parade"
     And I should see "Event Halloween Parade was successfully updated."
 
+Scenario: [sad] As a user, can not edit event to let the end time be earlir than start time
+    Given I am on the home page
+    When I follow "Sign In"
+    And I signin with email "bot2@gmail.com" and password "bot2bot2"
+    When I follow "More about Halloween Parade"
+    And I follow "Edit"
+    And I select the time "2022-December-29 13:00" from "Start On"
+    And I select the time "2022-December-29 12:00" from "End On"
+    And I press "Update Event Info"
+    Then I should be on the details page for event "Halloween Parade"
+    And I should see "Time invalid!"
 
 Scenario: As a user, delete event posted by yourself
     Given I am on the home page
