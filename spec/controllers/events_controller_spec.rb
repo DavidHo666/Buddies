@@ -99,7 +99,6 @@ RSpec.describe EventsController do
 
       get :index, params:{ :sort => "event_name" }
       selected_events = assigns(:events)[0]
-      # res = selected_events.find_by(event_name: "TEST CREATE 2").event_name
       expect(selected_events.event_name).to eq("B TEST CREATE 1")
     end
   end
@@ -129,7 +128,22 @@ RSpec.describe EventsController do
     end
 
     it "should not create a new event if not logged in" do
-      post :create, params: { :event => { :event_name => "TEST CREATE", :tag => "Food&Drink" } }
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2021",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 2
+      } }
       expect(response).to redirect_to(new_user_session_path)
     end
 
@@ -229,26 +243,75 @@ RSpec.describe EventsController do
   describe "GET show" do
     it "should return the event with matched id" do
       curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
-      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
-      event_test2 = Event.create!(event_name: "TEST CREATE 2", user: curr_user, tag: "Music")
+      sign_in curr_user
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE 1",
+        :tag => "Food&Drink",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 1
+      } }
+
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE 2",
+        :tag => "Music",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 1
+      } }
 
       get :show, params:{ :id => 2}
       selected_event = assigns(:event)
-      expect(selected_event.event_name).to eq(event_test2.event_name)
+      expect(selected_event.event_name).to eq("TEST CREATE 2")
 
       get :show, params:{ :id => 1}
       selected_event = assigns(:event)
-      expect(selected_event.event_name).to eq(event_test1.event_name)
+      expect(selected_event.event_name).to eq("TEST CREATE 1")
     end
   end
 
   describe "edit event" do
     it "should edit the event" do
       curr_user = User.create!(email: "test1@gmail.com", password: "testtesttest")
-      event_test1 = Event.create!(event_name: "TEST CREATE 1", user: curr_user, tag: "Food&Drink")
+      sign_in curr_user
 
-      get :edit, params: { :id => event_test1.id }
-      after_created = Event.find_by_id(event_test1[:id])
+      post :create, params: { :event => {
+        :event_name => "TEST CREATE 1",
+        :tag => "Music",
+        "start_time(1i)" => "2023",
+        "start_time(2i)" => "1",
+        "start_time(3i)" => "1",
+        "start_time(4i)" => "12",
+        "start_time(5i)" => "30",
+        "end_time(1i)" => "2023",
+        "end_time(2i)" => "2",
+        "end_time(3i)" => "1",
+        "end_time(4i)" => "12",
+        "end_time(5i)" => "30",
+        :available_spots => 5,
+        :occupied_spots => 1
+      } }
+
+      get :edit, params: { :id => 1 }
+      after_created = Event.find_by_id(1)
       expect(assigns(:event)).to eq after_created
     end
   end
