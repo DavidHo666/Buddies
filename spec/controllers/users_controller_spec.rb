@@ -16,18 +16,18 @@ describe UsersController do
     end
   end
 
-  describe "POST create" do
-    it "should create a new user" do
-      post :create, params: { :user => { :email => "test@gmail.com", password: "testtesttest"} }
-      expect(response).to redirect_to(user_path(User.last))
-    end
+  # describe "POST create" do
+  #   it "should create a new user" do
+  #     post :create, params: { :user => { :email => "test@gmail.com", password: "testtesttest"} }
+  #     expect(response).to redirect_to(user_path(User.last))
+  #   end
 
-    it "should not create a new user if email is not unique" do
-      User.create!(email: "test@gmail.com", password: "testtesttest")
-      post :create, params: { :user => { :email => "test@gmail.com", password: "testtesttest"} }
-      expect(response).to render_template("new")
-    end
-  end
+  #   it "should not create a new user if email is not unique" do
+  #     User.create!(email: "test@gmail.com", password: "testtesttest")
+  #     post :create, params: { :user => { :email => "test@gmail.com", password: "testtesttest"} }
+  #     expect(response).to render_template("new")
+  #   end
+  # end
 
   describe "POST update" do
     it "should update a user" do
