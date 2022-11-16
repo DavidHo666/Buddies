@@ -1,6 +1,8 @@
 require 'rails_helper'
 require 'simplecov'
-SimpleCov.coverage_dir 'coverage/cucumber'
+
+SimpleCov.start 'rails'
+SimpleCov.coverage_dir 'coverage/rspec'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'

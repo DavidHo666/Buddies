@@ -34475,3 +34475,360 @@ Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 7725)
 >>>>>>> master1
 
 
+Started GET "/" for 127.0.0.1 at 2022-11-16 17:51:05 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 13ms (ActiveRecord: 0.2ms | Allocations: 5198)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-16 17:51:05 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-11-16 22:51:05.477301')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 89.1ms | Allocations: 14044)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 1.0ms | Allocations: 236)
+  Rendered layout layouts/application.html.erb (Duration: 220.6ms | Allocations: 56475)
+Completed 200 OK in 233ms (Views: 226.5ms | ActiveRecord: 2.2ms | Allocations: 59119)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:51:08 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 560)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 20.1ms | Allocations: 4726)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 7712)
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 0.0ms | Allocations: 9460)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:51:09 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.7ms | Allocations: 2061)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1294)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 4146)
+Completed 200 OK in 197ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 5438)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:51:10 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.1ms | Allocations: 1697)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 3908)
+Completed 200 OK in 191ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 4426)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:02 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.1ms | Allocations: 1499)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 3907)
+Completed 200 OK in 189ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 4409)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:03 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.1ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:03 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.5ms | Allocations: 1711)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3907)
+Completed 200 OK in 189ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 8115)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:03 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.1ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3907)
+Completed 200 OK in 190ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 12686)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:03 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.1ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3907)
+Completed 200 OK in 190ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 12692)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:03 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.1ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3907)
+Completed 200 OK in 191ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 12665)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:04 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.1ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3907)
+Completed 200 OK in 189ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 12679)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:04 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.1ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 3907)
+Completed 200 OK in 189ms (Views: 4.1ms | ActiveRecord: 0.0ms | Allocations: 12687)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:04 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.1ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3907)
+Completed 200 OK in 190ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 12677)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 3907)
+Completed 200 OK in 189ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 9177)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:04 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.2ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:04 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.1ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3932)
+Completed 200 OK in 190ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 7928)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:05 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.1ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3918)
+Completed 200 OK in 192ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 12710)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:05 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.2ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3910)
+Completed 200 OK in 215ms (Views: 30.0ms | ActiveRecord: 0.0ms | Allocations: 12697)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:05 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.1ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3907)
+Completed 200 OK in 191ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 12679)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:05 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.1ms | Allocations: 1496)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 3918)
+Completed 200 OK in 191ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 12692)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3907)
+Completed 200 OK in 185ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 9195)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-16 17:52:07 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.2ms | Allocations: 1493)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 73)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1160)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3907)
+Completed 200 OK in 195ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 4410)
+
+
