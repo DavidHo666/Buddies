@@ -25,7 +25,8 @@
 We provide two kinds of test that could both show test coverage. Use the following command to test:
 - Cucumber test: `rake cucumber`
 - Rspec test: `rake spec`
-Under `coverage` folder, there are two subfolders showing coverage for rspec and coverage for cucumber.
+
+Under `coverage` folder, there are two subfolders showing coverage for rspec and coverage for cucumber. They are automatically created by running the above two commands.
 
 So far, we have gained 88% coverage for cucumber test and 94% coverage for rspec test!
 <img width="1481" alt="1" src="https://user-images.githubusercontent.com/56754826/199622167-572a56b9-63a9-458b-8ad6-4f8d79853f31.png">
