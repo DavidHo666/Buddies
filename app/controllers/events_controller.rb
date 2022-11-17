@@ -56,7 +56,7 @@ class EventsController < ApplicationController
     else
       start_time = Time.new *flatten_date_array(params[:event],"start")
       end_time = Time.new *flatten_date_array(params[:event], "end")
-      if (end_time < start_time or end_time < Time.zone.now)
+      if (end_time < start_time or end_time < Time.now)
         flash[:warning] = "Time invalid!"
         redirect_to events_path
       elsif Integer(params[:event][:available_spots]) < 1
