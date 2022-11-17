@@ -69,10 +69,10 @@
         <%= event.occupied_spots %>
       </td>
       <td>
-        <%= event.start_time.strftime('%a, %b %d %Y %H:%M')%>
+        <%= event.start_time%>
       </td>
       <td>
-        <%= event.end_time.strftime('%a, %b %d %Y %H:%M')%>
+        <%= event.end_time%>
       </td>
       <td>
         <%= link_to "More about #{event.event_name}", event_path(event) %>
