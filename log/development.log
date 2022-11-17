@@ -35543,3 +35543,384 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.5ms | Allocations: 8296)
 
 
+Started GET "/" for 127.0.0.1 at 2022-11-16 18:36:38 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 17ms (ActiveRecord: 0.2ms | Allocations: 6028)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-16 18:36:38 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-11-16 23:36:38.926399')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 29.7ms | Allocations: 14575)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 235)
+  Rendered layout layouts/application.html.erb (Duration: 320.4ms | Allocations: 112594)
+Completed 200 OK in 333ms (Views: 325.5ms | ActiveRecord: 1.2ms | Allocations: 115979)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2022-11-16 18:37:20 -0500
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 61.9ms | Allocations: 20040)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.3ms | Allocations: 32)
+  Rendered layout layouts/application.html.erb (Duration: 68.9ms | Allocations: 24120)
+Completed 200 OK in 72ms (Views: 69.8ms | ActiveRecord: 0.1ms | Allocations: 24494)
+
+
+Started POST "/events" for 127.0.0.1 at 2022-11-16 18:37:47 -0500
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"event_name"=>"sefsdf", "description"=>"wow", "address"=>"er", "available_spots"=>"2", "occupied_spots"=>"2", "price"=>"1", "tag"=>"Food&Drink", "start_time(1i)"=>"2022", "start_time(2i)"=>"11", "start_time(3i)"=>"16", "start_time(4i)"=>"19", "start_time(5i)"=>"37", "end_time(1i)"=>"2022", "end_time(2i)"=>"11", "end_time(3i)"=>"19", "end_time(4i)"=>"18", "end_time(5i)"=>"37"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:54:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:71:in `create'
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "sefsdf"], ["address", "er"], ["start_time", "2022-11-17 00:37:00"], ["end_time", "2022-11-19 23:37:00"], ["price", 1.0], ["description", "wow"], ["tag", "Food&Drink"], ["pictures", nil], ["available_spots", 2], ["occupied_spots", 2], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-16 23:37:47.908327"], ["updated_at", "2022-11-16 23:37:47.908327"], ["user_id", 1]]
+  ↳ app/controllers/events_controller.rb:71:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:71:in `create'
+Redirected to http://0.0.0.0:3000/events
+Completed 302 Found in 27ms (ActiveRecord: 1.1ms | Allocations: 7682)
+
+
+Started GET "/events" for 127.0.0.1 at 2022-11-16 18:37:47 -0500
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 773)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-16 18:37:47 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-11-16 23:37:47.965842')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 20.4ms | Allocations: 4298)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 30)
+  Rendered layout layouts/application.html.erb (Duration: 41.8ms | Allocations: 8194)
+Completed 200 OK in 45ms (Views: 42.0ms | ActiveRecord: 0.3ms | Allocations: 8873)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-16 18:42:49 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 10ms (ActiveRecord: 0.2ms | Allocations: 5161)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-16 18:42:49 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-11-16 23:42:49.936810')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 24.5ms | Allocations: 14602)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 236)
+  Rendered layout layouts/application.html.erb (Duration: 75.6ms | Allocations: 49671)
+Completed 200 OK in 81ms (Views: 77.0ms | ActiveRecord: 1.0ms | Allocations: 52265)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-16 18:43:38 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-11-16 23:43:39.041760')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 24.0ms | Allocations: 14708)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 72.8ms | Allocations: 49734)
+Completed 200 OK in 90ms (Views: 74.4ms | ActiveRecord: 1.1ms | Allocations: 56558)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-16 18:44:41 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 12ms (ActiveRecord: 0.2ms | Allocations: 5172)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-16 18:44:41 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-11-16 23:44:41.212482')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 24.2ms | Allocations: 14595)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 236)
+  Rendered layout layouts/application.html.erb (Duration: 75.7ms | Allocations: 49658)
+Completed 200 OK in 81ms (Views: 77.3ms | ActiveRecord: 1.0ms | Allocations: 52255)
+
+
+Started GET "/events/23" for 127.0.0.1 at 2022-11-16 18:45:26 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:38:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:37
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 23], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:37
+  Rendered events/show.html.erb within layouts/application (Duration: 12.7ms | Allocations: 6788)
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 32)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 9935)
+Completed 200 OK in 79ms (Views: 17.3ms | ActiveRecord: 1.0ms | Allocations: 23624)
+
+
+Started GET "/users/1/events_joined" for 127.0.0.1 at 2022-11-16 18:45:30 -0500
+Processing by UsersController#show_events_joined as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show_events_joined.html.erb within layouts/application
+  [1m[36mParticipation Load (0.4ms)[0m  [1m[34mSELECT events.* FROM "participations" INNER JOIN "events" ON "events"."id" = "participations"."event_id" WHERE "participations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show_events_joined.html.erb:17
+  Rendered users/show_events_joined.html.erb within layouts/application (Duration: 15.4ms | Allocations: 2879)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 7263)
+Completed 200 OK in 33ms (Views: 30.2ms | ActiveRecord: 0.5ms | Allocations: 8240)
+
+
+Started GET "/users/1/events_posted" for 127.0.0.1 at 2022-11-16 18:45:32 -0500
+Processing by UsersController#show_events_posted as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show_events_posted.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show_events_posted.html.erb:16
+  Rendered users/show_events_posted.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1228)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 5200)
+Completed 200 OK in 27ms (Views: 22.4ms | ActiveRecord: 0.6ms | Allocations: 5623)
+
+
+Started GET "/events" for 127.0.0.1 at 2022-11-16 18:47:34 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 11ms (ActiveRecord: 0.2ms | Allocations: 5175)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-16 18:47:34 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-11-16 23:47:34.532216')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 24.1ms | Allocations: 14605)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 236)
+  Rendered layout layouts/application.html.erb (Duration: 73.3ms | Allocations: 49621)
+Completed 200 OK in 79ms (Views: 74.9ms | ActiveRecord: 0.9ms | Allocations: 52213)
+
+
+Started GET "/users/1/events_joined" for 127.0.0.1 at 2022-11-16 18:47:36 -0500
+Processing by UsersController#show_events_joined as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show_events_joined.html.erb within layouts/application
+  [1m[36mParticipation Load (0.3ms)[0m  [1m[34mSELECT events.* FROM "participations" INNER JOIN "events" ON "events"."id" = "participations"."event_id" WHERE "participations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show_events_joined.html.erb:17
+  Rendered users/show_events_joined.html.erb within layouts/application (Duration: 11.0ms | Allocations: 3064)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 7433)
+Completed 200 OK in 36ms (Views: 23.9ms | ActiveRecord: 0.9ms | Allocations: 9845)
+
+
+Started GET "/users/1/events_posted" for 127.0.0.1 at 2022-11-16 18:47:37 -0500
+Processing by UsersController#show_events_posted as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show_events_posted.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show_events_posted.html.erb:16
+  Rendered users/show_events_posted.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1235)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 5214)
+Completed 200 OK in 24ms (Views: 21.2ms | ActiveRecord: 0.6ms | Allocations: 5648)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-16 19:23:31 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 11ms (ActiveRecord: 0.2ms | Allocations: 5157)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-16 19:23:31 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-11-17 00:23:31.824025')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 26.1ms | Allocations: 14602)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.7ms | Allocations: 236)
+  Rendered layout layouts/application.html.erb (Duration: 80.9ms | Allocations: 49625)
+Completed 200 OK in 87ms (Views: 82.5ms | ActiveRecord: 1.1ms | Allocations: 52216)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2022-11-16 19:23:34 -0500
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 31.4ms | Allocations: 11293)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 32)
+  Rendered layout layouts/application.html.erb (Duration: 40.9ms | Allocations: 15373)
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.2ms | Allocations: 15747)
+
+
+Started POST "/events" for 127.0.0.1 at 2022-11-16 19:23:46 -0500
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"event_name"=>"a", "description"=>"a", "address"=>"a", "available_spots"=>"1", "occupied_spots"=>"1", "price"=>"1", "tag"=>"Food&Drink", "start_time(1i)"=>"2022", "start_time(2i)"=>"11", "start_time(3i)"=>"16", "start_time(4i)"=>"19", "start_time(5i)"=>"23", "end_time(1i)"=>"2022", "end_time(2i)"=>"11", "end_time(3i)"=>"16", "end_time(4i)"=>"20", "end_time(5i)"=>"23"}, "commit"=>"Save Changes"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:54:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:71:in `create'
+  [1m[36mEvent Create (0.8ms)[0m  [1m[32mINSERT INTO "events" ("event_name", "address", "start_time", "end_time", "price", "description", "tag", "pictures", "available_spots", "occupied_spots", "organizer_id", "applicants_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["event_name", "a"], ["address", "a"], ["start_time", "2022-11-17 00:23:00"], ["end_time", "2022-11-17 01:23:00"], ["price", 1.0], ["description", "a"], ["tag", "Food&Drink"], ["pictures", nil], ["available_spots", 1], ["occupied_spots", 1], ["organizer_id", nil], ["applicants_id", nil], ["created_at", "2022-11-17 00:23:46.070731"], ["updated_at", "2022-11-17 00:23:46.070731"], ["user_id", 1]]
+  ↳ app/controllers/events_controller.rb:71:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:71:in `create'
+Redirected to http://0.0.0.0:3000/events
+Completed 302 Found in 23ms (ActiveRecord: 1.6ms | Allocations: 6838)
+
+
+Started GET "/events" for 127.0.0.1 at 2022-11-16 19:23:46 -0500
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 722)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-16 19:23:46 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-11-17 00:23:46.118452')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 4582)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 30)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 8478)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.4ms | Allocations: 9162)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-16 19:28:47 -0500
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-11-17 00:28:47.318037')[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 4496)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 7407)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.3ms | Allocations: 7894)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-16 19:31:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+Redirected to http://0.0.0.0:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 11ms (ActiveRecord: 0.2ms | Allocations: 5158)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for 127.0.0.1 at 2022-11-16 19:31:52 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-11-17 00:31:52.081763')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 24.7ms | Allocations: 14879)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 236)
+  Rendered layout layouts/application.html.erb (Duration: 76.0ms | Allocations: 50010)
+Completed 200 OK in 81ms (Views: 77.5ms | ActiveRecord: 0.9ms | Allocations: 52583)
+
+
+Started GET "/users/1/events_joined" for 127.0.0.1 at 2022-11-16 19:31:55 -0500
+Processing by UsersController#show_events_joined as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show_events_joined.html.erb within layouts/application
+  [1m[36mParticipation Load (0.2ms)[0m  [1m[34mSELECT events.* FROM "participations" INNER JOIN "events" ON "events"."id" = "participations"."event_id" WHERE "participations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show_events_joined.html.erb:17
+  Rendered users/show_events_joined.html.erb within layouts/application (Duration: 10.8ms | Allocations: 3064)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 7445)
+Completed 200 OK in 34ms (Views: 23.8ms | ActiveRecord: 0.8ms | Allocations: 9856)
+
+
+Started GET "/users/1/events_posted" for 127.0.0.1 at 2022-11-16 19:31:56 -0500
+Processing by UsersController#show_events_posted as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show_events_posted.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show_events_posted.html.erb:16
+  Rendered users/show_events_posted.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1350)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 5332)
+Completed 200 OK in 26ms (Views: 22.8ms | ActiveRecord: 0.6ms | Allocations: 5766)
+
+
+Started GET "/users/1/events_posted" for 127.0.0.1 at 2022-11-16 19:32:15 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show_events_posted as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show_events_posted.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show_events_posted.html.erb:16
+  Rendered users/show_events_posted.html.erb within layouts/application (Duration: 18.6ms | Allocations: 11472)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 212)
+  Rendered layout layouts/application.html.erb (Duration: 68.3ms | Allocations: 45967)
+Completed 200 OK in 81ms (Views: 69.8ms | ActiveRecord: 1.1ms | Allocations: 52230)
+
+

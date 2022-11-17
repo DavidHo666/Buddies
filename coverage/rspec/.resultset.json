@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/yizhong/Desktop/buddies/app/models/user.rb": {
+      "/Users/davidho/RubymineProjects/buddies/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -14,20 +14,20 @@
           null
         ]
       },
-      "/Users/yizhong/Desktop/buddies/app/models/application_record.rb": {
+      "/Users/davidho/RubymineProjects/buddies/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/yizhong/Desktop/buddies/app/helpers/application_helper.rb": {
+      "/Users/davidho/RubymineProjects/buddies/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/yizhong/Desktop/buddies/app/helpers/events_helper.rb": {
+      "/Users/davidho/RubymineProjects/buddies/app/helpers/events_helper.rb": {
         "lines": [
           1,
           1,
@@ -43,13 +43,13 @@
           null
         ]
       },
-      "/Users/yizhong/Desktop/buddies/app/helpers/users_helper.rb": {
+      "/Users/davidho/RubymineProjects/buddies/app/helpers/users_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/yizhong/Desktop/buddies/app/controllers/events_controller.rb": {
+      "/Users/davidho/RubymineProjects/buddies/app/controllers/events_controller.rb": {
         "lines": [
           1,
           1,
@@ -220,13 +220,13 @@
           null
         ]
       },
-      "/Users/yizhong/Desktop/buddies/app/controllers/application_controller.rb": {
+      "/Users/davidho/RubymineProjects/buddies/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/yizhong/Desktop/buddies/app/controllers/users_controller.rb": {
+      "/Users/davidho/RubymineProjects/buddies/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -313,7 +313,7 @@
           null
         ]
       },
-      "/Users/yizhong/Desktop/buddies/app/models/event.rb": {
+      "/Users/davidho/RubymineProjects/buddies/app/models/event.rb": {
         "lines": [
           1,
           1,
@@ -330,7 +330,7 @@
           null
         ]
       },
-      "/Users/yizhong/Desktop/buddies/app/models/participation.rb": {
+      "/Users/davidho/RubymineProjects/buddies/app/models/participation.rb": {
         "lines": [
           1,
           1,
@@ -339,6 +339,6 @@
         ]
       }
     },
-    "timestamp": 1668643478
+    "timestamp": 1668645566
   }
 }
