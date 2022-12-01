@@ -124,6 +124,9 @@ class EventsController < ApplicationController
           @event.occupied_spots = @event.occupied_spots + 1
           @event.save!
           flash[:notice] = "You have successfully joined event #{@event.event_name}."
+          if @event.available_spots == 0
+            UserMailer.with(event: @event).full_notification.deliver_now # send email when the event is full
+          end
         end
       else
         flash[:warning] = "You have already joined event #{@event.event_name}."

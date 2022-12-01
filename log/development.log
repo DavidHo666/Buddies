@@ -36649,3 +36649,343 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.2ms | Allocations: 5546)
 
 
+Started GET "/rails/mailers/user_mailer/full_notification" for ::1 at 2022-12-01 17:43:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"user_mailer/full_notification"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ?[0m  [["event_id", 9]]
+  ↳ app/mailers/user_mailer.rb:14:in `map'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:14:in `full_notification'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/full_notification.html.erb within layouts/mailer
+  Rendered user_mailer/full_notification.html.erb within layouts/mailer (Duration: 0.7ms | Allocations: 533)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.1ms | Allocations: 785)
+UserMailer#full_notification: processed outbound mail in 15.9ms
+  Rendering /Users/arika/.rvm/gems/ruby-3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/mailers/email.html.erb
+  Rendered /Users/arika/.rvm/gems/ruby-3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/mailers/email.html.erb (Duration: 1.5ms | Allocations: 2308)
+Completed 200 OK in 39ms (Views: 2.2ms | ActiveRecord: 1.0ms | Allocations: 49092)
+
+
+Started GET "/rails/mailers/user_mailer/full_notification?part=text%2Fhtml" for ::1 at 2022-12-01 17:43:36 -0500
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/html", "path"=>"user_mailer/full_notification"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ?[0m  [["event_id", 9]]
+  ↳ app/mailers/user_mailer.rb:14:in `map'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:14:in `full_notification'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/full_notification.html.erb within layouts/mailer
+  Rendered user_mailer/full_notification.html.erb within layouts/mailer (Duration: 0.4ms | Allocations: 295)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.7ms | Allocations: 515)
+UserMailer#full_notification: processed outbound mail in 3.5ms
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 9)
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 6699)
+
+
+Started GET "/rails/mailers/user_mailer/full_notification" for ::1 at 2022-12-01 17:43:55 -0500
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"user_mailer/full_notification"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ?[0m  [["event_id", 9]]
+  ↳ app/mailers/user_mailer.rb:14:in `map'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:14:in `full_notification'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/full_notification.html.erb within layouts/mailer
+  Rendered user_mailer/full_notification.html.erb within layouts/mailer (Duration: 0.0ms | Allocations: 25)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.1ms | Allocations: 127)
+UserMailer#full_notification: processed outbound mail in 6.5ms
+  Rendering /Users/arika/.rvm/gems/ruby-3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/mailers/email.html.erb
+  Rendered /Users/arika/.rvm/gems/ruby-3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/mailers/email.html.erb (Duration: 1.3ms | Allocations: 1896)
+Completed 200 OK in 22ms (Views: 1.7ms | ActiveRecord: 1.2ms | Allocations: 23491)
+
+
+Started GET "/rails/mailers/user_mailer/full_notification?part=text%2Fhtml" for ::1 at 2022-12-01 17:43:55 -0500
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/html", "path"=>"user_mailer/full_notification"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ?[0m  [["event_id", 9]]
+  ↳ app/mailers/user_mailer.rb:14:in `map'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:14:in `full_notification'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/full_notification.html.erb within layouts/mailer
+  Rendered user_mailer/full_notification.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 17)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.1ms | Allocations: 104)
+UserMailer#full_notification: processed outbound mail in 1.8ms
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 5133)
+
+
+Started GET "/rails/mailers/user_mailer/full_notification" for ::1 at 2022-12-01 17:44:02 -0500
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"user_mailer/full_notification"}
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ?[0m  [["event_id", 9]]
+  ↳ app/mailers/user_mailer.rb:14:in `map'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:14:in `full_notification'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/full_notification.html.erb within layouts/mailer
+  Rendered user_mailer/full_notification.html.erb within layouts/mailer (Duration: 0.0ms | Allocations: 25)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.1ms | Allocations: 127)
+UserMailer#full_notification: processed outbound mail in 6.3ms
+  Rendering /Users/arika/.rvm/gems/ruby-3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/mailers/email.html.erb
+  Rendered /Users/arika/.rvm/gems/ruby-3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/mailers/email.html.erb (Duration: 0.3ms | Allocations: 845)
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 22233)
+
+
+Started GET "/rails/mailers/user_mailer/full_notification?part=text%2Fhtml" for ::1 at 2022-12-01 17:44:02 -0500
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/html", "path"=>"user_mailer/full_notification"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ?[0m  [["event_id", 9]]
+  ↳ app/mailers/user_mailer.rb:14:in `map'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:14:in `full_notification'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/full_notification.html.erb within layouts/mailer
+  Rendered user_mailer/full_notification.html.erb within layouts/mailer (Duration: 0.0ms | Allocations: 17)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.1ms | Allocations: 104)
+UserMailer#full_notification: processed outbound mail in 1.5ms
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 5133)
+
+
+Started GET "/rails/mailers/user_mailer/full_notification" for ::1 at 2022-12-01 17:44:35 -0500
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"user_mailer/full_notification"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ?[0m  [["event_id", 9]]
+  ↳ app/mailers/user_mailer.rb:14:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:14:in `full_notification'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/full_notification.html.erb within layouts/mailer
+  Rendered user_mailer/full_notification.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 17)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.2ms | Allocations: 104)
+UserMailer#full_notification: processed outbound mail in 7.8ms
+  Rendering /Users/arika/.rvm/gems/ruby-3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/mailers/email.html.erb
+  Rendered /Users/arika/.rvm/gems/ruby-3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/mailers/email.html.erb (Duration: 0.6ms | Allocations: 779)
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 0.5ms | Allocations: 5651)
+
+
+Started GET "/rails/mailers/user_mailer/full_notification?part=text%2Fhtml" for ::1 at 2022-12-01 17:44:36 -0500
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"part"=>"text/html", "path"=>"user_mailer/full_notification"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ?[0m  [["event_id", 9]]
+  ↳ app/mailers/user_mailer.rb:14:in `map'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:14:in `full_notification'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/full_notification.html.erb within layouts/mailer
+  Rendered user_mailer/full_notification.html.erb within layouts/mailer (Duration: 0.0ms | Allocations: 17)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.1ms | Allocations: 104)
+UserMailer#full_notification: processed outbound mail in 1.7ms
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 4929)
+
+
+Started GET "/" for ::1 at 2022-12-01 17:48:58 -0500
+  
+SyntaxError (/Users/arika/Desktop/saas_project/buddies/app/controllers/events_controller.rb:130: syntax error, unexpected `else', expecting `end'
+      else
+      ^~~~
+/Users/arika/Desktop/saas_project/buddies/app/controllers/events_controller.rb:169: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/events_controller.rb:130: syntax error, unexpected `else', expecting `end'
+app/controllers/events_controller.rb:169: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/events_controller.rb:130: syntax error, unexpected `else', expecting `end'
+app/controllers/events_controller.rb:169: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/events_controller.rb:130: syntax error, unexpected `else', expecting `end'
+app/controllers/events_controller.rb:169: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/" for ::1 at 2022-12-01 17:49:32 -0500
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 3387)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 17:49:32 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 22:49:32.775183')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 8775)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.4ms | Allocations: 203)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | Allocations: 39893)
+Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.7ms | Allocations: 41155)
+
+
+Started GET "/users/12/events_joined" for ::1 at 2022-12-01 17:49:43 -0500
+Processing by UsersController#show_events_joined as HTML
+  Parameters: {"id"=>"12"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show_events_joined.html.erb within layouts/application
+  [1m[36mParticipation Load (0.2ms)[0m  [1m[34mSELECT events.* FROM "participations" INNER JOIN "events" ON "events"."id" = "participations"."event_id" WHERE "participations"."user_id" = ?[0m  [["user_id", 12]]
+  ↳ app/views/users/show_events_joined.html.erb:17
+  Rendered users/show_events_joined.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2875)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 7262)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 0.5ms | Allocations: 9628)
+
+
+Started GET "/users/12" for ::1 at 2022-12-01 17:49:46 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:77:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.6ms | Allocations: 324)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1500)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 5493)
+Completed 200 OK in 13ms (Views: 8.1ms | ActiveRecord: 0.4ms | Allocations: 7086)
+
+
+Started POST "/events/23/participate" for ::1 at 2022-12-01 17:49:51 -0500
+Processing by EventsController#add_participation as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"23"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:109:in `add_participation'
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:112:in `add_participation'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:113:in `add_participation'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["event_id", 23], ["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:115:in `add_participation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:122:in `add_participation'
+  [1m[36mParticipation Create (0.5ms)[0m  [1m[32mINSERT INTO "participations" ("event_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["event_id", 23], ["user_id", 12], ["created_at", "2022-12-01 22:49:51.313940"], ["updated_at", "2022-12-01 22:49:51.313940"]]
+  ↳ app/controllers/events_controller.rb:122:in `add_participation'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:122:in `add_participation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:125:in `add_participation'
+  [1m[36mEvent Update (0.3ms)[0m  [1m[33mUPDATE "events" SET "available_spots" = ?, "occupied_spots" = ?, "updated_at" = ? WHERE "events"."id" = ?[0m  [["available_spots", 0], ["occupied_spots", 3], ["updated_at", "2022-12-01 22:49:51.316785"], ["id", 23]]
+  ↳ app/controllers/events_controller.rb:125:in `add_participation'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:125:in `add_participation'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "participations" ON "users"."id" = "participations"."user_id" WHERE "participations"."event_id" = ?[0m  [["event_id", 23]]
+  ↳ app/mailers/user_mailer.rb:14:in `map'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/full_notification.html.erb within layouts/mailer
+  Rendered user_mailer/full_notification.html.erb within layouts/mailer (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.1ms | Allocations: 124)
+UserMailer#full_notification: processed outbound mail in 2.9ms
+Delivered mail 63892f8f4f928_68763f20-422@dyn-209-2-213-212.dyn.columbia.edu.mail (3.5ms)
+Date: Thu, 01 Dec 2022 17:49:51 -0500
+From: buddies <elysiasworth@gmail.com>
+To: uu@22, 
+ xinyeerisa@gmail.com, 
+ yx@mm
+Message-ID: <63892f8f4f928_68763f20-422@dyn-209-2-213-212.dyn.columbia.edu.mail>
+Subject: Event asdsf is full
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<style>
+    p {text-indent:1em;} 
+</style>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Congratulations! Your party is formed!</h1>
+    <p>
+        The event asdsf you recently applied now gathers the a full party 
+        of 3 participants.
+    </p>
+    <p>
+        You can contact the organizer at: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yx@mm
+    </p>
+    <p>
+        All participants include:
+        <tbody>
+                <td>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uu@22</pre>
+                </td>
+                <td>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xinyeerisa@gmail.com</pre>
+                </td>
+        </tbody>
+    </p>
+    <p>
+      To login to the site and check, just follow this link: localhost:3000.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/events
+Completed 302 Found in 25ms (ActiveRecord: 2.5ms | Allocations: 22649)
+
+
+Started GET "/events" for ::1 at 2022-12-01 17:49:51 -0500
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 755)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 17:49:51 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 22:49:51.353755')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 3779)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 7700)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.2ms | Allocations: 8365)
+
+
+Started GET "/users/12/events_joined" for ::1 at 2022-12-01 17:49:55 -0500
+Processing by UsersController#show_events_joined as HTML
+  Parameters: {"id"=>"12"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show_events_joined.html.erb within layouts/application
+  [1m[36mParticipation Load (0.2ms)[0m  [1m[34mSELECT events.* FROM "participations" INNER JOIN "events" ON "events"."id" = "participations"."event_id" WHERE "participations"."user_id" = ?[0m  [["user_id", 12]]
+  ↳ app/views/users/show_events_joined.html.erb:17
+  Rendered users/show_events_joined.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1166)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 5153)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.3ms | Allocations: 5475)
+
+

@@ -4,15 +4,15 @@ class UserMailer < ApplicationMailer
     def welcome_email
         @user = params[:user]
         @url  = 'localhost:3000'
-        mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+        mail(to: @user.email, subject: 'Welcome to buddies')
     end
 
-    def send_full_notification
-        @user = params[:user]
+    def full_notification
+        @event = params[:event]
+        @url = 'localhost:3000'
+        
+        mail(to: [@event.users.map(&:email), @event.user.email], subject: "Event #{@event.event_name} is full")
     end
 
-    def send_email
-        mail to: "rikakoovo@gmail.com", subject: "email tests"
-    end
 
 end
