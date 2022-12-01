@@ -1,15 +1,39 @@
+<nav class="navbar navbar-expand-lg"><div class="container">
+  <%= link_to 'Add New Event', new_event_path, :class => 'btn btn-outline-warning mb-2 rounded-pill' %>
 
-<%= link_to 'Add New Event', new_event_path, :class => 'btn btn-outline-warning mb-2' %>
-<%= form_tag events_path, method: "GET" do %>
-  <%= text_field_tag :search_by_name, params[:search_by_name], placeholder:"search for event names" %>
-  <%= submit_tag "Search", :class => 'btn btn-outline-warning mb-2' %>
-<% end %>
-<%= form_tag events_path, method: "GET" do %>
-    <%= text_field_tag :search_by_time, params[:search_by_time], placeholder:"eg. 2022-07-11"%>
-    <%= submit_tag "Submit Time", :class => 'btn btn-outline-warning mb-2' %>
-<% end %>
+  <div class="dropdown mr-2">
+    <button class="btn btn-outline-warning mb-2 dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Categories
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to 'Events',
+                    events_path(:sort => "event_name", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+                    id:'event_name_header', class:"dropdown-item text-warning" %>
+      <%= link_to 'Tags',
+                  events_path(:sort => "tag", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+                  id:'event_name_header', class:'dropdown-item text-warning' %>
+      <%= link_to 'Price',
+                  events_path(:sort => "price", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'tags_header', class:'dropdown-item text-warning' %>
+      <%= link_to 'Start Time',
+                  events_path(:sort => "start_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'start_time_header', class:'dropdown-item text-warning'%>
+      <%= link_to 'End Time',
+                  events_path(:sort => "end_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'start_time_header', class:'dropdown-item text-warning' %>
+    </div>
+  </div>
 
-<%# <%= link_to 'Sign In' :class => 'btn btn-primary' %>
+  <%= form_tag events_path, method: :get do %>
+    <%= text_field_tag :search_by_name, params[:search_by_name], placeholder:"search for event names", class: "mr-1 mb-2"%>
+    <%= submit_tag "Search Name", :class => 'btn btn-outline-warning mb-2 rounded-pill' %>
+  <% end %>
+  <%= form_tag events_path, method: :get do %>
+      <%= text_field_tag :search_by_time, params[:search_by_time], placeholder:"Eg. 2022-07-11", class: "mr-1 mb-2" %>
+      <%= submit_tag "Search Day", :class => 'btn btn-outline-warning mb-2 rounded-pill' %>
+  <% end %>
+</div></nav>
+
 <%= form_tag events_path, method: :get, id: 'tags_form' do %>
   Include: &nbsp
   <% @all_tags.each do |tags| %>
@@ -22,34 +46,7 @@
 <% end %>
 
 <table class="table table-striped col-md-12 mt-3" id="events">
-  <thead>
-  <tr>
-    <th class="<%= is_hilite("event_name") %>" >
-      <%= link_to 'Events',
-                  events_path(:sort => "event_name", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
-                  id:'event_name_header', class:'text-warning' %></th>
-    <th class="<%= is_hilite("tag") %>" >
-      <%= link_to 'Tags',
-                  events_path(:sort => "tag", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
-                  id:'event_name_header', class:'text-warning' %></th>
-    <th>Address</th>
-    <th class="<%= is_hilite("price") %>" >
-      <%= link_to 'Price',
-                  events_path(:sort => "price", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
-                  id:'tags_header', class:'text-warning' %></th>
-    <th>Spots Taken</th>
-    <th class="<%= is_hilite("start_time") %>" >
-      <%= link_to 'Start Time',
-                  events_path(:sort => "start_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
-                  id:'start_time_header', class:'text-warning'%></th>
-    <th class="<%= is_hilite("end_time") %>" >
-      <%= link_to 'End Time',
-                  events_path(:sort => "end_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
-                  id:'start_time_header', class:'text-warning' %></th>
-    <th>More Info</th>
-    <th> Join </th>
-  </tr>
-  </thead>
+
   <tbody>
   <% @events.each do |event| %>
     <tr>
