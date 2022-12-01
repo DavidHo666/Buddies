@@ -8,9 +8,9 @@ class UserMailer < ApplicationMailer
     end
 
     def send_full_notification
-
+        @user = params[:user]
     end
-    
+
     def send_email
         mail to: "rikakoovo@gmail.com", subject: "email tests"
     end
