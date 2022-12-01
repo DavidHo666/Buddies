@@ -16,8 +16,9 @@ module Buddies
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
+    config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     # config.time_zone = 'Eastern Time (US & Canada)'
+    config.assets.initialize_on_precompile = false
   end
 end
