@@ -36989,3 +36989,127 @@ Processing by UsersController#show_events_joined as HTML
 Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.3ms | Allocations: 5475)
 
 
+Started GET "/" for ::1 at 2022-12-01 18:37:10 -0500
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms | Allocations: 794)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 18:37:10 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 23:37:10.611171')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:51
+  Rendered events/index.html.erb within layouts/application (Duration: 29.1ms | Allocations: 3617)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 44.4ms | Allocations: 7444)
+Completed 200 OK in 51ms (Views: 44.2ms | ActiveRecord: 0.6ms | Allocations: 8059)
+
+
+Started GET "/users/12" for ::1 at 2022-12-01 18:37:14 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:77:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 634)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 4380)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.3ms | Allocations: 5181)
+
+
+Started GET "/users/12/edit" for ::1 at 2022-12-01 18:37:17 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:77:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 12.7ms | Allocations: 8626)
+  Rendered users/edit.html.erb within layouts/application (Duration: 13.8ms | Allocations: 8981)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 13004)
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 0.2ms | Allocations: 13833)
+
+
+Started PATCH "/users/12" for ::1 at 2022-12-01 18:37:19 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"testmail", "email"=>"xinyeerisa@gmail.com", "bio"=>"", "joined_date"=>""}, "commit"=>"Update User", "id"=>"12"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:77:in `set_user'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 1.1ms | Allocations: 201)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.3ms | Allocations: 289)
+UserMailer#welcome_email: processed outbound mail in 2.5ms
+Delivered mail 63893aaf4039f_68763f48-3e1@dyn-209-2-213-212.dyn.columbia.edu.mail (1.2ms)
+Date: Thu, 01 Dec 2022 18:37:19 -0500
+From: buddies <elysiasworth@gmail.com>
+To: xinyeerisa@gmail.com
+Message-ID: <63893aaf4039f_68763f48-3e1@dyn-209-2-213-212.dyn.columbia.edu.mail>
+Subject: Welcome to buddies
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, 12</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: xinyeerisa@gmail.com.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: localhost:3000.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/users/12
+Completed 302 Found in 9ms (ActiveRecord: 0.7ms | Allocations: 5720)
+
+
+Started GET "/users/12" for ::1 at 2022-12-01 18:37:19 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:77:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 644)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:16
+  Rendered layouts/_flash.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 4388)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.1ms | Allocations: 5134)
+
+
