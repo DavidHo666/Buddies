@@ -1,5 +1,14 @@
 
 <%= link_to 'Add New Event', new_event_path, :class => 'btn btn-outline-warning mb-2' %>
+<%= form_tag events_path, method: "GET" do %>
+  <%= text_field_tag :search_by_name, params[:search_by_name], placeholder:"search for event names" %>
+  <%= submit_tag "Search", :class => 'btn btn-outline-warning mb-2' %>
+<% end %>
+<%= form_tag events_path, method: "GET" do %>
+    <%= text_field_tag :search_by_time, params[:search_by_time], placeholder:"eg. 2022-07-11"%>
+    <%= submit_tag "Submit Time", :class => 'btn btn-outline-warning mb-2' %>
+<% end %>
+
 <%# <%= link_to 'Sign In' :class => 'btn btn-primary' %>
 <%= form_tag events_path, method: :get, id: 'tags_form' do %>
   Include: &nbsp

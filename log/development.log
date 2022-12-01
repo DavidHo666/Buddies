@@ -1,0 +1,965 @@
+Started GET "/" for ::1 at 2022-12-01 15:27:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 20:27:36.100935')[0m  [["tag", "Food&Drink"], ["tag", "Arts&Culture"], ["tag", "Travel"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Metraverse"], ["tag", "Academia"], ["tag", "Athletics"], ["tag", "Others"]]
+  ↳ app/views/events/index.html.erb:45
+  Rendered events/index.html.erb within layouts/application (Duration: 32.3ms | Allocations: 14828)
+  Rendered layouts/_flash.erb (Duration: 0.6ms | Allocations: 214)
+  Rendered layout layouts/application.html.erb (Duration: 496.2ms | Allocations: 98298)
+Completed 200 OK in 542ms (Views: 504.5ms | ActiveRecord: 2.1ms | Allocations: 109421)
+
+
+Started GET "/" for ::1 at 2022-12-01 15:30:06 -0500
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms | Allocations: 3439)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:30:06 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 20:30:06.428490')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 8913)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 209)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 12739)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.6ms | Allocations: 14098)
+
+
+Started GET "/events?search_by_name=123&commit=Search" for ::1 at 2022-12-01 15:30:09 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_name"=>"123", "commit"=>"Search"}
+Redirected to http://localhost:3000/events?search_by_name=123&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 865)
+
+
+Started GET "/events?search_by_name=123&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:30:09 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_name"=>"123", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (event_name LIKE '%123%') AND (available_spots != 0) AND (end_time > '2022-12-01 20:30:09.794922')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 16.2ms | Allocations: 3013)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | Allocations: 5809)
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.2ms | Allocations: 6557)
+
+
+Started GET "/events?search_by_name=123&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:30:14 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_name"=>"123", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (event_name LIKE '%123%') AND (available_spots != 0) AND (end_time > '2022-12-01 20:30:14.168726')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 3006)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 5826)
+Completed 200 OK in 37ms (Views: 30.5ms | ActiveRecord: 0.2ms | Allocations: 6533)
+
+
+Started GET "/" for ::1 at 2022-12-01 15:30:17 -0500
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 684)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:30:17 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 20:30:17.186613')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 3686)
+  Rendered layouts/_flash.erb (Duration: 0.2ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 6505)
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 0.7ms | Allocations: 7141)
+
+
+Started GET "/events?search_by_name=OH&commit=Search" for ::1 at 2022-12-01 15:30:25 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_name"=>"OH", "commit"=>"Search"}
+Redirected to http://localhost:3000/events?search_by_name=OH&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 791)
+
+
+Started GET "/events?search_by_name=OH&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:30:25 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_name"=>"OH", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (event_name LIKE '%OH%') AND (available_spots != 0) AND (end_time > '2022-12-01 20:30:25.637842')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 3311)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 6107)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.2ms | Allocations: 6828)
+
+
+Started GET "/events?search_by_name=OH&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:30:28 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_name"=>"OH", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (event_name LIKE '%OH%') AND (available_spots != 0) AND (end_time > '2022-12-01 20:30:28.883488')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 3305)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 6105)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.6ms | Allocations: 6844)
+
+
+Started GET "/events?search_by_name=&commit=Search" for ::1 at 2022-12-01 15:30:32 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_name"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/events?search_by_name=&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 703)
+
+
+Started GET "/events?search_by_name=&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:30:32 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_name"=>"", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 20:30:32.229556')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3686)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 6488)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.3ms | Allocations: 7164)
+
+
+Started GET "/events?search_by_time=2022-12-17&commit=Submit+Time" for ::1 at 2022-12-01 15:31:03 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-17", "commit"=>"Submit Time"}
+Redirected to http://localhost:3000/events?search_by_time=2022-12-17&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 809)
+
+
+Started GET "/events?search_by_time=2022-12-17&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:31:03 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-17", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-17 23:59:59' and end_time >= '2022-12-17 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2997)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 5792)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.3ms | Allocations: 6495)
+
+
+Started GET "/" for ::1 at 2022-12-01 15:31:11 -0500
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 682)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:31:11 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 20:31:11.178839')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 3680)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 6485)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.3ms | Allocations: 7112)
+
+
+Started GET "/events?search_by_time=2022-12-27&commit=Submit+Time" for ::1 at 2022-12-01 15:31:17 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "commit"=>"Submit Time"}
+Redirected to http://localhost:3000/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 750)
+
+
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:31:17 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-27 23:59:59' and end_time >= '2022-12-27 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 3296)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 6094)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.2ms | Allocations: 6782)
+
+
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:33:52 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-27 23:59:59' and end_time >= '2022-12-27 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 12.2ms | Allocations: 4829)
+  Rendered layouts/_flash.erb (Duration: 1.0ms | Allocations: 192)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 8642)
+Completed 200 OK in 28ms (Views: 23.4ms | ActiveRecord: 0.2ms | Allocations: 9942)
+
+
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:34:06 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-27 23:59:59' and end_time >= '2022-12-27 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 4838)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 192)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 8636)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.2ms | Allocations: 10031)
+
+
+Started GET "/events/new" for ::1 at 2022-12-01 15:34:18 -0500
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 57.4ms | Allocations: 18722)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered layout layouts/application.html.erb (Duration: 62.7ms | Allocations: 21699)
+Completed 200 OK in 64ms (Views: 63.2ms | ActiveRecord: 0.0ms | Allocations: 22060)
+
+
+Started GET "/events?search_by_name=&commit=Search" for ::1 at 2022-12-01 15:34:25 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_name"=>"", "commit"=>"Search"}
+Redirected to http://localhost:3000/events?search_by_name=&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 769)
+
+
+Started GET "/events?search_by_name=&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:34:25 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_name"=>"", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 20:34:25.166177')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3813)
+  Rendered layouts/_flash.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 6616)
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.4ms | Allocations: 7306)
+
+
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:37:02 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 20.0ms | Allocations: 7589)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 7687)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms | Allocations: 9025)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<%= link_to 'Add New Event', new_event_path, :class => 'btn btn-outline-warning mb-2' %>
+<%= form_tag events_path, method: "GET" do %>
+  <%= text_field_tag :search_by_name, params[:search_by_name], placeholder:"search for event names" %>
+  <%= submit_tag "Search", :class => 'btn btn-outline-warning mb-2' %>
+<% end %>
+<%= form_tag events_path, method: "GET" do %>
+    <%= text_field_tag :search_by_time, params[:search_by_time], placeholder:"eg. 2022-07-11", style: => "border-color: yellow;" %>
+    <%= submit_tag "Submit Time", :class => 'btn btn-outline-warning mb-2' %>
+<% end %>
+<%# <%= link_to 'Sign In' :class => 'btn btn-primary' %>
+<%= form_tag events_path, method: :get, id: 'tags_form' do %>
+  Include: &nbsp
+  <% @all_tags.each do |tags| %>
+    <div class="form-check  form-check-inline">
+      <%= label_tag "tags[#{tags}]", tags, class: 'form-check-label mr-1'%>
+      <%= check_box_tag "tags[#{tags}]", "1",  @tags_to_show.include?(tags), class: 'form-check-input' , id: 'checkbox'%>
+    </div>
+  <% end %>
+  <%= submit_tag 'Refresh', id: 'tags_submit', class: 'btn btn-warning' %>
+<% end %>
+
+<table class="table table-striped col-md-12 mt-3" id="events">
+  <thead>
+  <tr>
+    <th class="<%= is_hilite("event_name") %>" >
+      <%= link_to 'Events',
+                  events_path(:sort => "event_name", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+                  id:'event_name_header', class:'text-warning' %></th>
+    <th class="<%= is_hilite("tag") %>" >
+      <%= link_to 'Tags',
+                  events_path(:sort => "tag", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+                  id:'event_name_header', class:'text-warning' %></th>
+    <th>Address</th>
+    <th class="<%= is_hilite("price") %>" >
+      <%= link_to 'Price',
+                  events_path(:sort => "price", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'tags_header', class:'text-warning' %></th>
+    <th>Spots Taken</th>
+    <th class="<%= is_hilite("start_time") %>" >
+      <%= link_to 'Start Time',
+                  events_path(:sort => "start_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'start_time_header', class:'text-warning'%></th>
+    <th class="<%= is_hilite("end_time") %>" >
+      <%= link_to 'End Time',
+                  events_path(:sort => "end_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'start_time_header', class:'text-warning' %></th>
+    <th>More Info</th>
+    <th> Join </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @events.each do |event| %>
+    <tr>
+      <% if event.tag == "Food&Drink" %>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-utensils" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Arts&Culture"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-palette" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Travel"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-plane-departure" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Movies"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-film" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Music"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-headphones" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Metraverse"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-vr-cardboard" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Academia"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-book" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Athletics"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-person-running" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% else %>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-shuffle" style="color:#ffc107"w></i>
+          <%= event.event_name %>
+        </td>
+      <% end %>
+
+      <td class="text-center align-middle text-secondary">
+        <%= event.tag %>
+      </td>
+      <td class="text-center align-middle text-secondary">
+        <%= event.address %>
+      </td>
+      <td class="text-center align-middle text-secondary">
+        <%= event.price %>
+      </td>
+      <td class="text-center align-middle">
+        <div role="progressbar" aria-valuemin="0" aria-valuemax="100" style="--value:<%=event.percentage%>"></div>
+      </td>
+      <td class="text-center align-middle text-secondary">
+        <%= event.start_time%>
+      </td>
+      <td class="text-center align-middle text-secondary">
+        <%= event.end_time%>
+      </td>
+      <td class="text-center align-middle">
+        <%= link_to "More about #{event.event_name}", event_path(event), :class =>'text-warning' %>
+      </td>
+      <td class="text-center align-middle">
+        <%= button_to 'Participate', participate_event_path(event), method: :post, :class => "button" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+):
+1:    
+2:    <%= link_to 'Add New Event', new_event_path, :class => 'btn btn-outline-warning mb-2' %>
+3:    <%= form_tag events_path, method: "GET" do %>
+4:      <%= text_field_tag :search_by_name, params[:search_by_name], placeholder:"search for event names" %>
+5:      <%= submit_tag "Search", :class => 'btn btn-outline-warning mb-2' %>
+6:    <% end %>
+7:    <%= form_tag events_path, method: "GET" do %>
+8:        <%= text_field_tag :search_by_time, params[:search_by_time], placeholder:"eg. 2022-07-11", style: => "border-color: yellow;" %>
+9:        <%= submit_tag "Submit Time", :class => 'btn btn-outline-warning mb-2' %>
+10:    <% end %>
+11:    <%# <%= link_to 'Sign In' :class => 'btn btn-primary' %>
+12:    <%= form_tag events_path, method: :get, id: 'tags_form' do %>
+13:      Include: &nbsp
+14:      <% @all_tags.each do |tags| %>
+15:        <div class="form-check  form-check-inline">
+16:          <%= label_tag "tags[#{tags}]", tags, class: 'form-check-label mr-1'%>
+17:          <%= check_box_tag "tags[#{tags}]", "1",  @tags_to_show.include?(tags), class: 'form-check-input' , id: 'checkbox'%>
+18:        </div>
+19:      <% end %>
+20:      <%= submit_tag 'Refresh', id: 'tags_submit', class: 'btn btn-warning' %>
+21:    <% end %>
+22:    
+23:    <table class="table table-striped col-md-12 mt-3" id="events">
+24:      <thead>
+25:      <tr>
+26:        <th class="<%= is_hilite("event_name") %>" >
+27:          <%= link_to 'Events',
+28:                      events_path(:sort => "event_name", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+29:                      id:'event_name_header', class:'text-warning' %></th>
+30:        <th class="<%= is_hilite("tag") %>" >
+31:          <%= link_to 'Tags',
+32:                      events_path(:sort => "tag", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+33:                      id:'event_name_header', class:'text-warning' %></th>
+34:        <th>Address</th>
+35:        <th class="<%= is_hilite("price") %>" >
+36:          <%= link_to 'Price',
+37:                      events_path(:sort => "price", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+38:                      id:'tags_header', class:'text-warning' %></th>
+39:        <th>Spots Taken</th>
+40:        <th class="<%= is_hilite("start_time") %>" >
+41:          <%= link_to 'Start Time',
+42:                      events_path(:sort => "start_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+43:                      id:'start_time_header', class:'text-warning'%></th>
+44:        <th class="<%= is_hilite("end_time") %>" >
+45:          <%= link_to 'End Time',
+46:                      events_path(:sort => "end_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+47:                      id:'start_time_header', class:'text-warning' %></th>
+48:        <th>More Info</th>
+49:        <th> Join </th>
+50:      </tr>
+51:      </thead>
+52:      <tbody>
+53:      <% @events.each do |event| %>
+54:        <tr>
+55:          <% if event.tag == "Food&Drink" %>
+56:            <td class="text-center align-middle">
+57:              <i class="fa-solid fa-utensils" style="color:#ffc107"></i>
+58:              <%= event.event_name %>
+59:            </td>
+60:          <% elsif event.tag == "Arts&Culture"%>
+61:            <td class="text-center align-middle">
+62:              <i class="fa-solid fa-palette" style="color:#ffc107"></i>
+63:              <%= event.event_name %>
+64:            </td>
+65:          <% elsif event.tag == "Travel"%>
+66:            <td class="text-center align-middle">
+67:              <i class="fa-solid fa-plane-departure" style="color:#ffc107"></i>
+68:              <%= event.event_name %>
+69:            </td>
+70:          <% elsif event.tag == "Movies"%>
+71:            <td class="text-center align-middle">
+72:              <i class="fa-solid fa-film" style="color:#ffc107"></i>
+73:              <%= event.event_name %>
+74:            </td>
+75:          <% elsif event.tag == "Music"%>
+76:            <td class="text-center align-middle">
+77:              <i class="fa-solid fa-headphones" style="color:#ffc107"></i>
+78:              <%= event.event_name %>
+79:            </td>
+80:          <% elsif event.tag == "Metraverse"%>
+81:            <td class="text-center align-middle">
+82:              <i class="fa-solid fa-vr-cardboard" style="color:#ffc107"></i>
+83:              <%= event.event_name %>
+84:            </td>
+85:          <% elsif event.tag == "Academia"%>
+86:            <td class="text-center align-middle">
+87:              <i class="fa-solid fa-book" style="color:#ffc107"></i>
+88:              <%= event.event_name %>
+89:            </td>
+90:          <% elsif event.tag == "Athletics"%>
+91:            <td class="text-center align-middle">
+92:              <i class="fa-solid fa-person-running" style="color:#ffc107"></i>
+93:              <%= event.event_name %>
+94:            </td>
+95:          <% else %>
+96:            <td class="text-center align-middle">
+97:              <i class="fa-solid fa-shuffle" style="color:#ffc107"w></i>
+98:              <%= event.event_name %>
+99:            </td>
+100:          <% end %>
+101:    
+102:          <td class="text-center align-middle text-secondary">
+103:            <%= event.tag %>
+104:          </td>
+105:          <td class="text-center align-middle text-secondary">
+106:            <%= event.address %>
+107:          </td>
+108:          <td class="text-center align-middle text-secondary">
+109:            <%= event.price %>
+110:          </td>
+111:          <td class="text-center align-middle">
+112:            <div role="progressbar" aria-valuemin="0" aria-valuemax="100" style="--value:<%=event.percentage%>"></div>
+113:          </td>
+114:          <td class="text-center align-middle text-secondary">
+115:            <%= event.start_time%>
+116:          </td>
+117:          <td class="text-center align-middle text-secondary">
+118:            <%= event.end_time%>
+119:          </td>
+120:          <td class="text-center align-middle">
+121:            <%= link_to "More about #{event.event_name}", event_path(event), :class =>'text-warning' %>
+122:          </td>
+123:          <td class="text-center align-middle">
+124:            <%= button_to 'Participate', participate_event_path(event), method: :post, :class => "button" %>
+125:          </td>
+126:        </tr>
+127:      <% end %>
+128:      </tbody>
+129:    </table>
+  
+app/views/events/index.html.erb:8: syntax error, unexpected =>, expecting ')'
+app/views/events/index.html.erb:8: syntax error, unexpected =>, expecting ')'
+app/views/events/index.html.erb:8: syntax error, unexpected =>, expecting ')'
+app/views/events/index.html.erb:8: syntax error, unexpected =>, expecting ')'
+app/views/events/index.html.erb:8: syntax error, unexpected =>, expecting ')'
+app/views/events/index.html.erb:8: syntax error, unexpected =>, expecting ')'
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:38:13 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-27 23:59:59' and end_time >= '2022-12-27 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 4851)
+  Rendered layouts/_flash.erb (Duration: 0.9ms | Allocations: 194)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 8663)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.2ms | Allocations: 10101)
+
+
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:39:48 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-27 23:59:59' and end_time >= '2022-12-27 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 4851)
+  Rendered layouts/_flash.erb (Duration: 0.9ms | Allocations: 192)
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 8636)
+Completed 200 OK in 33ms (Views: 30.5ms | ActiveRecord: 0.6ms | Allocations: 10048)
+
+
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:40:42 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2151)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2240)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 3610)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<%= link_to 'Add New Event', new_event_path, :class => 'btn btn-outline-warning mb-2' %>
+<%= form_tag events_path, method: "GET" do %>
+  <%= text_field_tag :search_by_name, params[:search_by_name], placeholder:"search for event names" %>
+  <%= submit_tag "Search", :class => 'btn btn-outline-warning mb-2' %>
+<% end %>
+<%= form_tag events_path, method: "GET" do %>
+    <%= text_field_tag :search_by_time, params[:search_by_time], placeholder:"eg. 2022-07-11", :class "form-control", style: "border-color: #FFC009;" %>
+    <%= submit_tag "Submit Time", :class => 'btn btn-outline-warning mb-2' %>
+<% end %>
+<%# <%= link_to 'Sign In' :class => 'btn btn-primary' %>
+<%= form_tag events_path, method: :get, id: 'tags_form' do %>
+  Include: &nbsp
+  <% @all_tags.each do |tags| %>
+    <div class="form-check  form-check-inline">
+      <%= label_tag "tags[#{tags}]", tags, class: 'form-check-label mr-1'%>
+      <%= check_box_tag "tags[#{tags}]", "1",  @tags_to_show.include?(tags), class: 'form-check-input' , id: 'checkbox'%>
+    </div>
+  <% end %>
+  <%= submit_tag 'Refresh', id: 'tags_submit', class: 'btn btn-warning' %>
+<% end %>
+
+<table class="table table-striped col-md-12 mt-3" id="events">
+  <thead>
+  <tr>
+    <th class="<%= is_hilite("event_name") %>" >
+      <%= link_to 'Events',
+                  events_path(:sort => "event_name", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+                  id:'event_name_header', class:'text-warning' %></th>
+    <th class="<%= is_hilite("tag") %>" >
+      <%= link_to 'Tags',
+                  events_path(:sort => "tag", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+                  id:'event_name_header', class:'text-warning' %></th>
+    <th>Address</th>
+    <th class="<%= is_hilite("price") %>" >
+      <%= link_to 'Price',
+                  events_path(:sort => "price", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'tags_header', class:'text-warning' %></th>
+    <th>Spots Taken</th>
+    <th class="<%= is_hilite("start_time") %>" >
+      <%= link_to 'Start Time',
+                  events_path(:sort => "start_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'start_time_header', class:'text-warning'%></th>
+    <th class="<%= is_hilite("end_time") %>" >
+      <%= link_to 'End Time',
+                  events_path(:sort => "end_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+                  id:'start_time_header', class:'text-warning' %></th>
+    <th>More Info</th>
+    <th> Join </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @events.each do |event| %>
+    <tr>
+      <% if event.tag == "Food&Drink" %>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-utensils" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Arts&Culture"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-palette" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Travel"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-plane-departure" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Movies"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-film" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Music"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-headphones" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Metraverse"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-vr-cardboard" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Academia"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-book" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Athletics"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-person-running" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% else %>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-shuffle" style="color:#ffc107"w></i>
+          <%= event.event_name %>
+        </td>
+      <% end %>
+
+      <td class="text-center align-middle text-secondary">
+        <%= event.tag %>
+      </td>
+      <td class="text-center align-middle text-secondary">
+        <%= event.address %>
+      </td>
+      <td class="text-center align-middle text-secondary">
+        <%= event.price %>
+      </td>
+      <td class="text-center align-middle">
+        <div role="progressbar" aria-valuemin="0" aria-valuemax="100" style="--value:<%=event.percentage%>"></div>
+      </td>
+      <td class="text-center align-middle text-secondary">
+        <%= event.start_time%>
+      </td>
+      <td class="text-center align-middle text-secondary">
+        <%= event.end_time%>
+      </td>
+      <td class="text-center align-middle">
+        <%= link_to "More about #{event.event_name}", event_path(event), :class =>'text-warning' %>
+      </td>
+      <td class="text-center align-middle">
+        <%= button_to 'Participate', participate_event_path(event), method: :post, :class => "button" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+):
+1:    
+2:    <%= link_to 'Add New Event', new_event_path, :class => 'btn btn-outline-warning mb-2' %>
+3:    <%= form_tag events_path, method: "GET" do %>
+4:      <%= text_field_tag :search_by_name, params[:search_by_name], placeholder:"search for event names" %>
+5:      <%= submit_tag "Search", :class => 'btn btn-outline-warning mb-2' %>
+6:    <% end %>
+7:    <%= form_tag events_path, method: "GET" do %>
+8:        <%= text_field_tag :search_by_time, params[:search_by_time], placeholder:"eg. 2022-07-11", :class "form-control", style: "border-color: #FFC009;" %>
+9:        <%= submit_tag "Submit Time", :class => 'btn btn-outline-warning mb-2' %>
+10:    <% end %>
+11:    <%# <%= link_to 'Sign In' :class => 'btn btn-primary' %>
+12:    <%= form_tag events_path, method: :get, id: 'tags_form' do %>
+13:      Include: &nbsp
+14:      <% @all_tags.each do |tags| %>
+15:        <div class="form-check  form-check-inline">
+16:          <%= label_tag "tags[#{tags}]", tags, class: 'form-check-label mr-1'%>
+17:          <%= check_box_tag "tags[#{tags}]", "1",  @tags_to_show.include?(tags), class: 'form-check-input' , id: 'checkbox'%>
+18:        </div>
+19:      <% end %>
+20:      <%= submit_tag 'Refresh', id: 'tags_submit', class: 'btn btn-warning' %>
+21:    <% end %>
+22:    
+23:    <table class="table table-striped col-md-12 mt-3" id="events">
+24:      <thead>
+25:      <tr>
+26:        <th class="<%= is_hilite("event_name") %>" >
+27:          <%= link_to 'Events',
+28:                      events_path(:sort => "event_name", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+29:                      id:'event_name_header', class:'text-warning' %></th>
+30:        <th class="<%= is_hilite("tag") %>" >
+31:          <%= link_to 'Tags',
+32:                      events_path(:sort => "tag", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
+33:                      id:'event_name_header', class:'text-warning' %></th>
+34:        <th>Address</th>
+35:        <th class="<%= is_hilite("price") %>" >
+36:          <%= link_to 'Price',
+37:                      events_path(:sort => "price", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+38:                      id:'tags_header', class:'text-warning' %></th>
+39:        <th>Spots Taken</th>
+40:        <th class="<%= is_hilite("start_time") %>" >
+41:          <%= link_to 'Start Time',
+42:                      events_path(:sort => "start_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+43:                      id:'start_time_header', class:'text-warning'%></th>
+44:        <th class="<%= is_hilite("end_time") %>" >
+45:          <%= link_to 'End Time',
+46:                      events_path(:sort => "end_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
+47:                      id:'start_time_header', class:'text-warning' %></th>
+48:        <th>More Info</th>
+49:        <th> Join </th>
+50:      </tr>
+51:      </thead>
+52:      <tbody>
+53:      <% @events.each do |event| %>
+54:        <tr>
+55:          <% if event.tag == "Food&Drink" %>
+56:            <td class="text-center align-middle">
+57:              <i class="fa-solid fa-utensils" style="color:#ffc107"></i>
+58:              <%= event.event_name %>
+59:            </td>
+60:          <% elsif event.tag == "Arts&Culture"%>
+61:            <td class="text-center align-middle">
+62:              <i class="fa-solid fa-palette" style="color:#ffc107"></i>
+63:              <%= event.event_name %>
+64:            </td>
+65:          <% elsif event.tag == "Travel"%>
+66:            <td class="text-center align-middle">
+67:              <i class="fa-solid fa-plane-departure" style="color:#ffc107"></i>
+68:              <%= event.event_name %>
+69:            </td>
+70:          <% elsif event.tag == "Movies"%>
+71:            <td class="text-center align-middle">
+72:              <i class="fa-solid fa-film" style="color:#ffc107"></i>
+73:              <%= event.event_name %>
+74:            </td>
+75:          <% elsif event.tag == "Music"%>
+76:            <td class="text-center align-middle">
+77:              <i class="fa-solid fa-headphones" style="color:#ffc107"></i>
+78:              <%= event.event_name %>
+79:            </td>
+80:          <% elsif event.tag == "Metraverse"%>
+81:            <td class="text-center align-middle">
+82:              <i class="fa-solid fa-vr-cardboard" style="color:#ffc107"></i>
+83:              <%= event.event_name %>
+84:            </td>
+85:          <% elsif event.tag == "Academia"%>
+86:            <td class="text-center align-middle">
+87:              <i class="fa-solid fa-book" style="color:#ffc107"></i>
+88:              <%= event.event_name %>
+89:            </td>
+90:          <% elsif event.tag == "Athletics"%>
+91:            <td class="text-center align-middle">
+92:              <i class="fa-solid fa-person-running" style="color:#ffc107"></i>
+93:              <%= event.event_name %>
+94:            </td>
+95:          <% else %>
+96:            <td class="text-center align-middle">
+97:              <i class="fa-solid fa-shuffle" style="color:#ffc107"w></i>
+98:              <%= event.event_name %>
+99:            </td>
+100:          <% end %>
+101:    
+102:          <td class="text-center align-middle text-secondary">
+103:            <%= event.tag %>
+104:          </td>
+105:          <td class="text-center align-middle text-secondary">
+106:            <%= event.address %>
+107:          </td>
+108:          <td class="text-center align-middle text-secondary">
+109:            <%= event.price %>
+110:          </td>
+111:          <td class="text-center align-middle">
+112:            <div role="progressbar" aria-valuemin="0" aria-valuemax="100" style="--value:<%=event.percentage%>"></div>
+113:          </td>
+114:          <td class="text-center align-middle text-secondary">
+115:            <%= event.start_time%>
+116:          </td>
+117:          <td class="text-center align-middle text-secondary">
+118:            <%= event.end_time%>
+119:          </td>
+120:          <td class="text-center align-middle">
+121:            <%= link_to "More about #{event.event_name}", event_path(event), :class =>'text-warning' %>
+122:          </td>
+123:          <td class="text-center align-middle">
+124:            <%= button_to 'Participate', participate_event_path(event), method: :post, :class => "button" %>
+125:          </td>
+126:        </tr>
+127:      <% end %>
+128:      </tbody>
+129:    </table>
+  
+app/views/events/index.html.erb:8: syntax error, unexpected string literal, expecting =>
+app/views/events/index.html.erb:8: syntax error, unexpected ',', expecting ')'
+app/views/events/index.html.erb:8: syntax error, unexpected string literal, expecting =>
+app/views/events/index.html.erb:8: syntax error, unexpected ',', expecting ')'
+app/views/events/index.html.erb:8: syntax error, unexpected string literal, expecting =>
+app/views/events/index.html.erb:8: syntax error, unexpected ',', expecting ')'
+app/views/events/index.html.erb:8: syntax error, unexpected string literal, expecting =>
+app/views/events/index.html.erb:8: syntax error, unexpected ',', expecting ')'
+app/views/events/index.html.erb:8: syntax error, unexpected string literal, expecting =>
+app/views/events/index.html.erb:8: syntax error, unexpected ',', expecting ')'
+app/views/events/index.html.erb:8: syntax error, unexpected string literal, expecting =>
+app/views/events/index.html.erb:8: syntax error, unexpected ',', expecting ')'
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:40:55 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-27 23:59:59' and end_time >= '2022-12-27 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 4862)
+  Rendered layouts/_flash.erb (Duration: 1.6ms | Allocations: 192)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 8672)
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.2ms | Allocations: 10075)
+
+
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:41:27 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-27 23:59:59' and end_time >= '2022-12-27 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 4863)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 192)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 8648)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 0.2ms | Allocations: 10064)
+
+
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:41:37 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-27 23:59:59' and end_time >= '2022-12-27 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 4863)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 192)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 8648)
+Completed 200 OK in 21ms (Views: 16.3ms | ActiveRecord: 0.2ms | Allocations: 10046)
+
+
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:41:44 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-27 23:59:59' and end_time >= '2022-12-27 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 4863)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 192)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 8648)
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.2ms | Allocations: 10037)
+
+
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:41:49 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-27 23:59:59' and end_time >= '2022-12-27 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 4863)
+  Rendered layouts/_flash.erb (Duration: 1.7ms | Allocations: 192)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 8648)
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.2ms | Allocations: 10061)
+
+
+Started GET "/events?search_by_time=2022-12-27&sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:41:53 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"search_by_time"=>"2022-12-27", "sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start_time <= '2022-12-27 23:59:59' and end_time >= '2022-12-27 00:00:00')[0m
+  ↳ app/views/events/index.html.erb:53
+  Rendered events/index.html.erb within layouts/application (Duration: 16.2ms | Allocations: 4864)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 192)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 8679)
+Completed 200 OK in 30ms (Views: 26.6ms | ActiveRecord: 0.2ms | Allocations: 10088)
+
+
+Started GET "/" for ::1 at 2022-12-01 15:44:25 -0500
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 767)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:44:25 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 20:44:25.931099')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:57
+  Rendered events/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 5291)
+  Rendered layouts/_flash.erb (Duration: 1.2ms | Allocations: 207)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 9116)
+Completed 200 OK in 27ms (Views: 24.6ms | ActiveRecord: 0.8ms | Allocations: 10354)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:44:43 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 20:44:43.689197')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:54
+  Rendered events/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 5276)
+  Rendered layouts/_flash.erb (Duration: 1.5ms | Allocations: 207)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 9077)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.3ms | Allocations: 10417)
+
+
+Started GET "/events?sort=&tags%5BAcademia%5D=1&tags%5BArts%26Culture%5D=1&tags%5BAthletics%5D=1&tags%5BFood%26Drink%5D=1&tags%5BMetraverse%5D=1&tags%5BMovies%5D=1&tags%5BMusic%5D=1&tags%5BOthers%5D=1&tags%5BTravel%5D=1" for ::1 at 2022-12-01 15:45:09 -0500
+Processing by EventsController#index as HTML
+  Parameters: {"sort"=>"", "tags"=>{"Academia"=>"1", "Arts&Culture"=>"1", "Athletics"=>"1", "Food&Drink"=>"1", "Metraverse"=>"1", "Movies"=>"1", "Music"=>"1", "Others"=>"1", "Travel"=>"1"}}
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."tag" IN (?, ?, ?, ?, ?, ?, ?, ?, ?) AND (available_spots != 0) AND (end_time > '2022-12-01 20:45:09.077370')[0m  [["tag", "Academia"], ["tag", "Arts&Culture"], ["tag", "Athletics"], ["tag", "Food&Drink"], ["tag", "Metraverse"], ["tag", "Movies"], ["tag", "Music"], ["tag", "Others"], ["tag", "Travel"]]
+  ↳ app/views/events/index.html.erb:54
+  Rendered events/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 5252)
+  Rendered layouts/_flash.erb (Duration: 0.5ms | Allocations: 207)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 9052)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.3ms | Allocations: 10377)
+
+

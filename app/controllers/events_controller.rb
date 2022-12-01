@@ -14,6 +14,8 @@ class EventsController < ApplicationController
 
     if (!params[:tags] && !params[:sort]) && (session[:sort_key] || session[:tags_to_show])
       redirect_to events_path(:sort => session[:sort_key],
+                              :search_by_name => params[:search_by_name], #pass in search term in case it gets wiped out when redicting
+                              :search_by_time => params[:search_by_time],
                               :tags => Hash[@tags_to_show.map {|x| [x, 1]}])
     end
 
@@ -29,6 +31,32 @@ class EventsController < ApplicationController
     session[:sort_key] = @sort_key
 
     @events = Event.with_tags_sort(@tags_to_show, @sort_key)
+
+
+    if !params[:search_by_name].nil? && !params[:search_by_name].empty?
+      flash[:none]
+      @search_name = params[:search_by_name]
+      @events = Event.search_events(@search_name)
+      # @events = Event.all
+    elsif !params[:search_by_name].nil? && params[:search_by_name].empty?
+      flash[:warning] = 'Cannot search empty term'
+    end
+
+    if !params[:search_by_time].nil? && !params[:search_by_time].empty?
+      if params[:search_by_time].length != 10 || (Date.parse(params[:search_by_time]) rescue nil) == nil
+        flash[:warning] = 'Invalid date format'
+      else 
+        flash[:none]
+        @search_time = params[:search_by_time]
+        @events = Event.search_time(@search_time)
+      end
+      # flash[:none]
+      # @search_time = params[:search_by_time]
+      # @events = Event.search_events(@search_name)
+      # @events = Event.all
+    elsif !params[:search_by_time].nil? && params[:search_by_time].empty?
+      flash[:warning] = 'Time cannot be empty'
+    end
 
   end
 
