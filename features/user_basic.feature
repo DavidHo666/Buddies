@@ -10,10 +10,10 @@ Background: users in database
     | bot2     | bot2@gmail.com | bot2bot2 | looking for new friends       |
 
     Given the following events exist:
-    | event_name       | address      | start_time              | end_time                | price | description | tag          | available_spots| occupied_spots | user_id   |
-    | Study Session    | NWC          | 2022-12-29 16:00:00 UTC | 2022-12-29 18:00:00 UTC |  0    |   welcome   | Academia     |   5            |   1            |     1     |
-    | CS Lecture       | MUDD 527     | 2022-12-31 13:00:00 UTC | 2022-12-31 14:50:00 UTC |  30   | well known  | Academia     |   1            |   1            |     1     |
-    | Halloween Parade | Time's square| 2022-12-01 12:00:00 UTC | 2022-12-01 20:00:00 UTC | 200   |  happy      | Arts&Culture |   9            |   1            |     2     |
+    | event_name       | address      | start_time         | end_time           | price | description | tag          | available_spots| occupied_spots | user_id   |
+    | Study Session    | NWC          | 2022-12-29 16:00:00| 2022-12-29 18:00:00|  0    |   welcome   | Academia     |   5            |   1            |     1     |
+    | CS Lecture       | MUDD 527     | 2022-12-31 13:00:00| 2022-12-31 14:50:00|  30   | well known  | Academia     |   1            |   1            |     1     |
+    | Halloween Parade | Time's square| 2022-12-01 12:00:00| 2022-12-01 20:00:00| 200   |  happy      | Arts&Culture |   9            |   1            |     2     |
 
 Scenario: [sad] As a guest, create event would redirect to signin/signup
     Given I am on the home page
