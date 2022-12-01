@@ -12,6 +12,7 @@
   <%= text_field :event, :occupied_spots, :class => 'form-control', data:{numeric: true} %>
   <%= label :event, :price, 'Price', :class => 'col-form-label' %>
   <%= text_field :event, :price, :class => 'form-control', data:{numeric: true} %>
+  <br>
   <%= label :event, :tag, 'tag', :class => 'col-form-label'  %>
   <%= select :event, :tag, %w[Food&Drink Arts&Culture Travel Movies Music Metraverse Academia Athletics Others], { :class => 'form-control col-1'} %>
   <%= label :event, :start_time, 'Start On', :class => 'col-form-label'  %>
@@ -19,6 +20,6 @@
   <%= label :event, :end_time, 'End On', :class => 'col-form-label'  %>
   <%= datetime_select :event, :end_time, :class => 'form-control col-2 d-inline' %>
   <br/>
-  <%= submit_tag 'Update Event Info', :class => 'btn btn-primary' %>
-  <%= link_to 'Cancel', events_path, :class => 'btn btn-secondary' %>
+  <%= submit_tag 'Update Event Info', :class => 'mt-3 btn btn-warning' %>
+  <%= link_to 'Cancel', events_path, :class => 'mt-3 btn btn-secondary' %>
 <% end %>

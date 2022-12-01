@@ -15,32 +15,76 @@
   <tbody>
   <% @events_posted.each do |event| %>
     <tr>
-      <td>
-        <%= event.event_name %>
-      </td>
-      <td>
+      <% if event.tag == "Food&Drink" %>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-utensils" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Arts&Culture"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-palette" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Travel"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-plane-departure" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Movies"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-film" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Music"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-headphones" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Metraverse"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-vr-cardboard" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Academia"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-book" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Athletics"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-person-running" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% else %>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-shuffle" style="color:#ffc107"w></i>
+          <%= event.event_name %>
+        </td>
+      <% end %>
+
+      <td class="text-center align-middle text-secondary">
         <%= event.tag %>
       </td>
-      <td>
+      <td class="text-center align-middle text-secondary">
         <%= event.address %>
       </td>
-      <td>
+      <td class="text-center align-middle text-secondary">
         <%= event.price %>
       </td>
-      <td>
-        <%= event.available_spots %>
+      <td class="text-center align-middle">
+        <div role="progressbar" aria-valuemin="0" aria-valuemax="100" style="--value:<%=event.percentage%>"></div>
       </td>
-      <td>
-        <%= event.occupied_spots %>
-      </td>
-      <td>
+      <td class="text-center align-middle text-secondary">
         <%= event.start_time%>
       </td>
-      <td>
+      <td class="text-center align-middle text-secondary">
         <%= event.end_time%>
       </td>
-      <td>
-        <%= link_to "More about #{event.event_name}", event_path(event) %>
+      <td class="text-center align-middle">
+        <%= link_to "More about #{event.event_name}", event_path(event), :class =>'text-warning' %>
+      </td>
+      <td class="text-center align-middle">
+        <%= button_to 'Participate', participate_event_path(event), method: :post, :class => "button" %>
       </td>
     </tr>
   <% end %>

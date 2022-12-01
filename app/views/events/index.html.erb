@@ -1,48 +1,42 @@
 
-<%= link_to 'Add new event', new_event_path, :class => 'btn btn-primary' %>
+<%= link_to 'Add New Event', new_event_path, :class => 'btn btn-outline-warning mb-2' %>
 <%# <%= link_to 'Sign In' :class => 'btn btn-primary' %>
 <%= form_tag events_path, method: :get, id: 'tags_form' do %>
-  Include:
+  Include: &nbsp
   <% @all_tags.each do |tags| %>
     <div class="form-check  form-check-inline">
-      <%= label_tag "tags[#{tags}]", tags, class: 'form-check-label' %>
-      <%= check_box_tag "tags[#{tags}]", "1",  @tags_to_show.include?(tags), class: 'form-check-input' %>
+      <%= label_tag "tags[#{tags}]", tags, class: 'form-check-label mr-1'%>
+      <%= check_box_tag "tags[#{tags}]", "1",  @tags_to_show.include?(tags), class: 'form-check-input' , id: 'checkbox'%>
     </div>
   <% end %>
-  <%= submit_tag 'Refresh', id: 'tags_submit', class: 'btn btn-primary' %>
+  <%= submit_tag 'Refresh', id: 'tags_submit', class: 'btn btn-warning' %>
 <% end %>
-<table class="table table-striped col-md-12" id="events">
+
+<table class="table table-striped col-md-12 mt-3" id="events">
   <thead>
   <tr>
     <th class="<%= is_hilite("event_name") %>" >
       <%= link_to 'Events',
                   events_path(:sort => "event_name", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
-                  id:'event_name_header' %></th>
+                  id:'event_name_header', class:'text-warning' %></th>
     <th class="<%= is_hilite("tag") %>" >
-      <%= link_to 'tags',
+      <%= link_to 'Tags',
                   events_path(:sort => "tag", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
-                  id:'event_name_header' %></th>
+                  id:'event_name_header', class:'text-warning' %></th>
     <th>Address</th>
     <th class="<%= is_hilite("price") %>" >
       <%= link_to 'Price',
                   events_path(:sort => "price", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
-                  id:'tags_header' %></th>
-    <th class="<%= is_hilite("available_spots") %>" >
-      <%= link_to 'Available Spots',
-                  events_path(:sort => "available_spots", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
-                  id:'available_spots_header' %></th>
-    <th class="<%= is_hilite("occupied_spots") %>" >
-      <%= link_to 'occupied Spots',
-                  events_path(:sort => "occupied_spots", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
-                  id:'occupied_spots_header' %></th>
+                  id:'tags_header', class:'text-warning' %></th>
+    <th>Spots Taken</th>
     <th class="<%= is_hilite("start_time") %>" >
       <%= link_to 'Start Time',
                   events_path(:sort => "start_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
-                  id:'start_time_header' %></th>
+                  id:'start_time_header', class:'text-warning'%></th>
     <th class="<%= is_hilite("end_time") %>" >
       <%= link_to 'End Time',
                   events_path(:sort => "end_time", :tags => Hash[@tags_to_show.map {|x| [x, 1]}]),
-                  id:'start_time_header' %></th>
+                  id:'start_time_header', class:'text-warning' %></th>
     <th>More Info</th>
     <th> Join </th>
   </tr>
@@ -50,34 +44,75 @@
   <tbody>
   <% @events.each do |event| %>
     <tr>
-      <td>
-        <%= event.event_name %>
-      </td>
-      <td>
+      <% if event.tag == "Food&Drink" %>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-utensils" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Arts&Culture"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-palette" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Travel"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-plane-departure" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Movies"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-film" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Music"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-headphones" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Metraverse"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-vr-cardboard" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Academia"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-book" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% elsif event.tag == "Athletics"%>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-person-running" style="color:#ffc107"></i>
+          <%= event.event_name %>
+        </td>
+      <% else %>
+        <td class="text-center align-middle">
+          <i class="fa-solid fa-shuffle" style="color:#ffc107"w></i>
+          <%= event.event_name %>
+        </td>
+      <% end %>
+
+      <td class="text-center align-middle text-secondary">
         <%= event.tag %>
       </td>
-      <td>
+      <td class="text-center align-middle text-secondary">
         <%= event.address %>
       </td>
-      <td>
+      <td class="text-center align-middle text-secondary">
         <%= event.price %>
       </td>
-      <td>
-        <%= event.available_spots %>
+      <td class="text-center align-middle">
+        <div role="progressbar" aria-valuemin="0" aria-valuemax="100" style="--value:<%=event.percentage%>"></div>
       </td>
-      <td>
-        <%= event.occupied_spots %>
-      </td>
-      <td>
+      <td class="text-center align-middle text-secondary">
         <%= event.start_time%>
       </td>
-      <td>
+      <td class="text-center align-middle text-secondary">
         <%= event.end_time%>
       </td>
-      <td>
-        <%= link_to "More about #{event.event_name}", event_path(event) %>
+      <td class="text-center align-middle">
+        <%= link_to "More about #{event.event_name}", event_path(event), :class =>'text-warning' %>
       </td>
-      <td>
+      <td class="text-center align-middle">
         <%= button_to 'Participate', participate_event_path(event), method: :post, :class => "button" %>
       </td>
     </tr>

@@ -7,23 +7,60 @@
   <%= stylesheet_link_tag 'application', 'media' => 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <script src="https://kit.fontawesome.com/31b069ded3.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <%# These classes come from the Bootstrap CSS framework. %>
-<nav class="navbar navbar-expand-lg bg-primary text-white mb-3">
-  <h1 class="title">Buddies</h1> 
-  <%= link_to "Home", events_path, :class => 'btn btn-primary' %>
-<% if user_signed_in? %>
-  <%= link_to "My Profile", user_path(current_user), :class => 'btn btn-primary' %>
-  <%# <%= link_to "My Profile", profile_path(current_user), :class => 'btn btn-primary' %>
-  <%= button_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-primary'%>
-  <%= link_to "Events Joined", show_events_joined_path(current_user), :class => 'btn btn-primary' %>
-  <%= link_to "Events Posted", show_events_posted_path(current_user), :class => 'btn btn-primary' %>
-<% else %>
-  <%= link_to "Sign In", new_user_session_path, :class => 'btn btn-primary' %>
-  <%= link_to "Sign Up", new_user_registration_path, :class => 'btn btn-primary' %>
-<% end %>
+<nav class="navbar navbar-expand-lg bg-white bg-gradient text-white mb-3 mt-3">
+  <div class="container">
+      <h1 class="title text-warning">
+        <i class="fa-solid fa-people-group"></i>
+        Buddies</h1>
+      <div class="btn btn-outline-warning">
+        <i class="fa-solid fa-house mr-2" style="color:black"></i>
+        <%= link_to "Home", events_path, class: "text-dark"%>
+      </div>
+      <% if user_signed_in? %>
+        <%# <%= link_to "My Profile", profile_path(current_user), :class => 'btn btn-primary' %>
+        <%#= link_to "Events Joined", show_events_joined_path(current_user), :class => 'btn btn-outline-warning' %>
+        <div class="btn btn-outline-warning">
+          <i class="fa-solid fa-calendar-days mr-2" style="color:black"></i>
+          <%= link_to "Joined", show_events_joined_path(current_user), class: "text-dark"%>
+        </div>
+
+        <%#= link_to "Events Posted", show_events_posted_path(current_user), :class => 'btn btn-outline-warning' %>
+        <div class="btn btn-outline-warning">
+          <i class="fa-solid fa-pen mr-2" style="color:black"></i>
+          <%= link_to "Posted", show_events_posted_path(current_user), class: "text-dark"%>
+        </div>
+
+        <%#= link_to "My Profile", user_path(current_user), :class => 'btn btn-outline-warning' %>
+        <div class="btn btn-outline-warning">
+          <i class="fa-solid fa-address-card mr-2" style="color:black"></i>
+          <%= link_to "Profile", user_path(current_user), class: "text-dark"%>
+        </div>
+
+        <%#= button_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-outline-warning'%>
+        <!--        <div class="btn btn-outline-warning">-->
+        <!--          <i class="fa-solid fa-right-from-bracket mr-2" style="color:black"></i>-->
+        <!--        </div>-->
+        <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "text-dark btn btn-outline-warning"%>
+      <% else %>
+        <%#= link_to "Sign In", new_user_session_path, :class => 'btn btn-primary' %>
+        <div class="btn btn-outline-warning">
+          <i class="fa-solid fa-user mr-2" style="color:black"></i>
+          <%= link_to "Sign In", new_user_session_path, class: "text-dark"%>
+        </div>
+
+        <%#= link_to "Sign Up", new_user_registration_path, :class => 'btn btn-primary' %>
+        <div class="btn btn-outline-warning">
+          <i class="fa-solid fa-user-plus mr-2" style="color:black"></i>
+          <%= link_to "Sign Up", new_user_registration_path, class: "text-dark"%>
+        </div>
+      <% end %>
+  </div>
 </nav>
+<hr/>
 <div class="container">
   <%# Render "flash" messages in our application. This loads _flash.erb %>
   <%= render 'layouts/flash' %>

@@ -68,6 +68,7 @@ class EventsController < ApplicationController
       else
         @event = Event.new(event_params)
         @event.user = current_user
+        @event.percentage = (@event.occupied_spots * 100).div(@event.occupied_spots + @event.available_spots)
         @event.save!
         flash[:notice] = "#{@event.event_name} was successfully created."
         redirect_to events_path
@@ -86,6 +87,8 @@ class EventsController < ApplicationController
         redirect_to event_path() and return
       end
       @event.update(event_params)
+      @event.percentage = (@event.occupied_spots * 100).div(@event.occupied_spots + @event.available_spots)
+      @event.save!
       flash[:notice] = "Event #{@event.event_name} was successfully updated."
     else
       flash[:warning] = "Event #{@event.event_name} couldn't be edited by you."
@@ -122,6 +125,7 @@ class EventsController < ApplicationController
           @event.users << current_user
           @event.available_spots = @event.available_spots - 1
           @event.occupied_spots = @event.occupied_spots + 1
+          @event.percentage = (@event.occupied_spots * 100).div(@event.occupied_spots + @event.available_spots)
           @event.save!
           flash[:notice] = "You have successfully joined event #{@event.event_name}."
         end
@@ -141,6 +145,7 @@ class EventsController < ApplicationController
         @event.users.delete(current_user)
         @event.available_spots = @event.available_spots + 1
         @event.occupied_spots = @event.occupied_spots - 1
+        @event.percentage = (@event.occupied_spots * 100).div(@event.occupied_spots + @event.available_spots)
         @event.save!
         flash[:notice] = "You have successfully left event #{@event.event_name}."
       elsif @event.user == current_user
