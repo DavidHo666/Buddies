@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_214526) do
     t.float "price"
     t.text "description"
     t.string "tag"
-    t.integer "percentage"
+    # t.integer "percentage"
     t.string "pictures"
     t.integer "available_spots"
     t.integer "occupied_spots"

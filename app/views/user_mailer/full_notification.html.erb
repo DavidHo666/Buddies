@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<style>
+    p {text-indent:1em;} 
+</style>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Congratulations! Your party is formed!</h1>
+    <p>
+        The event <%= @event.event_name %> you recently applied now gathers the a full party 
+        of <%= @event.occupied_spots%> participants.
+    </p>
+    <p>
+        You can contact the organizer at: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @event.user.email %>
+    </p>
+    <p>
+        All participants include:
+        <tbody>
+            <% @event.users.each do |user| %>
+                <td>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= user.email %>
+                </td>
+            <% end %>
+        </tbody>
+    </p>
+    <p>
+      To login to the site and check, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

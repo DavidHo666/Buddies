@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   include EventsHelper
   include ActiveStorage::Blob::Analyzable
   # before_action :set_event, only: %i[ show edit update destroy ]
-
+  
   # GET /events or /events.json
   def index
     @all_tags = Event.all_tags
@@ -159,6 +159,9 @@ class EventsController < ApplicationController
           @event.percentage = (@event.occupied_spots * 100).div(@event.occupied_spots + @event.available_spots)
           @event.save!
           flash[:notice] = "You have successfully joined event #{@event.event_name}."
+          if @event.available_spots == 0
+            UserMailer.with(event: @event).full_notification.deliver_now # send email when the event is full
+          end
         end
       else
         flash[:warning] = "You have already joined event #{@event.event_name}."

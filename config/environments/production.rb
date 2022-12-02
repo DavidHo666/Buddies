@@ -90,6 +90,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  #remeber to change it to the actual domain name when deploying
+
+  config.action_mailer.default_url_options = {:host => 'buddies-test.herokuapp.com' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :address              => 'smtp.gmail.com',
+    :port                 => 587,
+    :domain               => 'gmail.com',
+    :user_name            => 'buddies.join.now@gmail.com',
+    :password             => 'fszgnwvvlgohcxfk',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true
+  }
+
+
 end
