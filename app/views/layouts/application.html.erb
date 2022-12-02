@@ -14,49 +14,35 @@
 <nav class="navbar navbar-expand-lg bg-white bg-gradient text-white mb-3 mt-3">
   <div class="container">
       <h1 class="title text-warning">
-        <i class="fa-solid fa-people-group"></i>
-        Buddies</h1>
-      <div class="btn btn-outline-warning">
-        <i class="fa-solid fa-house mr-2" style="color:black"></i>
-        <%= link_to "Home", events_path, class: "text-dark"%>
-      </div>
+        <i class="fa-solid fa-people-group"></i>Buddies
+      </h1>
+      <%= button_to events_path, { method: :get, class: "text-dark btn btn-outline-warning"} do %>
+        <i class="fa-solid fa-house mr-2" style="color:black"></i>Home
+      <% end %>
+
       <% if user_signed_in? %>
-        <%# <%= link_to "My Profile", profile_path(current_user), :class => 'btn btn-primary' %>
-        <%#= link_to "Events Joined", show_events_joined_path(current_user), :class => 'btn btn-outline-warning' %>
-        <div class="btn btn-outline-warning">
-          <i class="fa-solid fa-calendar-days mr-2" style="color:black"></i>
-          <%= link_to "Joined", show_events_joined_path(current_user), class: "text-dark"%>
-        </div>
+        <%= button_to show_events_joined_path(current_user), { method: :get, class: "text-dark btn btn-outline-warning"} do %>
+          <i class="fa-solid fa-calendar-days mr-2" style="color:black"></i>Joined
+        <% end %>
 
-        <%#= link_to "Events Posted", show_events_posted_path(current_user), :class => 'btn btn-outline-warning' %>
-        <div class="btn btn-outline-warning">
-          <i class="fa-solid fa-pen mr-2" style="color:black"></i>
-          <%= link_to "Posted", show_events_posted_path(current_user), class: "text-dark"%>
-        </div>
+        <%= button_to show_events_posted_path(current_user), { method: :get, class: "text-dark btn btn-outline-warning"} do %>
+          <i class="fa-solid fa-pen mr-2" style="color:black"></i>Posted
+        <% end %>
 
-        <%#= link_to "My Profile", user_path(current_user), :class => 'btn btn-outline-warning' %>
-        <div class="btn btn-outline-warning">
-          <i class="fa-solid fa-address-card mr-2" style="color:black"></i>
-          <%= link_to "Profile", user_path(current_user), class: "text-dark"%>
-        </div>
+        <%= button_to user_path(current_user), { method: :get, class: "text-dark btn btn-outline-warning"} do %>
+          <i class="fa-solid fa-address-card mr-2" style="color:black"></i>Profile
+        <% end %>
 
-        <%#= button_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-outline-warning'%>
-        <!--        <div class="btn btn-outline-warning">-->
-        <!--          <i class="fa-solid fa-right-from-bracket mr-2" style="color:black"></i>-->
-        <!--        </div>-->
         <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "text-dark btn btn-outline-warning"%>
       <% else %>
-        <%#= link_to "Sign In", new_user_session_path, :class => 'btn btn-primary' %>
-        <div class="btn btn-outline-warning">
-          <i class="fa-solid fa-user mr-2" style="color:black"></i>
-          <%= link_to "Sign In", new_user_session_path, class: "text-dark"%>
-        </div>
 
-        <%#= link_to "Sign Up", new_user_registration_path, :class => 'btn btn-primary' %>
-        <div class="btn btn-outline-warning">
-          <i class="fa-solid fa-user-plus mr-2" style="color:black"></i>
-          <%= link_to "Sign Up", new_user_registration_path, class: "text-dark"%>
-        </div>
+        <%= button_to new_user_session_path, { method: :get, class: "text-dark btn btn-outline-warning"} do %>
+          <i class="fa-solid fa-user mr-2" style="color:black"></i>Sign In
+        <% end %>
+
+        <%= button_to new_user_registration_path, { method: :get, class: "text-dark btn btn-outline-warning"} do %>
+          <i class="fa-solid fa-user-plus mr-2" style="color:black"></i>Sign Up
+        <% end %>
       <% end %>
   </div>
 </nav>
@@ -68,5 +54,8 @@
     <%= yield %>
   </main>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
