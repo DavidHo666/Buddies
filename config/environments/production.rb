@@ -103,7 +103,7 @@ Rails.application.configure do
     :port                 =>  25,
     :domain               => 'heroku.com',
     :user_name            => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
-    :password             => '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'
+    :password             => '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',
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
