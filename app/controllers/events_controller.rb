@@ -2,7 +2,6 @@ class EventsController < ApplicationController
   include EventsHelper
   include ActiveStorage::Blob::Analyzable
   # before_action :set_event, only: %i[ show edit update destroy ]
-
   # GET /events or /events.json
   def index
     @all_tags = Event.all_tags
