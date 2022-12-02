@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :participations
   has_many :users, through: :participations
+  has_one_attached :event_image
   def self.all_tags
     %w[Food&Drink Arts&Culture Travel Movies Music Metraverse Academia Athletics Others]
   end

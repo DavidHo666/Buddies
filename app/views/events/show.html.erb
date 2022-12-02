@@ -40,6 +40,10 @@
   </li>
 </ul>
 
+<% if @event.event_image.attached? %>
+  <%= image_tag @event.event_image, style:"height: 200px; width: 200px" %>
+<% end %>
+
 <% if user_signed_in? and (@organizer==current_user or @participants.include? current_user)%>
   <h3>All participants:</h3>
   <p id="All participants">

@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   include EventsHelper
+  include ActiveStorage::Blob::Analyzable
   # before_action :set_event, only: %i[ show edit update destroy ]
 
   # GET /events or /events.json
@@ -95,6 +96,7 @@ class EventsController < ApplicationController
         redirect_to events_path
       else
         @event = Event.new(event_params)
+
         @event.user = current_user
         @event.percentage = (@event.occupied_spots * 100).div(@event.occupied_spots + @event.available_spots)
         @event.save!
@@ -114,6 +116,7 @@ class EventsController < ApplicationController
         flash[:warning] = "Time invalid!"
         redirect_to event_path() and return
       end
+      @event.event_image.purge
       @event.update(event_params)
       @event.percentage = (@event.occupied_spots * 100).div(@event.occupied_spots + @event.available_spots)
       @event.save!
@@ -195,6 +198,6 @@ class EventsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def event_params
       params.require(:event).permit(:event_name,:tag,:address,:description, :start_time, :end_time,
-                                    :price, :available_spots, :occupied_spots, :price)
+                                    :price, :available_spots, :occupied_spots, :price, :event_image)
     end
 end

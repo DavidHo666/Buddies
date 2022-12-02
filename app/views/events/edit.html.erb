@@ -1,5 +1,5 @@
 <h2>Edit Existing Event</h2>
-<%= form_tag event_path(@event), :method => :put do %>
+<%= form_tag event_path(@event), :method => :put, multipart: true do %>
   <%= label :event, :event_name, 'Event Name', :class => 'col-form-label' %>
   <%= text_field :event, :event_name, :class => 'form-control' %>
   <%= label :event, :description, 'Description', :class => 'col-form-label' %>
@@ -12,6 +12,8 @@
   <%= text_field :event, :occupied_spots, :class => 'form-control', data:{numeric: true} %>
   <%= label :event, :price, 'Price', :class => 'col-form-label' %>
   <%= text_field :event, :price, :class => 'form-control', data:{numeric: true} %>
+  <%= label :event, :event_image, "Event Photo" %>
+  <%= file_field :event, :event_image, multipart: true %>
   <br>
   <%= label :event, :tag, 'tag', :class => 'col-form-label'  %>
   <%= select :event, :tag, %w[Food&Drink Arts&Culture Travel Movies Music Metraverse Academia Athletics Others], { :class => 'form-control col-1'} %>

@@ -1,6 +1,6 @@
 <h2>Create New Event</h2>
 
-<%= form_tag events_path, :class => 'form' do %>
+<%= form_tag events_path, :class => 'form', multipart: true do %>
   <%= label :event, :event_name, 'Event Name', :class => 'col-form-label' %>
   <%= text_field :event, :event_name, :class => 'form-control', required: true%>
   <%= label :event, :description, 'Description', :class => 'col-form-label' %>
@@ -15,6 +15,9 @@
 
   <%= label :event, :price, 'Price', :class => 'col-form-label' %>
   <%= text_field :event, :price, :class => 'form-control', data:{numeric: true} %>
+  <%= label :event, :image, "Event Photo" %>
+  <%= file_field :event, :event_image, multipart: true %>
+
 
   <br>
   <%= label :event, :tag, 'tag', :class => 'col-form-label'  %>
@@ -27,3 +30,4 @@
   <%= submit_tag 'Save Changes', :class => 'mt-3 btn btn-warning' %>
   <%= link_to 'Cancel', events_path, :class => 'mt-3 btn btn-secondary' %>
 <% end %>
+
