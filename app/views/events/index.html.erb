@@ -101,17 +101,20 @@
       </h5>
     </div>
     <p class="card-text text-muted">
-      <%= event.tag %>, <%= event.address %>
+      <%= event.tag %>, <strong>$<%= event.price %></strong>
+      <br>
+      <%= event.address %>
     </p>
 
-    <div class="row">
+    <div class="row mb-4">
       <div class="col-7">
-        <p class="card-text">
-          <strong>Price</strong>: <%= event.price %>
+        <p class="card-text text-muted">
+          <strong>Time</strong><br>
+          <%= event.start_time.to_s[0, 16] %>
           <br>
-          <strong>Start Time</strong>: <%= event.start_time.to_s[0, 16] %>
+          to
           <br>
-            <strong>End Time</strong>: <%= event.end_time.to_s[0, 16] %>
+          <%= event.end_time.to_s[0, 16] %>
         </p>
       </div>
       <div class="col-4">
