@@ -8,7 +8,6 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.float :price
       t.text :description
       t.string :tag
-      t.integer :percentage
       t.string :pictures
       t.integer :available_spots
       t.integer :occupied_spots
