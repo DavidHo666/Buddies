@@ -5,6 +5,7 @@
     <button class="btn btn-outline-warning mb-2 dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Categories
     </button>
+
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <%= link_to 'Events',
                     events_path(:sort => "event_name", :tags => Hash[@tags_to_show.map { |x| [x, 1]}]),
@@ -45,84 +46,87 @@
   <%= submit_tag 'Refresh', id: 'tags_submit', class: 'btn btn-warning' %>
 <% end %>
 
-<table class="table table-striped col-md-12 mt-3" id="events">
+<div class="card-deck">
+<% @events.each do |event| %>
+  <div class="card text-center" style="max-width: 18rem;">
+    <img class="card-img-top" src="assets/animal_kuma.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title text-center align-middle">
+        <% if event.tag == "Food&Drink" %>
+          <td class="text-center align-middle">
+            <i class="fa-solid fa-utensils" style="color:#ffc107"></i>
+            <%= event.event_name %>
+          </td>
+        <% elsif event.tag == "Arts&Culture"%>
+          <td class="text-center align-middle">
+            <i class="fa-solid fa-palette" style="color:#ffc107"></i>
+            <%= event.event_name %>
+          </td>
+        <% elsif event.tag == "Travel"%>
+          <td class="text-center align-middle">
+            <i class="fa-solid fa-plane-departure" style="color:#ffc107"></i>
+            <%= event.event_name %>
+          </td>
+        <% elsif event.tag == "Movies"%>
+          <td class="text-center align-middle">
+            <i class="fa-solid fa-film" style="color:#ffc107"></i>
+            <%= event.event_name %>
+          </td>
+        <% elsif event.tag == "Music"%>
+          <td class="text-center align-middle">
+            <i class="fa-solid fa-headphones" style="color:#ffc107"></i>
+            <%= event.event_name %>
+          </td>
+        <% elsif event.tag == "Metraverse"%>
+          <td class="text-center align-middle">
+            <i class="fa-solid fa-vr-cardboard" style="color:#ffc107"></i>
+            <%= event.event_name %>
+          </td>
+        <% elsif event.tag == "Academia"%>
+          <td class="text-center align-middle">
+            <i class="fa-solid fa-book" style="color:#ffc107"></i>
+            <%= event.event_name %>
+          </td>
+        <% elsif event.tag == "Athletics"%>
+          <td class="text-center align-middle">
+            <i class="fa-solid fa-person-running" style="color:#ffc107"></i>
+            <%= event.event_name %>
+          </td>
+        <% else %>
+          <td class="text-center align-middle">
+            <i class="fa-solid fa-shuffle" style="color:#ffc107"w></i>
+            <%= event.event_name %>
+          </td>
+        <% end %>
+      </h5>
+    </div>
+    <p class="card-text text-muted">
+      <%= event.tag %>, <%= event.address %>
+    </p>
 
-  <tbody>
-  <% @events.each do |event| %>
-    <tr>
-      <% if event.tag == "Food&Drink" %>
-        <td class="text-center align-middle">
-          <i class="fa-solid fa-utensils" style="color:#ffc107"></i>
-          <%= event.event_name %>
-        </td>
-      <% elsif event.tag == "Arts&Culture"%>
-        <td class="text-center align-middle">
-          <i class="fa-solid fa-palette" style="color:#ffc107"></i>
-          <%= event.event_name %>
-        </td>
-      <% elsif event.tag == "Travel"%>
-        <td class="text-center align-middle">
-          <i class="fa-solid fa-plane-departure" style="color:#ffc107"></i>
-          <%= event.event_name %>
-        </td>
-      <% elsif event.tag == "Movies"%>
-        <td class="text-center align-middle">
-          <i class="fa-solid fa-film" style="color:#ffc107"></i>
-          <%= event.event_name %>
-        </td>
-      <% elsif event.tag == "Music"%>
-        <td class="text-center align-middle">
-          <i class="fa-solid fa-headphones" style="color:#ffc107"></i>
-          <%= event.event_name %>
-        </td>
-      <% elsif event.tag == "Metraverse"%>
-        <td class="text-center align-middle">
-          <i class="fa-solid fa-vr-cardboard" style="color:#ffc107"></i>
-          <%= event.event_name %>
-        </td>
-      <% elsif event.tag == "Academia"%>
-        <td class="text-center align-middle">
-          <i class="fa-solid fa-book" style="color:#ffc107"></i>
-          <%= event.event_name %>
-        </td>
-      <% elsif event.tag == "Athletics"%>
-        <td class="text-center align-middle">
-          <i class="fa-solid fa-person-running" style="color:#ffc107"></i>
-          <%= event.event_name %>
-        </td>
-      <% else %>
-        <td class="text-center align-middle">
-          <i class="fa-solid fa-shuffle" style="color:#ffc107"w></i>
-          <%= event.event_name %>
-        </td>
-      <% end %>
-
-      <td class="text-center align-middle text-secondary">
-        <%= event.tag %>
-      </td>
-      <td class="text-center align-middle text-secondary">
-        <%= event.address %>
-      </td>
-      <td class="text-center align-middle text-secondary">
-        <%= event.price %>
-      </td>
-      <td class="text-center align-middle">
-        <div role="progressbar" aria-valuemin="0" aria-valuemax="100" style="--value:<%=event.percentage%>"></div>
-      </td>
-      <td class="text-center align-middle text-secondary">
-        <%= event.start_time%>
-      </td>
-      <td class="text-center align-middle text-secondary">
-        <%= event.end_time%>
-      </td>
-      <td class="text-center align-middle">
-        <%= link_to "More about #{event.event_name}", event_path(event), :class =>'text-warning' %>
-      </td>
-      <td class="text-center align-middle">
+    <div class="row">
+      <div class="col-7">
+        <p class="card-text">
+          <strong>Price</strong>: <%= event.price %>
+          <br>
+          <strong>Start Time</strong>: <%= event.start_time.to_s[0, 16] %>
+          <br>
+            <strong>End Time</strong>: <%= event.end_time.to_s[0, 16] %>
+        </p>
+      </div>
+      <div class="col-4">
+        <div class="mb-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="--value:<%=event.percentage%>"></div>
         <%= button_to 'Participate', participate_event_path(event), method: :post, :class => "button" %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+
+
+
+
+    <div class="card-footer">
+      <small class="text-muted"><%= link_to "More about #{event.event_name}", event_path(event), :class =>'text-warning' %></small>
+    </div>
+  </div>
+<% end %>
+</div>
 
