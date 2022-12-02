@@ -91,20 +91,20 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   #remeber to change it to the actual domain name when deploying
-  config.action_mailer.default_url_options = {:host => 'buddies-test.herokuapp.com' }
+  # config.action_mailer.default_url_options = {:host => 'buddies-test.herokuapp.com' }
   
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default :charset => "utf-8"
 
-  config.action_mailer.smtp_settings = {
-    :address              => 'smtp.sendgrid.net',
-    :port                 =>  25,
-    :domain               => 'heroku.com',
-    :user_name            => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
-    :password             => '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',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true
-  }
+  # config.action_mailer.smtp_settings = {
+  #   :address              => 'smtp.sendgrid.net',
+  #   :port                 =>  25,
+  #   :domain               => 'heroku.com',
+  #   :user_name            => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+  #   :password             => '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',
+  #   :authentication       => 'plain',
+  #   :enable_starttls_auto => true
+  # }
 end
