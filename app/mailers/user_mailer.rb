@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-    default from: 'Buddies:Join now <buddies.join.now@gmail.com>'
+    default from: 'Buddies <buddies.join.now@gmail.com>'
 
     def welcome_email
         @user = params[:user]
