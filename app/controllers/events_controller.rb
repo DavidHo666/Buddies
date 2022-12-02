@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   include EventsHelper
+  include ActiveStorage::Blob::Analyzable
   # before_action :set_event, only: %i[ show edit update destroy ]
 
   # GET /events or /events.json
@@ -14,6 +15,8 @@ class EventsController < ApplicationController
 
     if (!params[:tags] && !params[:sort]) && (session[:sort_key] || session[:tags_to_show])
       redirect_to events_path(:sort => session[:sort_key],
+                              :search_by_name => params[:search_by_name], #pass in search term in case it gets wiped out when redicting
+                              :search_by_time => params[:search_by_time],
                               :tags => Hash[@tags_to_show.map {|x| [x, 1]}])
     end
 
@@ -29,6 +32,32 @@ class EventsController < ApplicationController
     session[:sort_key] = @sort_key
 
     @events = Event.with_tags_sort(@tags_to_show, @sort_key)
+
+
+    if !params[:search_by_name].nil? && !params[:search_by_name].empty?
+      flash[:none]
+      @search_name = params[:search_by_name]
+      @events = Event.search_events(@search_name)
+      # @events = Event.all
+    elsif !params[:search_by_name].nil? && params[:search_by_name].empty?
+      flash[:warning] = 'Cannot search empty term'
+    end
+
+    if !params[:search_by_time].nil? && !params[:search_by_time].empty?
+      if params[:search_by_time].length != 10 || (Date.parse(params[:search_by_time]) rescue nil) == nil
+        flash[:warning] = 'Invalid date format'
+      else 
+        flash[:none]
+        @search_time = params[:search_by_time]
+        @events = Event.search_time(@search_time)
+      end
+      # flash[:none]
+      # @search_time = params[:search_by_time]
+      # @events = Event.search_events(@search_name)
+      # @events = Event.all
+    elsif !params[:search_by_time].nil? && params[:search_by_time].empty?
+      flash[:warning] = 'Time cannot be empty'
+    end
 
   end
 
@@ -67,7 +96,9 @@ class EventsController < ApplicationController
         redirect_to events_path
       else
         @event = Event.new(event_params)
+
         @event.user = current_user
+        @event.percentage = (@event.occupied_spots * 100).div(@event.occupied_spots + @event.available_spots)
         @event.save!
         flash[:notice] = "#{@event.event_name} was successfully created."
         redirect_to events_path
@@ -85,7 +116,10 @@ class EventsController < ApplicationController
         flash[:warning] = "Time invalid!"
         redirect_to event_path() and return
       end
+      @event.event_image.purge
       @event.update(event_params)
+      @event.percentage = (@event.occupied_spots * 100).div(@event.occupied_spots + @event.available_spots)
+      @event.save!
       flash[:notice] = "Event #{@event.event_name} was successfully updated."
     else
       flash[:warning] = "Event #{@event.event_name} couldn't be edited by you."
@@ -122,6 +156,7 @@ class EventsController < ApplicationController
           @event.users << current_user
           @event.available_spots = @event.available_spots - 1
           @event.occupied_spots = @event.occupied_spots + 1
+          @event.percentage = (@event.occupied_spots * 100).div(@event.occupied_spots + @event.available_spots)
           @event.save!
           flash[:notice] = "You have successfully joined event #{@event.event_name}."
           if @event.available_spots == 0
@@ -144,6 +179,7 @@ class EventsController < ApplicationController
         @event.users.delete(current_user)
         @event.available_spots = @event.available_spots + 1
         @event.occupied_spots = @event.occupied_spots - 1
+        @event.percentage = (@event.occupied_spots * 100).div(@event.occupied_spots + @event.available_spots)
         @event.save!
         flash[:notice] = "You have successfully left event #{@event.event_name}."
       elsif @event.user == current_user
@@ -165,6 +201,6 @@ class EventsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def event_params
       params.require(:event).permit(:event_name,:tag,:address,:description, :start_time, :end_time,
-                                    :price, :available_spots, :occupied_spots, :price)
+                                    :price, :available_spots, :occupied_spots, :price, :event_image)
     end
 end
