@@ -3,3 +3,10 @@ tmp/
 log/
 db/development.sqlite3
 db/test.sqlite3
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

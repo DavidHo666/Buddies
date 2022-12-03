@@ -59,6 +59,34 @@ class EventsController < ApplicationController
       flash[:warning] = 'Time cannot be empty'
     end
 
+    ######################################################
+    # api = "https://api.openbrewerydb.org/breweries"
+    @location = "new york"
+    # searchable_location = @location.downcase.split(" ").join("_")
+    # response = Excon.new("#{api}?by_city=#{searchable_location}")
+    # #
+    # response = response.get(:headers => {'Accept' => 'application/json'})
+    # events = JSON.parse(response.body)
+    events = @events
+    events = events.select {|event| event["address"] != nil }
+    events = events.map do |event|
+      if event["longitude"] == nil || event["latitude"] == nil
+        location = Geocoder.search("#{event["address"]}")
+        if !location.empty?
+          event["longitude"] = location.first.longitude.to_s
+          event["latitude"] = location.first.latitude.to_s
+          event
+        end
+      else
+        event
+      end
+    end
+    @events = events.select {|event| event != nil}
+
+    location_coords = Geocoder.search("#{@location}")
+    @location_lat = location_coords.first.latitude.to_s
+    @location_lng = location_coords.first.longitude.to_s
+
   end
 
   # GET /events/1 or /events/1.json
