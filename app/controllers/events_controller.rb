@@ -86,7 +86,6 @@ class EventsController < ApplicationController
     location_coords = Geocoder.search("#{@location}")
     @location_lat = location_coords.first.latitude.to_s
     @location_lng = location_coords.first.longitude.to_s
-
   end
 
   # GET /events/1 or /events/1.json

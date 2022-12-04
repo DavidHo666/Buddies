@@ -24,12 +24,21 @@ function initMap() {
     });
 
     let infoWindow = new google.maps.InfoWindow();
-
+    let labelDict = {};
+    eventInfo.forEach(event => {
+        let name = event.coords['lat'] + "," + event.coords['lng'];
+        if (labelDict.hasOwnProperty(name)) {
+            labelDict[name] += 1;
+        } else {
+            labelDict[name] = 1;
+        }
+    });
     eventInfo.forEach((event, i) => {
+        let name = event.coords['lat'] + "," + event.coords['lng'];
         const marker = new google.maps.Marker({
             position: event.coords,
             map: map,
-            label: (i + 1).toString(),
+            label: labelDict[name].toString(),
             title: `${event.title} \n ${event.address.split("-").join(" ")}`
         });
 
