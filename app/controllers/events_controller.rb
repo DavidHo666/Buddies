@@ -61,7 +61,7 @@ class EventsController < ApplicationController
 
     ######################################################
     # api = "https://api.openbrewerydb.org/breweries"
-    @location = "new york"
+    @location = "columbia university"
     # searchable_location = @location.downcase.split(" ").join("_")
     # response = Excon.new("#{api}?by_city=#{searchable_location}")
     # #

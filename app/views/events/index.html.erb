@@ -49,8 +49,8 @@
 <div class="map-container">
   <div class="row">
     <div class="col">
-      <div class="event-results border border-warning rounded p-2" style="height: 470px; overflow:auto;">
-        <ol class="event-result-list">
+      <div class="event-results" style="height: 470px; overflow:auto;">
+        <div class="event-result-list">
           <div class="card-deck">
 <!--            <div class="scrolling-container">-->
           <% @events.each do |event| %>
@@ -60,7 +60,7 @@
               data-latitude=<%= event["latitude"] %>
               data-address=<%= event["address"].split(" ").join("-") %>
             >
-              <div class="card text-center mb-3" style="width: 18rem;">
+              <div class="card text-center mb-3" style="width: 25rem;">
               <% if event.event_image.attached? %>
                 <%= image_tag(event.event_image, :class => "card-img-top") %>
               <% end %>
@@ -145,7 +145,7 @@
           <% end %>
 <!--          </div>-->
         </div>
-      </ol>
+      </div>
     </div>
   </div>
 

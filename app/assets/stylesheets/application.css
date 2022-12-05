@@ -87,7 +87,7 @@ input[type=text] {
 }
 
 .map-container h2 {
-    margin-left: 68px;
+    margin-left: 5px;
     text-decoration: underline;
 }
 
@@ -143,9 +143,9 @@ input[type=text] {
 /*}*/
 
 #map {
-    width: 600px;
-    height: 420px;
+    width: 858px;
+    height: 600px;
     float: right;
-    margin-right: 75px;
+    margin-right: 5px;
     border: 1.5px solid black;
 }
