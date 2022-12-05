@@ -1,4 +1,6 @@
 {
+  "private": true,
+  "heroku-prebuild": "npm install --dev",
   "dependencies": {
     "@rails/activestorage": "^7.0.4",
     "@rails/ujs": "^7.0.4",
