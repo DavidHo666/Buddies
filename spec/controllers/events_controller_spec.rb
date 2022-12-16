@@ -15,92 +15,157 @@ RSpec.describe EventsController do
       expect(response).to render_template("index")
     end
 
-    it "should only show events from selected tags" do
-      curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
-      sign_in curr_user
+    # it "should only show events from selected tags" do
+    #   curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
+    #   sign_in curr_user
 
-      post :create, params: { :event => {
-        :event_name => "TEST CREATE 1",
-        :tag => "Food&Drink",
-        "start_time(1i)" => "2023",
-        "start_time(2i)" => "1",
-        "start_time(3i)" => "1",
-        "start_time(4i)" => "12",
-        "start_time(5i)" => "30",
-        "end_time(1i)" => "2023",
-        "end_time(2i)" => "2",
-        "end_time(3i)" => "1",
-        "end_time(4i)" => "12",
-        "end_time(5i)" => "30",
-        :available_spots => 5,
-        :occupied_spots => 2
-      } }
+    #   post :create, params: { :event => {
+    #     :event_name => "TEST CREATE 1",
+    #     :tag => "Food&Drink",
+    #     "start_time(1i)" => "2023",
+    #     "start_time(2i)" => "1",
+    #     "start_time(3i)" => "1",
+    #     "start_time(4i)" => "12",
+    #     "start_time(5i)" => "30",
+    #     "end_time(1i)" => "2023",
+    #     "end_time(2i)" => "2",
+    #     "end_time(3i)" => "1",
+    #     "end_time(4i)" => "12",
+    #     "end_time(5i)" => "30",
+    #     :available_spots => 5,
+    #     :occupied_spots => 2
+    #   } }
 
-      post :create, params: { :event => {
-        :event_name => "TEST CREATE 2",
-        :tag => "Music",
-        "start_time(1i)" => "2023",
-        "start_time(2i)" => "1",
-        "start_time(3i)" => "1",
-        "start_time(4i)" => "12",
-        "start_time(5i)" => "30",
-        "end_time(1i)" => "2023",
-        "end_time(2i)" => "2",
-        "end_time(3i)" => "1",
-        "end_time(4i)" => "12",
-        "end_time(5i)" => "30",
-        :available_spots => 5,
-        :occupied_spots => 2
-      } }
+    #   post :create, params: { :event => {
+    #     :event_name => "TEST CREATE 2",
+    #     :tag => "Music",
+    #     "start_time(1i)" => "2023",
+    #     "start_time(2i)" => "1",
+    #     "start_time(3i)" => "1",
+    #     "start_time(4i)" => "12",
+    #     "start_time(5i)" => "30",
+    #     "end_time(1i)" => "2023",
+    #     "end_time(2i)" => "2",
+    #     "end_time(3i)" => "1",
+    #     "end_time(4i)" => "12",
+    #     "end_time(5i)" => "30",
+    #     :available_spots => 5,
+    #     :occupied_spots => 2
+    #   } }
 
-      get :index, params:{ :tags => {"Music" => 1} }
-      selected_events = assigns(:events)[0]
-      expect(selected_events.event_name).to eq("TEST CREATE 2")
-    end
+    #   get :index, params:{ :tags => {"Music" => 1} }
+    #   selected_events = assigns(:events)[0]
+    #   expect(selected_events.event_name).to eq("TEST CREATE 2")
+    # end
 
-    it "should show events in selected sort key" do
-      curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
-      sign_in curr_user
+    # it "should show events in selected sort key" do
+    #   curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
+    #   sign_in curr_user
 
-      post :create, params: { :event => {
-        :event_name => "B TEST CREATE 1",
-        :tag => "Food&Drink",
-        "start_time(1i)" => "2023",
-        "start_time(2i)" => "1",
-        "start_time(3i)" => "1",
-        "start_time(4i)" => "12",
-        "start_time(5i)" => "30",
-        "end_time(1i)" => "2023",
-        "end_time(2i)" => "2",
-        "end_time(3i)" => "1",
-        "end_time(4i)" => "12",
-        "end_time(5i)" => "30",
-        :available_spots => 5,
-        :occupied_spots => 2
-      } }
+    #   post :create, params: { :event => {
+    #     :event_name => "B TEST CREATE 1",
+    #     :tag => "Food&Drink",
+    #     "start_time(1i)" => "2023",
+    #     "start_time(2i)" => "1",
+    #     "start_time(3i)" => "1",
+    #     "start_time(4i)" => "12",
+    #     "start_time(5i)" => "30",
+    #     "end_time(1i)" => "2023",
+    #     "end_time(2i)" => "2",
+    #     "end_time(3i)" => "1",
+    #     "end_time(4i)" => "12",
+    #     "end_time(5i)" => "30",
+    #     :available_spots => 5,
+    #     :occupied_spots => 2
+    #   } }
 
-      post :create, params: { :event => {
-        :event_name => "B TEST CREATE 1",
-        :tag => "Music",
-        "start_time(1i)" => "2023",
-        "start_time(2i)" => "1",
-        "start_time(3i)" => "1",
-        "start_time(4i)" => "12",
-        "start_time(5i)" => "30",
-        "end_time(1i)" => "2023",
-        "end_time(2i)" => "2",
-        "end_time(3i)" => "1",
-        "end_time(4i)" => "12",
-        "end_time(5i)" => "30",
-        :available_spots => 5,
-        :occupied_spots => 2
-      } }
+    #   post :create, params: { :event => {
+    #     :event_name => "B TEST CREATE 1",
+    #     :tag => "Music",
+    #     "start_time(1i)" => "2023",
+    #     "start_time(2i)" => "1",
+    #     "start_time(3i)" => "1",
+    #     "start_time(4i)" => "12",
+    #     "start_time(5i)" => "30",
+    #     "end_time(1i)" => "2023",
+    #     "end_time(2i)" => "2",
+    #     "end_time(3i)" => "1",
+    #     "end_time(4i)" => "12",
+    #     "end_time(5i)" => "30",
+    #     :available_spots => 5,
+    #     :occupied_spots => 2
+    #   } }
 
 
-      get :index, params:{ :sort => "event_name" }
-      selected_events = assigns(:events)[0]
-      expect(selected_events.event_name).to eq("B TEST CREATE 1")
-    end
+    #   get :index, params:{ :sort => "event_name" }
+    #   selected_events = assigns(:events)[0]
+    #   expect(selected_events.event_name).to eq("B TEST CREATE 1")
+    # end
+
+      it 'should return event if search name is not null' do
+        curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
+        sign_in curr_user
+        post :create, params: { :event => {
+          :event_name => "test",
+          :tag => "Food&Drink",
+          "start_time(1i)" => "2023",
+          "start_time(2i)" => "1",
+          "start_time(3i)" => "1",
+          "start_time(4i)" => "12",
+          "start_time(5i)" => "30",
+          "end_time(1i)" => "2023",
+          "end_time(2i)" => "2",
+          "end_time(3i)" => "1",
+          "end_time(4i)" => "12",
+          "end_time(5i)" => "30",
+          :available_spots => 5,
+          :occupied_spots => 2
+        } }
+        get :index, params:{ :search_by_name => 'test' }
+        expect(flash[:none]).to eq(nil)
+        expect(Event.search_events("test").length).to eq(1)
+      end
+
+      it 'should return event if search name is null' do
+        get :index, params:{ :search_by_name => nil }
+        expect(flash[:warning]).to eq('Cannot search empty term')
+        # expect(Event.search_events("test").length).to eq(1)
+      end
+
+      it 'should show warning if search by time is invalid' do
+        get :index, params:{ :search_by_time => nil }
+        expect(flash[:warning]).to eq('Time cannot be empty')
+      end
+
+      it 'should show warning if search by time is in wrong format' do
+        get :index, params:{ :search_by_time => '123' }
+        expect(flash[:warning]).to eq('Invalid date format')
+      end
+
+      it 'should return result if search time is valid' do
+        curr_user = User.create!(email: "test@gmail.com", password: "testtesttest")
+        sign_in curr_user
+        post :create, params: { :event => {
+          :event_name => "test",
+          :tag => "Food&Drink",
+          "start_time(1i)" => "2023",
+          "start_time(2i)" => "1",
+          "start_time(3i)" => "1",
+          "start_time(4i)" => "12",
+          "start_time(5i)" => "30",
+          "end_time(1i)" => "2023",
+          "end_time(2i)" => "2",
+          "end_time(3i)" => "1",
+          "end_time(4i)" => "12",
+          "end_time(5i)" => "30",
+          :available_spots => 5,
+          :occupied_spots => 2
+        } }
+        get :index, params:{ :search_by_time => '2023-01-05' }
+        expect(flash[:none]).to eq(nil)
+        expect(Event.search_time('2023-01-05').length).to eq(1)
+      end
+
   end
 
   describe "POST create" do
