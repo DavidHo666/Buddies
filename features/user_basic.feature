@@ -11,44 +11,44 @@ Background: users in database
 
     Given the following events exist:
     | event_name       | address      | start_time         | end_time           | price | description | tag          | available_spots| occupied_spots | user_id   |
-    | Study Session    | NWC          | 2022-12-29 16:00:00| 2022-12-29 18:00:00|  0    |   welcome   | Academia     |   5            |   1            |     1     |
-    | CS Lecture       | MUDD 527     | 2022-12-31 13:00:00| 2022-12-31 14:50:00|  30   | well known  | Academia     |   1            |   1            |     1     |
-    | Halloween Parade | Time's square| 2022-12-01 12:00:00| 2022-12-01 20:00:00| 200   |  happy      | Arts&Culture |   9            |   1            |     2     |
+    | Study Session    | NWC          | 2023-12-29 16:00:00| 2023-12-29 18:00:00|  0    |   welcome   | Academia     |   5            |   1            |     1     |
+    | CS Lecture       | MUDD 527     | 2023-12-31 13:00:00| 2023-12-31 14:50:00|  30   | well known  | Academia     |   1            |   1            |     1     |
+    | Halloween Parade | Time's square| 2023-12-01 12:00:00| 2023-12-01 20:00:00| 200   |  happy      | Arts&Culture |   9            |   1            |     2     |
 
 Scenario: [sad] As a guest, create event would redirect to signin/signup
     Given I am on the home page
-    When I follow "Add new event"
+    When I follow "Add New Event"
     Then I should be on the create event page
     When I press "Save Changes"
     Then I should be on the signin page
 
 Scenario: As a guest, create new account
     Given I am on the home page
-    When I follow "Sign Up"
+    When I press "Sign Up"
     Then I should be on the signup page
     And I signup with email "test_user1@gmail.com" and password "123456"
     Then I should be on the home page
     And I should see "Welcome! You have signed up successfully."
-    And I should see "My Profile"
+    And I should see "Profile"
 
 Scenario: [sad] As a guest, create account with existing email
     Given I am on the home page
-    When I follow "Sign Up"
+    When I press "Sign Up"
     And I signup with email "bot1@gmail.com" and password "123456"
     Then I should see "Email has already been taken"
 
 Scenario: As a guest, signin
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     Then I should be on the signin page
     And I signin with email "bot1@gmail.com" and password "bot1bot1"
     Then I should be on the home page
     And I should see "Signed in successfully."
-    And I should see "My Profile"
+    And I should see "Profile"
 
 Scenario: As a user, signout
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot1@gmail.com" and password "bot1bot1"
     Then I press "Sign Out"
     And I should be on the logged out home page
@@ -56,9 +56,9 @@ Scenario: As a user, signout
 
 Scenario: As a user, edit personal information
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot1@gmail.com" and password "bot1bot1"
-    When I follow "My Profile"
+    When I press "Profile"
     Then I should be on the details page for user "bot1@gmail.com"
     When I follow "Edit my profile"
     Then I should be on the edit page for user "bot1@gmail.com"
@@ -69,9 +69,9 @@ Scenario: As a user, edit personal information
 
 Scenario: As a user, create new event, and the event can be viewed by a guest
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot2@gmail.com" and password "bot2bot2"
-    When I follow "Add new event"
+    When I follow "Add New Event"
     Then I should be on the add new event page
     And I fill in "Event Name" with "Debate session"
     And I fill in "Address" with "MUDD 627"
@@ -91,9 +91,9 @@ Scenario: As a user, create new event, and the event can be viewed by a guest
 
 Scenario: [sad] As a user, can not create event that ends before current time
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot2@gmail.com" and password "bot2bot2"
-    When I follow "Add new event"
+    When I follow "Add New Event"
     And I fill in "Event Name" with "Debate session"
     And I fill in "Address" with "MUDD 627"
     And I fill in "Available Spots" with "10"
@@ -109,9 +109,9 @@ Scenario: [sad] As a user, can not create event that ends before current time
 
 Scenario: [sad] As a user, can not create event that has an end time earlier than start time
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot2@gmail.com" and password "bot2bot2"
-    When I follow "Add new event"
+    When I follow "Add New Event"
     And I fill in "Event Name" with "Debate session"
     And I fill in "Address" with "MUDD 627"
     And I fill in "Available Spots" with "10"
@@ -127,9 +127,9 @@ Scenario: [sad] As a user, can not create event that has an end time earlier tha
 
 Scenario: [sad] As a user, can not create event that available spots is under 1
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot2@gmail.com" and password "bot2bot2"
-    When I follow "Add new event"
+    When I follow "Add New Event"
     And I fill in "Event Name" with "Debate session"
     And I fill in "Address" with "MUDD 627"
     And I fill in "Available Spots" with "0"
@@ -145,9 +145,9 @@ Scenario: [sad] As a user, can not create event that available spots is under 1
 
 Scenario: [sad] As a user, can not create event that occupied spots is under 1
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot2@gmail.com" and password "bot2bot2"
-    When I follow "Add new event"
+    When I follow "Add New Event"
     And I fill in "Event Name" with "Debate session"
     And I fill in "Address" with "MUDD 627"
     And I fill in "Available Spots" with "20"
@@ -163,7 +163,7 @@ Scenario: [sad] As a user, can not create event that occupied spots is under 1
 
 Scenario: As a user, edit event posted by myself
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot2@gmail.com" and password "bot2bot2"
     When I follow "More about Halloween Parade"
     And I follow "Edit"
@@ -175,7 +175,7 @@ Scenario: As a user, edit event posted by myself
 
 Scenario: [sad] As a user, can not edit event to let the end time be earlir than start time
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot2@gmail.com" and password "bot2bot2"
     When I follow "More about Halloween Parade"
     And I follow "Edit"
@@ -187,7 +187,7 @@ Scenario: [sad] As a user, can not edit event to let the end time be earlir than
 
 Scenario: As a user, delete event posted by yourself
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot2@gmail.com" and password "bot2bot2"
     When I follow "More about Halloween Parade"
     And I press "Delete"
@@ -196,7 +196,7 @@ Scenario: As a user, delete event posted by yourself
 
 Scenario: [sad] As a user/guest, can not edit event not posted by you
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot2@gmail.com" and password "bot2bot2"
     When I follow "More about Study Session"
     And I follow "Edit"
@@ -213,9 +213,9 @@ Scenario: [sad] As a user/guest, can not delete event not posted by you
 
 Scenario: As a user, disable account
     Given I am on the home page
-    When I follow "Sign In"
+    When I press "Sign In"
     And I signin with email "bot2@gmail.com" and password "bot2bot2"
-    When I follow "My Profile"
+    When I press "Profile"
     And I press "Destroy this user"
     Then I should be on the home page
     And I should see "User was successfully destroyed."
