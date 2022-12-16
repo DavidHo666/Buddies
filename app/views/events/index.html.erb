@@ -40,7 +40,7 @@
   <% @all_tags.each do |tags| %>
     <div class="form-check  form-check-inline">
       <%= label_tag "tags[#{tags}]", tags, class: 'form-check-label mr-1'%>
-      <%= check_box_tag "tags[#{tags}]", "1",  @tags_to_show.include?(tags), class: 'form-check-input' , id: 'checkbox'%>
+      <%= check_box_tag "tags[#{tags}]", "1",  @tags_to_show.include?(tags), class: 'form-check-input' %>
     </div>
   <% end %>
   <%= submit_tag 'Refresh', id: 'tags_submit', class: 'btn btn-warning' %>

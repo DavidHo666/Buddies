@@ -25,6 +25,13 @@ Given /the following events exist/ do |events_table|
     end
   end
 
+  Then /I should see all the valid events/ do
+    # Make sure that all the movies in the app are visible in the table
+    Event.where("end_time > ?", Time.now).each do |event|
+      step %{I should see "#{event.event_name}"}
+    end
+  end
+
   When /^(?:|I )select the time "([^"]*)-([^"]*)-([^"]*) ([^"]*):([^"]*)" from "([^"]*)"$/ do |year, month, day, hour, minute, item|
     label = page.find('label', text: item)
     field = label['for']
