@@ -55,3 +55,9 @@ For users under timezone other than EST, they have to consider the time differen
 In addition, when clicking the create button, if the user use the current minute as the end time, the newly created events would be considered as "Event passed already", and could only be seen by the current user under "Event Posted" along with all other passed events. For example, if the current time is Nov 16, 2022, 7:30 pm EST, and the user at San Fransisco wants to create an event that ends at Nov 16, 2022, 4:30 pm locally (7:30 pm EST), the event would be created, but could only be seen under "Event Posted".
 
 For testing purposes, user could simply choose an end time a month later than current time.
+
+In addition, when clicking the create button, if the user use the current minute as the end time, the newly created events would be considered as "Event passed already", and could only be seen by the current user under "Event Posted" along with all other passed events. For example, if the current time is Nov 16, 2022, 7:30 pm EST, and the user at San Fransisco wants to create an event that ends at Nov 16, 2022, 4:30 pm locally (7:30 pm EST), the event would be created, but could only be seen under "Event Posted". 
+
+Besides, since our maps and boxes used floating format, screen resolution and browser type may affect the display, an ideal display of homepage is:
+<img width="1291" alt="image" src="https://user-images.githubusercontent.com/56754826/208322807-c8a4a00d-952b-433f-81af-9d2dd03c9f51.png">
+with resolusion $1512\times 982$. If you can not see the map beside the boxes, try using firfox.
