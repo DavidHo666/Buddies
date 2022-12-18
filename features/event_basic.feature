@@ -74,12 +74,22 @@ Feature: event basic functions
     Given I am on the home page
     When I search event name "CS Lecture"
     And I should see "CS Lecture"
+    And I should not see "Study Session"
+
+  Scenario: I can not search for events by empty event name
+    Given I am on the home page
+    When I search event name ""
+    And I should see "Cannot search empty term"
 
   Scenario: I can search for events by event date
     Given I am on the home page
     When I search event date "2023-12-31"
     And I should see "CS Lecture"
+    And I should not see "Study Session"
 
-#  Scenario: As a user, can see a pin on map
-#    Given I am on the home page
-#    And I expect a Google map to load
+  Scenario: I can not search for events by invalid event date
+    Given I am on the home page
+    When I search event date "20231231"
+    And I should see "Invalid date format"
+
+
