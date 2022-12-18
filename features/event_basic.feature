@@ -11,7 +11,7 @@ Feature: event basic functions
     Given the following events exist:
       | event_name       | address      | start_time         | end_time           | price | description | tag          | available_spots | occupied_spots | user_id   |
       | Study Session    | NWC          | 2023-12-29 16:00:00| 2023-12-29 18:00:00|  0    |   welcome   | Academia     |   23            |   4            |     1     |
-      | CS Lecture       | MUDD 527     | 2023-12-31 13:00:00| 2023-12-31 14:50:00|  30   | well known  | Academia     |   2             |  44            |     2     |
+      | CS Lecture       | Columbia University     | 2023-12-31 13:00:00| 2023-12-31 14:50:00|  30   | well known  | Academia     |   2             |  44            |     2     |
       | Halloween Parade | Time's square| 2022-12-01 12:00:00| 2022-12-01 20:00:00| 200   |  happy      | Arts&Culture |   1             |   1            |     2     |
 
   Scenario: Show events with specific tags
@@ -68,3 +68,18 @@ Feature: event basic functions
   Scenario: As a user/guest, can see the organizer of the event on its detail page
     Given I am on the details page for event "Study Session"
     Then I should see "Organizer: bot1@gmail.com"
+
+
+  Scenario: I can search for events by event name
+    Given I am on the home page
+    When I search event name "CS Lecture"
+    And I should see "CS Lecture"
+
+  Scenario: I can search for events by event date
+    Given I am on the home page
+    When I search event date "2023-12-31"
+    And I should see "CS Lecture"
+
+#  Scenario: As a user, can see a pin on map
+#    Given I am on the home page
+#    And I expect a Google map to load
