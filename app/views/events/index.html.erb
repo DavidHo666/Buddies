@@ -162,7 +162,7 @@
 </div>
 <%= javascript_pack_tag 'map' %>
 <%=
-  javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyAS40oNGH14Y7FTXBdzV2ub1kBfWUV8ztw&callback=initMap",
+  javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&callback=initMap",
                          defer: true
 %>
 
