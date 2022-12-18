@@ -31,7 +31,7 @@ We provide two kinds of test that could both show test coverage. Use the followi
 
 Under `coverage` folder, there are two subfolders showing coverage for rspec and coverage for cucumber. They are automatically created by running the above two commands.
 
-So far, we have gained 100.0% coverage for cucumber test and 97.95% coverage for rspec test!
+So far, we have gained 98.97% coverage for cucumber test and 94.36% coverage for rspec test!
 
 Here is the screenshot for cucumber test:
 <img width="1449" alt="image" src="https://user-images.githubusercontent.com/56754826/208322410-0e81586f-f6f7-493c-9290-a9f48a972c8a.png">
